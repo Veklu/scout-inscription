@@ -114,240 +114,240 @@
 
   <!-- STEPPER -->
   <div class="scout-stepper">
-    <div class="scout-step active" data-step="1"><span>1</span> Informations</div>
-    <div class="scout-step" data-step="2"><span>2</span> Fiche médicale</div>
-    <div class="scout-step" data-step="3"><span>3</span> Risques</div>
-    <div class="scout-step" data-step="4"><span>4</span> Consentements</div>
-    <div class="scout-step" data-step="5"><span>5</span> Confirmation</div>
+    <div class="scout-step active" data-step="1"><span>1</span> <?php esc_html_e('Informations', 'scout-inscription'); ?></div>
+    <div class="scout-step" data-step="2"><span>2</span> <?php esc_html_e('Fiche médicale', 'scout-inscription'); ?></div>
+    <div class="scout-step" data-step="3"><span>3</span> <?php esc_html_e('Risques', 'scout-inscription'); ?></div>
+    <div class="scout-step" data-step="4"><span>4</span> <?php esc_html_e('Consentements', 'scout-inscription'); ?></div>
+    <div class="scout-step" data-step="5"><span>5</span> <?php esc_html_e('Confirmation', 'scout-inscription'); ?></div>
   </div>
 
   <div class="scout-form-errors" id="formErrors" style="display:none"></div>
 
   <!-- STEP 1: INFORMATIONS -->
   <div class="scout-form-step active" id="step1">
-    <h2>Informations de l'enfant</h2>
+    <h2><?php esc_html_e('Informations de l\'enfant', 'scout-inscription'); ?></h2>
 
     <div class="scout-form-grid">
-      <div class="scout-field"><label for="enfant_prenom">Prénom *</label><input type="text" id="enfant_prenom" name="enfant_prenom" required></div>
-      <div class="scout-field"><label for="enfant_nom">Nom *</label><input type="text" id="enfant_nom" name="enfant_nom" required></div>
-      <div class="scout-field"><label for="enfant_ddn">Date de naissance *</label><input type="date" id="enfant_ddn" name="enfant_ddn" required></div>
+      <div class="scout-field"><label for="enfant_prenom"><?php esc_html_e('Prénom', 'scout-inscription'); ?> *</label><input type="text" id="enfant_prenom" name="enfant_prenom" required></div>
+      <div class="scout-field"><label for="enfant_nom"><?php esc_html_e('Nom', 'scout-inscription'); ?> *</label><input type="text" id="enfant_nom" name="enfant_nom" required></div>
+      <div class="scout-field"><label for="enfant_ddn"><?php esc_html_e('Date de naissance', 'scout-inscription'); ?> *</label><input type="date" id="enfant_ddn" name="enfant_ddn" required></div>
       <div class="scout-field">
-        <label for="enfant_sexe">Sexe</label>
-        <select id="enfant_sexe" name="enfant_sexe"><option value="">—</option><option value="M">Masculin</option><option value="F">Féminin</option><option value="Autre">Autre</option></select>
+        <label for="enfant_sexe"><?php esc_html_e('Sexe', 'scout-inscription'); ?></label>
+        <select id="enfant_sexe" name="enfant_sexe"><option value="">—</option><option value="M"><?php esc_html_e('Masculin', 'scout-inscription'); ?></option><option value="F"><?php esc_html_e('Féminin', 'scout-inscription'); ?></option><option value="Autre"><?php esc_html_e('Autre', 'scout-inscription'); ?></option></select>
       </div>
     </div>
 
     <div class="scout-form-grid">
-      <div class="scout-field scout-field-wide"><label for="enfant_adresse">Adresse *</label><input type="text" id="enfant_adresse" name="enfant_adresse" required></div>
-      <div class="scout-field"><label for="enfant_ville">Ville *</label><input type="text" id="enfant_ville" name="enfant_ville" required></div>
-      <div class="scout-field"><label for="enfant_code_postal">Code postal *</label><input type="text" id="enfant_code_postal" name="enfant_code_postal" required></div>
+      <div class="scout-field scout-field-wide"><label for="enfant_adresse"><?php esc_html_e('Adresse', 'scout-inscription'); ?> *</label><input type="text" id="enfant_adresse" name="enfant_adresse" required></div>
+      <div class="scout-field"><label for="enfant_ville"><?php esc_html_e('Ville', 'scout-inscription'); ?> *</label><input type="text" id="enfant_ville" name="enfant_ville" required></div>
+      <div class="scout-field"><label for="enfant_code_postal"><?php esc_html_e('Code postal', 'scout-inscription'); ?> *</label><input type="text" id="enfant_code_postal" name="enfant_code_postal" required></div>
     </div>
 
     <div class="scout-form-grid">
-      <div class="scout-field"><label for="enfant_telephone">Téléphone maison</label><input type="tel" id="enfant_telephone" name="enfant_telephone"></div>
+      <div class="scout-field"><label for="enfant_telephone"><?php esc_html_e('Téléphone maison', 'scout-inscription'); ?></label><input type="tel" id="enfant_telephone" name="enfant_telephone"></div>
       <div class="scout-field">
-        <label for="unite">Unité *</label>
+        <label for="unite"><?php esc_html_e('Unité', 'scout-inscription'); ?> *</label>
         <select id="unite" name="unite" required>
-          <option value="">Sélectionner…</option>
-          <option value="castors">Castors (7-8 ans)</option>
-          <option value="louveteaux">Louveteaux (9-11 ans)</option>
-          <option value="eclaireurs">Éclaireurs (12-14 ans)</option>
-          <option value="pionniers">Pionniers (14-17 ans)</option>
+          <option value=""><?php esc_html_e('Sélectionner…', 'scout-inscription'); ?></option>
+          <option value="castors"><?php esc_html_e('Castors (7-8 ans)', 'scout-inscription'); ?></option>
+          <option value="louveteaux"><?php esc_html_e('Louveteaux (9-11 ans)', 'scout-inscription'); ?></option>
+          <option value="eclaireurs"><?php esc_html_e('Éclaireurs (12-14 ans)', 'scout-inscription'); ?></option>
+          <option value="pionniers"><?php esc_html_e('Pionniers (14-17 ans)', 'scout-inscription'); ?></option>
         </select>
       </div>
     </div>
 
     <!-- PARENTS -->
-    <h2>Parents / Tuteurs</h2>
+    <h2><?php esc_html_e('Parents / Tuteurs', 'scout-inscription'); ?></h2>
     <div id="parents-container">
       <div class="scout-contact-block" data-index="1">
-        <h3>Parent / Tuteur 1 <small>(principal)</small></h3>
+        <h3><?php esc_html_e('Parent / Tuteur 1', 'scout-inscription'); ?> <small>(<?php esc_html_e('principal', 'scout-inscription'); ?>)</small></h3>
         <div class="scout-form-grid">
-          <div class="scout-field"><label>Prénom *</label><input type="text" name="parent_1_prenom" required></div>
-          <div class="scout-field"><label>Nom *</label><input type="text" name="parent_1_nom" required></div>
+          <div class="scout-field"><label><?php esc_html_e('Prénom', 'scout-inscription'); ?> *</label><input type="text" name="parent_1_prenom" required></div>
+          <div class="scout-field"><label><?php esc_html_e('Nom', 'scout-inscription'); ?> *</label><input type="text" name="parent_1_nom" required></div>
           <div class="scout-field">
-            <label>Lien *</label>
-            <select name="parent_1_lien" required><option value="Pere">Père</option><option value="Mere">Mère</option><option value="Tuteur">Tuteur</option></select>
+            <label><?php esc_html_e('Lien', 'scout-inscription'); ?> *</label>
+            <select name="parent_1_lien" required><option value="Pere"><?php esc_html_e('Père', 'scout-inscription'); ?></option><option value="Mere"><?php esc_html_e('Mère', 'scout-inscription'); ?></option><option value="Tuteur"><?php esc_html_e('Tuteur', 'scout-inscription'); ?></option></select>
           </div>
         </div>
         <div class="scout-form-grid">
-          <div class="scout-field"><label>Téléphone *</label><input type="tel" name="parent_1_telephone" required></div>
-          <div class="scout-field"><label>Cellulaire</label><input type="tel" name="parent_1_cellulaire"></div>
-          <div class="scout-field"><label>Courriel *</label><input type="email" name="parent_1_courriel" required></div>
+          <div class="scout-field"><label><?php esc_html_e('Téléphone', 'scout-inscription'); ?> *</label><input type="tel" name="parent_1_telephone" required></div>
+          <div class="scout-field"><label><?php esc_html_e('Cellulaire', 'scout-inscription'); ?></label><input type="tel" name="parent_1_cellulaire"></div>
+          <div class="scout-field"><label><?php esc_html_e('Courriel', 'scout-inscription'); ?> *</label><input type="email" name="parent_1_courriel" required></div>
         </div>
-        <label class="scout-checkbox"><input type="checkbox" name="parent_1_resp_finances" checked> Responsable des finances</label>
+        <label class="scout-checkbox"><input type="checkbox" name="parent_1_resp_finances" checked> <?php esc_html_e('Responsable des finances', 'scout-inscription'); ?></label>
       </div>
     </div>
-    <button type="button" class="scout-btn-add" onclick="scoutAddParent()">+ Ajouter un parent / tuteur</button>
+    <button type="button" class="scout-btn-add" onclick="scoutAddParent()">+ <?php esc_html_e('Ajouter un parent / tuteur', 'scout-inscription'); ?></button>
     <input type="hidden" id="parent_count" name="parent_count" value="1">
 
     <!-- EMERGENCY -->
-    <h2>Contacts d'urgence</h2>
+    <h2><?php esc_html_e('Contacts d\'urgence', 'scout-inscription'); ?></h2>
     <div id="urgence-container">
       <div class="scout-contact-block" data-index="1">
-        <h3>Contact d'urgence 1</h3>
+        <h3><?php esc_html_e('Contact d\'urgence 1', 'scout-inscription'); ?></h3>
         <div class="scout-form-grid">
-          <div class="scout-field"><label>Nom complet *</label><input type="text" name="urgence_1_nom" required></div>
-          <div class="scout-field"><label>Téléphone *</label><input type="tel" name="urgence_1_telephone" required></div>
-          <div class="scout-field"><label>Lien *</label><input type="text" name="urgence_1_lien" placeholder="Grand-parent, voisin…" required></div>
+          <div class="scout-field"><label><?php esc_html_e('Nom complet', 'scout-inscription'); ?> *</label><input type="text" name="urgence_1_nom" required></div>
+          <div class="scout-field"><label><?php esc_html_e('Téléphone', 'scout-inscription'); ?> *</label><input type="tel" name="urgence_1_telephone" required></div>
+          <div class="scout-field"><label><?php esc_html_e('Lien', 'scout-inscription'); ?> *</label><input type="text" name="urgence_1_lien" placeholder="<?php echo esc_attr__('Grand-parent, voisin…', 'scout-inscription'); ?>" required></div>
         </div>
       </div>
     </div>
-    <button type="button" class="scout-btn-add" onclick="scoutAddEmergency()">+ Ajouter un contact d'urgence</button>
+    <button type="button" class="scout-btn-add" onclick="scoutAddEmergency()">+ <?php esc_html_e('Ajouter un contact d\'urgence', 'scout-inscription'); ?></button>
     <input type="hidden" id="emergency_count" name="emergency_count" value="1">
 
     <div class="scout-form-grid" style="margin-top:20px">
-      <div class="scout-field"><label>Date d'entrée dans le mouvement (année/mois)</label><input type="text" name="date_entree_mouvement" placeholder="2023/09"></div>
+      <div class="scout-field"><label><?php esc_html_e('Date d\'entrée dans le mouvement (année/mois)', 'scout-inscription'); ?></label><input type="text" name="date_entree_mouvement" placeholder="2023/09"></div>
       <div class="scout-field">
-        <label>Autres enfants dans le groupe?</label>
-        <select name="autres_enfants_groupe"><option value="0">Non</option><option value="1">Oui</option></select>
+        <label><?php esc_html_e('Autres enfants dans le groupe?', 'scout-inscription'); ?></label>
+        <select name="autres_enfants_groupe"><option value="0"><?php esc_html_e('Non', 'scout-inscription'); ?></option><option value="1"><?php esc_html_e('Oui', 'scout-inscription'); ?></option></select>
       </div>
-      <div class="scout-field"><label>Si oui, nom et unité</label><input type="text" name="autres_enfants_detail"></div>
+      <div class="scout-field"><label><?php esc_html_e('Si oui, nom et unité', 'scout-inscription'); ?></label><input type="text" name="autres_enfants_detail"></div>
     </div>
 
-    <div class="scout-form-nav"><button type="button" class="scout-btn-next" onclick="scoutNextStep(2)">Suivant →</button></div>
+    <div class="scout-form-nav"><button type="button" class="scout-btn-next" onclick="scoutNextStep(2)"><?php esc_html_e('Suivant', 'scout-inscription'); ?> →</button></div>
   </div>
 
   <!-- STEP 2: FICHE MÉDICALE -->
   <div class="scout-form-step" id="step2">
-    <h2>Fiche médicale</h2>
+    <h2><?php esc_html_e('Fiche médicale', 'scout-inscription'); ?></h2>
 
     <div class="scout-form-grid">
-      <div class="scout-field"><label>No. assurance maladie *</label><input type="text" name="assurance_maladie" required></div>
-      <div class="scout-field"><label>Expiration *</label><input type="text" name="assurance_expiration" placeholder="2026/03" required></div>
+      <div class="scout-field"><label><?php esc_html_e('No. assurance maladie', 'scout-inscription'); ?> *</label><input type="text" name="assurance_maladie" required></div>
+      <div class="scout-field"><label><?php esc_html_e('Expiration', 'scout-inscription'); ?> *</label><input type="text" name="assurance_expiration" placeholder="2026/03" required></div>
     </div>
 
     <div class="scout-medical-question">
-      <label>Attention particulière requise?</label>
-      <div><label class="scout-radio"><input type="radio" name="attention_particuliere" value="oui"> Oui</label>
-      <label class="scout-radio"><input type="radio" name="attention_particuliere" value="non" checked> Non</label></div>
-      <textarea name="attention_detail" placeholder="Si oui, précisez…" rows="2" class="scout-conditional"></textarea>
+      <label><?php esc_html_e('Attention particulière requise?', 'scout-inscription'); ?></label>
+      <div><label class="scout-radio"><input type="radio" name="attention_particuliere" value="oui"> <?php esc_html_e('Oui', 'scout-inscription'); ?></label>
+      <label class="scout-radio"><input type="radio" name="attention_particuliere" value="non" checked> <?php esc_html_e('Non', 'scout-inscription'); ?></label></div>
+      <textarea name="attention_detail" placeholder="<?php echo esc_attr__('Si oui, précisez…', 'scout-inscription'); ?>" rows="2" class="scout-conditional"></textarea>
     </div>
     <div class="scout-medical-question">
-      <label>Les vaccins de l'enfant sont-ils à jour?</label>
-      <div><label class="scout-radio"><input type="radio" name="vaccins_jour" value="oui" checked> Oui</label>
-      <label class="scout-radio"><input type="radio" name="vaccins_jour" value="non"> Non</label></div>
+      <label><?php esc_html_e('Les vaccins de l\'enfant sont-ils à jour?', 'scout-inscription'); ?></label>
+      <div><label class="scout-radio"><input type="radio" name="vaccins_jour" value="oui" checked> <?php esc_html_e('Oui', 'scout-inscription'); ?></label>
+      <label class="scout-radio"><input type="radio" name="vaccins_jour" value="non"> <?php esc_html_e('Non', 'scout-inscription'); ?></label></div>
     </div>
     <div class="scout-medical-question">
-      <label>Les antécédents médicaux limitent-ils l'activité physique?</label>
-      <div><label class="scout-radio"><input type="radio" name="limite_physique" value="oui"> Oui</label>
-      <label class="scout-radio"><input type="radio" name="limite_physique" value="non" checked> Non</label></div>
-      <textarea name="limite_detail" placeholder="Si oui, précisez…" rows="2" class="scout-conditional"></textarea>
+      <label><?php esc_html_e('Les antécédents médicaux limitent-ils l\'activité physique?', 'scout-inscription'); ?></label>
+      <div><label class="scout-radio"><input type="radio" name="limite_physique" value="oui"> <?php esc_html_e('Oui', 'scout-inscription'); ?></label>
+      <label class="scout-radio"><input type="radio" name="limite_physique" value="non" checked> <?php esc_html_e('Non', 'scout-inscription'); ?></label></div>
+      <textarea name="limite_detail" placeholder="<?php echo esc_attr__('Si oui, précisez…', 'scout-inscription'); ?>" rows="2" class="scout-conditional"></textarea>
     </div>
 
-    <label>Commentaires supplémentaires</label>
+    <label><?php esc_html_e('Commentaires supplémentaires', 'scout-inscription'); ?></label>
     <textarea name="commentaires_medicaux" rows="3"></textarea>
 
-    <h3>Allergies et médicaments</h3>
+    <h3><?php esc_html_e('Allergies et médicaments', 'scout-inscription'); ?></h3>
     <div class="scout-form-grid">
-      <div class="scout-field"><label>Médicaments et posologie</label><textarea name="medicaments" rows="2"></textarea></div>
-      <div class="scout-field"><label>Allergies alimentaires</label><textarea name="allergies_alimentaires" rows="2"></textarea></div>
-      <div class="scout-field"><label>Allergies à un médicament</label><textarea name="allergies_medicament" rows="2"></textarea></div>
-      <div class="scout-field"><label>Autres restrictions alimentaires</label><textarea name="restrictions_alimentaires" rows="2"></textarea></div>
+      <div class="scout-field"><label><?php esc_html_e('Médicaments et posologie', 'scout-inscription'); ?></label><textarea name="medicaments" rows="2"></textarea></div>
+      <div class="scout-field"><label><?php esc_html_e('Allergies alimentaires', 'scout-inscription'); ?></label><textarea name="allergies_alimentaires" rows="2"></textarea></div>
+      <div class="scout-field"><label><?php esc_html_e('Allergies à un médicament', 'scout-inscription'); ?></label><textarea name="allergies_medicament" rows="2"></textarea></div>
+      <div class="scout-field"><label><?php esc_html_e('Autres restrictions alimentaires', 'scout-inscription'); ?></label><textarea name="restrictions_alimentaires" rows="2"></textarea></div>
     </div>
 
     <div class="scout-form-nav">
-      <button type="button" class="scout-btn-prev" onclick="scoutPrevStep(1)">← Précédent</button>
-      <button type="button" class="scout-btn-next" onclick="scoutNextStep(3)">Suivant →</button>
+      <button type="button" class="scout-btn-prev" onclick="scoutPrevStep(1)">← <?php esc_html_e('Précédent', 'scout-inscription'); ?></button>
+      <button type="button" class="scout-btn-next" onclick="scoutNextStep(3)"><?php esc_html_e('Suivant', 'scout-inscription'); ?> →</button>
     </div>
   </div>
 
   <!-- STEP 3: ACCEPTATION DES RISQUES -->
   <div class="scout-form-step" id="step3">
-    <h2>Acceptation des risques</h2>
+    <h2><?php esc_html_e('Acceptation des risques', 'scout-inscription'); ?></h2>
     <div class="scout-risk-notice">
-      <p>Le scoutisme est une activité éducative qui comporte des risques inhérents, incluant sans s'y limiter :</p>
+      <p><?php esc_html_e('Le scoutisme est une activité éducative qui comporte des risques inhérents, incluant sans s\'y limiter :', 'scout-inscription'); ?></p>
       <ul>
-        <li>Activités de plein air (randonnée, camping, canot)</li>
-        <li>Activités aquatiques</li>
-        <li>Utilisation d'outils (couteaux, haches, scies)</li>
-        <li>Préparation de repas sur feu</li>
-        <li>Transport en véhicule</li>
-        <li>Exposition aux éléments naturels (froid, chaleur, insectes)</li>
-        <li>Activités sportives et physiques</li>
+        <li><?php esc_html_e('Activités de plein air (randonnée, camping, canot)', 'scout-inscription'); ?></li>
+        <li><?php esc_html_e('Activités aquatiques', 'scout-inscription'); ?></li>
+        <li><?php esc_html_e('Utilisation d\'outils (couteaux, haches, scies)', 'scout-inscription'); ?></li>
+        <li><?php esc_html_e('Préparation de repas sur feu', 'scout-inscription'); ?></li>
+        <li><?php esc_html_e('Transport en véhicule', 'scout-inscription'); ?></li>
+        <li><?php esc_html_e('Exposition aux éléments naturels (froid, chaleur, insectes)', 'scout-inscription'); ?></li>
+        <li><?php esc_html_e('Activités sportives et physiques', 'scout-inscription'); ?></li>
       </ul>
     </div>
 
-    <label class="scout-checkbox scout-required"><input type="checkbox" name="risk_accept_1" required> Je reconnais avoir été informé(e) des risques inhérents aux activités scoutes.</label>
-    <label class="scout-checkbox scout-required"><input type="checkbox" name="risk_accept_2" required> Je reconnais que malgré les mesures de sécurité, des accidents peuvent survenir.</label>
-    <label class="scout-checkbox scout-required"><input type="checkbox" name="risk_accept_3" required> J'autorise mon enfant à participer à toutes les activités du programme scout.</label>
-    <label class="scout-checkbox scout-required"><input type="checkbox" name="risk_accept_4" required> En cas d'urgence, j'autorise les responsables à prendre les mesures nécessaires à la sauvegarde de la santé de mon jeune.</label>
+    <label class="scout-checkbox scout-required"><input type="checkbox" name="risk_accept_1" required> <?php esc_html_e('Je reconnais avoir été informé(e) des risques inhérents aux activités scoutes.', 'scout-inscription'); ?></label>
+    <label class="scout-checkbox scout-required"><input type="checkbox" name="risk_accept_2" required> <?php esc_html_e('Je reconnais que malgré les mesures de sécurité, des accidents peuvent survenir.', 'scout-inscription'); ?></label>
+    <label class="scout-checkbox scout-required"><input type="checkbox" name="risk_accept_3" required> <?php esc_html_e('J\'autorise mon enfant à participer à toutes les activités du programme scout.', 'scout-inscription'); ?></label>
+    <label class="scout-checkbox scout-required"><input type="checkbox" name="risk_accept_4" required> <?php esc_html_e('En cas d\'urgence, j\'autorise les responsables à prendre les mesures nécessaires à la sauvegarde de la santé de mon jeune.', 'scout-inscription'); ?></label>
 
     <div class="scout-signature-box" style="margin-top:24px">
-      <label for="risk_signature"><strong>Signature électronique *</strong> — Tapez votre nom complet en guise de signature</label>
-      <input type="text" id="risk_signature" name="risk_signature" required placeholder="Ex: Marie Tremblay" class="scout-signature-input">
-      <p class="scout-small-text">En tapant votre nom, vous confirmez avoir lu et accepté les risques ci-dessus. Date : <?php echo date('d/m/Y'); ?></p>
+      <label for="risk_signature"><strong><?php esc_html_e('Signature électronique', 'scout-inscription'); ?> *</strong> — <?php esc_html_e('Tapez votre nom complet en guise de signature', 'scout-inscription'); ?></label>
+      <input type="text" id="risk_signature" name="risk_signature" required placeholder="<?php echo esc_attr__('Ex: Marie Tremblay', 'scout-inscription'); ?>" class="scout-signature-input">
+      <p class="scout-small-text"><?php /* translators: %s: current date */ printf(esc_html__('En tapant votre nom, vous confirmez avoir lu et accepté les risques ci-dessus. Date : %s', 'scout-inscription'), date('d/m/Y')); ?></p>
     </div>
 
     <div class="scout-form-nav">
-      <button type="button" class="scout-btn-prev" onclick="scoutPrevStep(2)">← Précédent</button>
-      <button type="button" class="scout-btn-next" onclick="scoutNextStep(4)">Suivant →</button>
+      <button type="button" class="scout-btn-prev" onclick="scoutPrevStep(2)">← <?php esc_html_e('Précédent', 'scout-inscription'); ?></button>
+      <button type="button" class="scout-btn-next" onclick="scoutNextStep(4)"><?php esc_html_e('Suivant', 'scout-inscription'); ?> →</button>
     </div>
   </div>
 
   <!-- STEP 4: CONSENTEMENTS (Loi 25) -->
   <div class="scout-form-step" id="step4">
-    <h2>Consentements (Loi 25 du Québec)</h2>
-    <p>Conformément à la Loi 25 sur la protection des renseignements personnels, nous demandons votre consentement explicite pour chacun des éléments suivants :</p>
+    <h2><?php esc_html_e('Consentements (Loi 25 du Québec)', 'scout-inscription'); ?></h2>
+    <p><?php esc_html_e('Conformément à la Loi 25 sur la protection des renseignements personnels, nous demandons votre consentement explicite pour chacun des éléments suivants :', 'scout-inscription'); ?></p>
 
     <label class="scout-checkbox scout-consent scout-required">
       <input type="checkbox" name="consent_donnees" required>
-      <strong>Collecte et utilisation des données *</strong><br>
-      <span>J'autorise le 5e Groupe scout Grand-Moulin à collecter et utiliser les renseignements personnels de mon enfant aux fins d'inscription, de gestion des activités scoutes et de communication.</span>
+      <strong><?php esc_html_e('Collecte et utilisation des données', 'scout-inscription'); ?> *</strong><br>
+      <span><?php esc_html_e('J\'autorise le 5e Groupe scout Grand-Moulin à collecter et utiliser les renseignements personnels de mon enfant aux fins d\'inscription, de gestion des activités scoutes et de communication.', 'scout-inscription'); ?></span>
     </label>
 
     <label class="scout-checkbox scout-consent">
       <input type="checkbox" name="consent_photos">
-      <strong>Photos et vidéos (optionnel)</strong><br>
-      <span>J'autorise l'utilisation de photos et vidéos de mon enfant pour les communications du groupe (site web, réseaux sociaux, publications internes).</span>
+      <strong><?php esc_html_e('Photos et vidéos (optionnel)', 'scout-inscription'); ?></strong><br>
+      <span><?php esc_html_e('J\'autorise l\'utilisation de photos et vidéos de mon enfant pour les communications du groupe (site web, réseaux sociaux, publications internes).', 'scout-inscription'); ?></span>
     </label>
 
     <label class="scout-checkbox scout-consent scout-required">
       <input type="checkbox" name="consent_risque" required>
-      <strong>Fiche médicale et acceptation des risques *</strong><br>
-      <span>Je confirme que les informations médicales fournies sont exactes et j'accepte les risques liés aux activités scoutes.</span>
+      <strong><?php esc_html_e('Fiche médicale et acceptation des risques', 'scout-inscription'); ?> *</strong><br>
+      <span><?php esc_html_e('Je confirme que les informations médicales fournies sont exactes et j\'accepte les risques liés aux activités scoutes.', 'scout-inscription'); ?></span>
     </label>
 
     <label class="scout-checkbox scout-consent scout-required">
       <input type="checkbox" name="consent_conditions" required>
-      <strong>Conditions d'utilisation *</strong><br>
-      <span>J'ai lu et j'accepte les <a href="<?php echo esc_url(home_url('/conditions/')); ?>" target="_blank">conditions d'utilisation</a>.</span>
+      <strong><?php esc_html_e('Conditions d\'utilisation', 'scout-inscription'); ?> *</strong><br>
+      <span><?php /* translators: %s: link to terms page */ printf(__('J\'ai lu et j\'accepte les <a href="%s" target="_blank">conditions d\'utilisation</a>.', 'scout-inscription'), esc_url(home_url('/conditions/'))); ?></span>
     </label>
 
     <label class="scout-checkbox scout-consent scout-required">
       <input type="checkbox" name="consent_confidentialite" required>
-      <strong>Politique de confidentialité *</strong><br>
-      <span>J'ai lu et j'accepte la <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank">politique de confidentialité</a> du groupe.</span>
+      <strong><?php esc_html_e('Politique de confidentialité', 'scout-inscription'); ?> *</strong><br>
+      <span><?php /* translators: %s: link to privacy policy page */ printf(__('J\'ai lu et j\'accepte la <a href="%s" target="_blank">politique de confidentialité</a> du groupe.', 'scout-inscription'), esc_url(get_privacy_policy_url())); ?></span>
     </label>
 
     <div class="scout-loi25-notice">
-      <p>🔒 Responsable de la protection des renseignements : <strong><?php echo esc_html(get_option('scout_ins_privacy_officer', 'Jean Côté')); ?></strong></p>
-      <p>Vous pouvez retirer votre consentement à tout moment en communiquant avec nous.</p>
+      <p><?php /* translators: %s: privacy officer name */ printf(esc_html__('Responsable de la protection des renseignements : %s', 'scout-inscription'), '<strong>' . esc_html(get_option('scout_ins_privacy_officer', 'Jean Côté')) . '</strong>'); ?></p>
+      <p><?php esc_html_e('Vous pouvez retirer votre consentement à tout moment en communiquant avec nous.', 'scout-inscription'); ?></p>
     </div>
 
     <div class="scout-form-nav">
-      <button type="button" class="scout-btn-prev" onclick="scoutPrevStep(3)">← Précédent</button>
-      <button type="button" class="scout-btn-submit" onclick="scoutSubmitForm()">Soumettre l'inscription ✓</button>
+      <button type="button" class="scout-btn-prev" onclick="scoutPrevStep(3)">← <?php esc_html_e('Précédent', 'scout-inscription'); ?></button>
+      <button type="button" class="scout-btn-submit" onclick="scoutSubmitForm()"><?php esc_html_e('Soumettre l\'inscription', 'scout-inscription'); ?> ✓</button>
     </div>
   </div>
 
   <!-- STEP 5: CONFIRMATION -->
   <div class="scout-form-step" id="step5">
     <div class="scout-confirm-box" id="confirmationBox">
-      <h2>🎉 Inscription complétée!</h2>
-      <p>L'inscription a été soumise avec succès. Vous recevrez un courriel de confirmation.</p>
+      <h2><?php esc_html_e('Inscription complétée!', 'scout-inscription'); ?></h2>
+      <p><?php esc_html_e('L\'inscription a été soumise avec succès. Vous recevrez un courriel de confirmation.', 'scout-inscription'); ?></p>
       <div class="scout-ref-display" id="refDisplay"></div>
       <div id="qrCodeContainer" style="margin:24px auto;text-align:center"></div>
-      <p id="qrCaption" style="font-size:0.82rem;color:#6a6a62;margin-bottom:24px">Présentez ce code QR lors de la première réunion pour vérification rapide.</p>
+      <p id="qrCaption" style="font-size:0.82rem;color:#6a6a62;margin-bottom:24px"><?php esc_html_e('Présentez ce code QR lors de la première réunion pour vérification rapide.', 'scout-inscription'); ?></p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px">
-        <button onclick="downloadQR()" style="padding:10px 20px;background:#007748;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px">📥 Télécharger le QR</button>
-        <button onclick="window.print()" style="padding:10px 20px;background:none;border:2px solid #d0d0c8;color:#3a3a36;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px">🖨️ Imprimer</button>
+        <button onclick="downloadQR()" style="padding:10px 20px;background:#007748;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px"><?php esc_html_e('Télécharger le QR', 'scout-inscription'); ?></button>
+        <button onclick="window.print()" style="padding:10px 20px;background:none;border:2px solid #d0d0c8;color:#3a3a36;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px"><?php esc_html_e('Imprimer', 'scout-inscription'); ?></button>
       </div>
       <div class="scout-confirm-info">
-        <h3>Prochaines étapes :</h3>
-        <p>1. Conservez votre numéro de référence et code QR</p>
-        <p>2. Effectuez le paiement par Interac, chèque ou comptant</p>
-        <p>3. Vérifiez votre courriel pour les détails de la première réunion</p>
+        <h3><?php esc_html_e('Prochaines étapes :', 'scout-inscription'); ?></h3>
+        <p><?php esc_html_e('1. Conservez votre numéro de référence et code QR', 'scout-inscription'); ?></p>
+        <p><?php esc_html_e('2. Effectuez le paiement par Interac, chèque ou comptant', 'scout-inscription'); ?></p>
+        <p><?php esc_html_e('3. Vérifiez votre courriel pour les détails de la première réunion', 'scout-inscription'); ?></p>
       </div>
     </div>
   </div>

@@ -18,26 +18,26 @@ th { background: #f5f3ee; font-weight: 600; width: 35%; }
 </style></head><body>
 
 <div class="header">
-    <h1>Fiche Médicale</h1>
+    <h1><?php esc_html_e('Fiche Médicale', 'scout-inscription'); ?></h1>
     <p>5e Groupe scout Grand-Moulin · District Les Ailes du Nord · Scouts du Canada</p>
 </div>
 
 <div style="float:right;font-size:10px">
-    <strong>Unité:</strong> <?php echo esc_html(ucfirst($inscription->unite)); ?><br>
-    <strong>Année scoute:</strong> <?php echo esc_html($inscription->annee_scoute); ?>
+    <strong><?php esc_html_e('Unité:', 'scout-inscription'); ?></strong> <?php echo esc_html(ucfirst($inscription->unite)); ?><br>
+    <strong><?php esc_html_e('Année scoute:', 'scout-inscription'); ?></strong> <?php echo esc_html($inscription->annee_scoute); ?>
 </div>
 
-<h2>Informations du jeune</h2>
+<h2><?php esc_html_e('Informations du jeune', 'scout-inscription'); ?></h2>
 <table>
-    <tr><th>Prénom</th><td><?php echo esc_html($inscription->enfant_prenom); ?></td><th>Nom</th><td><?php echo esc_html($inscription->enfant_nom); ?></td></tr>
-    <tr><th>Date de naissance</th><td><?php echo esc_html($inscription->enfant_ddn); ?></td><th>Sexe</th><td><?php echo esc_html($inscription->enfant_sexe); ?></td></tr>
-    <tr><th>Adresse</th><td colspan="3"><?php echo esc_html($inscription->enfant_adresse . ', ' . $inscription->enfant_ville . ' ' . $inscription->enfant_code_postal); ?></td></tr>
-    <tr><th>Assurance maladie</th><td><?php echo esc_html($inscription->assurance_maladie); ?></td><th>Expiration</th><td><?php echo esc_html($inscription->assurance_expiration); ?></td></tr>
+    <tr><th><?php esc_html_e('Prénom', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_prenom); ?></td><th><?php esc_html_e('Nom', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_nom); ?></td></tr>
+    <tr><th><?php esc_html_e('Date de naissance', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_ddn); ?></td><th><?php esc_html_e('Sexe', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_sexe); ?></td></tr>
+    <tr><th><?php esc_html_e('Adresse', 'scout-inscription'); ?></th><td colspan="3"><?php echo esc_html($inscription->enfant_adresse . ', ' . $inscription->enfant_ville . ' ' . $inscription->enfant_code_postal); ?></td></tr>
+    <tr><th><?php esc_html_e('Assurance maladie', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->assurance_maladie); ?></td><th><?php esc_html_e('Expiration', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->assurance_expiration); ?></td></tr>
 </table>
 
-<h2>Informations des parents / tuteurs</h2>
+<h2><?php esc_html_e('Informations des parents / tuteurs', 'scout-inscription'); ?></h2>
 <table>
-    <tr><th>Nom</th><th>Lien</th><th>Téléphone</th><th>Courriel</th></tr>
+    <tr><th><?php esc_html_e('Nom', 'scout-inscription'); ?></th><th><?php esc_html_e('Lien', 'scout-inscription'); ?></th><th><?php esc_html_e('Téléphone', 'scout-inscription'); ?></th><th><?php esc_html_e('Courriel', 'scout-inscription'); ?></th></tr>
     <?php foreach ($parents as $p): ?>
     <tr>
         <td><?php echo esc_html($p->prenom . ' ' . $p->nom); ?></td>
@@ -48,33 +48,33 @@ th { background: #f5f3ee; font-weight: 600; width: 35%; }
     <?php endforeach; ?>
 </table>
 
-<h2>Contact d'urgence</h2>
+<h2><?php esc_html_e('Contact d\'urgence', 'scout-inscription'); ?></h2>
 <table>
-    <tr><th>Nom</th><th>Téléphone</th><th>Lien</th></tr>
+    <tr><th><?php esc_html_e('Nom', 'scout-inscription'); ?></th><th><?php esc_html_e('Téléphone', 'scout-inscription'); ?></th><th><?php esc_html_e('Lien', 'scout-inscription'); ?></th></tr>
     <?php foreach ($urgence as $u): ?>
     <tr><td><?php echo esc_html($u->nom); ?></td><td><?php echo esc_html($u->telephone); ?></td><td><?php echo esc_html($u->lien); ?></td></tr>
     <?php endforeach; ?>
 </table>
 
-<h2>Antécédents de santé</h2>
+<h2><?php esc_html_e('Antécédents de santé', 'scout-inscription'); ?></h2>
 <table>
-    <tr><th>Attention particulière requise?</th><td><?php echo esc_html(ucfirst($medical['attention_particuliere'] ?? 'Non')); ?> <?php echo esc_html($medical['attention_detail'] ?? ''); ?></td></tr>
-    <tr><th>Vaccins à jour?</th><td><?php echo esc_html(ucfirst($medical['vaccins_jour'] ?? 'Oui')); ?></td></tr>
-    <tr><th>Limite physique?</th><td><?php echo esc_html(ucfirst($medical['limite_physique'] ?? 'Non')); ?> <?php echo esc_html($medical['limite_detail'] ?? ''); ?></td></tr>
-    <tr><th>Commentaires</th><td><?php echo esc_html($medical['commentaires'] ?? '—'); ?></td></tr>
+    <tr><th><?php esc_html_e('Attention particulière requise?', 'scout-inscription'); ?></th><td><?php echo esc_html(ucfirst($medical['attention_particuliere'] ?? 'Non')); ?> <?php echo esc_html($medical['attention_detail'] ?? ''); ?></td></tr>
+    <tr><th><?php esc_html_e('Vaccins à jour?', 'scout-inscription'); ?></th><td><?php echo esc_html(ucfirst($medical['vaccins_jour'] ?? 'Oui')); ?></td></tr>
+    <tr><th><?php esc_html_e('Limite physique?', 'scout-inscription'); ?></th><td><?php echo esc_html(ucfirst($medical['limite_physique'] ?? 'Non')); ?> <?php echo esc_html($medical['limite_detail'] ?? ''); ?></td></tr>
+    <tr><th><?php esc_html_e('Commentaires', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['commentaires'] ?? '—'); ?></td></tr>
 </table>
 
-<h2>Allergies et médicaments</h2>
+<h2><?php esc_html_e('Allergies et médicaments', 'scout-inscription'); ?></h2>
 <table>
-    <tr><th>Médicaments</th><td><?php echo esc_html($medical['medicaments'] ?? '—'); ?></td></tr>
-    <tr><th>Allergies alimentaires</th><td><?php echo esc_html($medical['allergies_alimentaires'] ?? '—'); ?></td></tr>
-    <tr><th>Allergies médicament</th><td><?php echo esc_html($medical['allergies_medicament'] ?? '—'); ?></td></tr>
-    <tr><th>Restrictions alimentaires</th><td><?php echo esc_html($medical['restrictions_alimentaires'] ?? '—'); ?></td></tr>
+    <tr><th><?php esc_html_e('Médicaments', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['medicaments'] ?? '—'); ?></td></tr>
+    <tr><th><?php esc_html_e('Allergies alimentaires', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['allergies_alimentaires'] ?? '—'); ?></td></tr>
+    <tr><th><?php esc_html_e('Allergies médicament', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['allergies_medicament'] ?? '—'); ?></td></tr>
+    <tr><th><?php esc_html_e('Restrictions alimentaires', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['restrictions_alimentaires'] ?? '—'); ?></td></tr>
 </table>
 
 <div class="auth-box">
-    <p><strong>En cas d'urgence, j'autorise les responsables ou le personnel médical à prendre les mesures nécessaires à la sauvegarde de la santé de mon jeune.</strong></p>
-    <p>Signature de l'autorité parentale: ______________________________ Date: ______________</p>
+    <p><strong><?php esc_html_e('En cas d\'urgence, j\'autorise les responsables ou le personnel médical à prendre les mesures nécessaires à la sauvegarde de la santé de mon jeune.', 'scout-inscription'); ?></strong></p>
+    <p><?php esc_html_e('Signature de l\'autorité parentale:', 'scout-inscription'); ?> ______________________________ <?php esc_html_e('Date:', 'scout-inscription'); ?> ______________</p>
 </div>
 
 <div class="footer">

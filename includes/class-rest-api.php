@@ -130,7 +130,7 @@ class Scout_REST_API {
     public function submit_inscription(\WP_REST_Request $request): \WP_REST_Response {
         $nonce = $request->get_header('X-WP-Nonce');
         if (!wp_verify_nonce($nonce, 'wp_rest')) {
-            return new \WP_REST_Response(['error' => 'Nonce invalide.'], 403);
+            return new \WP_REST_Response(['error' => __('Nonce invalide.', 'scout-inscription')], 403);
         }
 
         $data   = $request->get_json_params();
@@ -141,7 +141,7 @@ class Scout_REST_API {
                 'success' => true,
                 'ref'     => $result['ref'],
                 'token'   => $result['token'],
-                'message' => 'Inscription complétée avec succès!',
+                'message' => __('Inscription complétée avec succès!', 'scout-inscription'),
             ], 201);
         }
 
@@ -161,38 +161,38 @@ class Scout_REST_API {
         if (!Scout_Access_Log::check_rate_limit($ip)) {
             Scout_Access_Log::log(0, null, 'qr_rate_limited', "IP: {$ip}");
             return new \WP_REST_Response([
-                'error' => 'Trop de tentatives. Réessayez dans une heure.',
+                'error' => __('Trop de tentatives. Réessayez dans une heure.', 'scout-inscription'),
             ], 429);
         }
 
         if (empty($ref) || empty($tok)) {
             Scout_Access_Log::log(0, null, 'qr_scan_fail', "Missing ref or tok from IP: {$ip}");
-            return new \WP_REST_Response(['error' => 'Paramètres manquants.'], 400);
+            return new \WP_REST_Response(['error' => __('Paramètres manquants.', 'scout-inscription')], 400);
         }
 
         // Verify HMAC (timing-safe)
         if (!Scout_Inscription_Model::verify_token($ref, $tok)) {
             Scout_Access_Log::log(0, null, 'qr_scan_fail', "Invalid token for ref {$ref} from IP: {$ip}");
-            return new \WP_REST_Response(['error' => 'Code QR invalide.'], 403);
+            return new \WP_REST_Response(['error' => __('Code QR invalide.', 'scout-inscription')], 403);
         }
 
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
         if (!$inscription) {
             Scout_Access_Log::log(0, null, 'qr_scan_fail', "Ref not found: {$ref}");
-            return new \WP_REST_Response(['error' => 'Inscription introuvable.'], 404);
+            return new \WP_REST_Response(['error' => __('Inscription introuvable.', 'scout-inscription')], 404);
         }
 
         Scout_Access_Log::log(0, $inscription->id, 'qr_scan_ok', "QR verified from IP: {$ip}");
 
         $payment_labels = [
-            'en_attente'   => '⏳ En attente',
-            'acompte_recu' => '💰 Acompte reçu',
-            'paye'         => '✅ Payé',
+            'en_attente'   => __('En attente', 'scout-inscription'),
+            'acompte_recu' => __('Acompte reçu', 'scout-inscription'),
+            'paye'         => __('Payé', 'scout-inscription'),
         ];
 
         $status_note = '';
         if ($inscription->status === 'doublon') {
-            $status_note = '⚠️ Cette inscription est un doublon. Vérifiez l\'inscription principale.';
+            $status_note = __('Cette inscription est un doublon. Vérifiez l\'inscription principale.', 'scout-inscription');
         }
 
         return new \WP_REST_Response([
@@ -213,7 +213,7 @@ class Scout_REST_API {
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
 
         if (!$inscription) {
-            return new \WP_REST_Response(['error' => 'Inscription introuvable.'], 404);
+            return new \WP_REST_Response(['error' => __('Inscription introuvable.', 'scout-inscription')], 404);
         }
 
         Scout_Access_Log::log(get_current_user_id(), $inscription->id, 'view', 'REST API view');
@@ -259,14 +259,14 @@ class Scout_REST_API {
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
 
         if (!$inscription) {
-            return new \WP_REST_Response(['error' => 'Inscription introuvable.'], 404);
+            return new \WP_REST_Response(['error' => __('Inscription introuvable.', 'scout-inscription')], 404);
         }
 
         $data = $request->get_json_params();
         $payment_id = Scout_Payment_Model::create($inscription->id, $data);
 
         if (!$payment_id) {
-            return new \WP_REST_Response(['error' => 'Erreur lors de l\'enregistrement du paiement.'], 500);
+            return new \WP_REST_Response(['error' => __('Erreur lors de l\'enregistrement du paiement.', 'scout-inscription')], 500);
         }
 
         // Send payment received email
@@ -289,17 +289,21 @@ class Scout_REST_API {
         if (class_exists('Scout_Export')) {
             return Scout_Export::handle_export($request);
         }
-        return new \WP_REST_Response(['error' => 'Export non disponible.'], 500);
+        return new \WP_REST_Response(['error' => __('Export non disponible.', 'scout-inscription')], 500);
     }
 
     // ── DOWNLOAD PDF ──
     public function download_pdf(\WP_REST_Request $request): void {
         // Check permissions (bypasses REST nonce so direct browser links work)
         if (!is_user_logged_in()) {
-            wp_die('Veuillez vous connecter pour accéder à ce document. <a href="' . wp_login_url($_SERVER['REQUEST_URI']) . '">Se connecter</a>', 'Connexion requise', ['response' => 403]);
+            wp_die(
+                sprintf(__('Veuillez vous connecter pour accéder à ce document. %s', 'scout-inscription'), '<a href="' . wp_login_url($_SERVER['REQUEST_URI']) . '">' . __('Se connecter', 'scout-inscription') . '</a>'),
+                __('Connexion requise', 'scout-inscription'),
+                ['response' => 403]
+            );
         }
         if (!current_user_can('scout_view_inscriptions') && !current_user_can('manage_options')) {
-            wp_die('Vous n\'avez pas les permissions nécessaires pour accéder à ce document.', 'Accès refusé', ['response' => 403]);
+            wp_die(__('Vous n\'avez pas les permissions nécessaires pour accéder à ce document.', 'scout-inscription'), __('Accès refusé', 'scout-inscription'), ['response' => 403]);
         }
 
         $ref  = sanitize_text_field($request->get_param('ref'));
@@ -307,7 +311,7 @@ class Scout_REST_API {
 
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
         if (!$inscription) {
-            wp_die('Inscription introuvable.', 'Erreur', ['response' => 404]);
+            wp_die(__('Inscription introuvable.', 'scout-inscription'), __('Erreur', 'scout-inscription'), ['response' => 404]);
         }
 
         Scout_PDF_Generator::serve_pdf($inscription->id, $type);
@@ -340,10 +344,10 @@ class Scout_REST_API {
     public function approve_inscription(\WP_REST_Request $request): \WP_REST_Response {
         $ref = sanitize_text_field($request->get_param('ref'));
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
-        if (!$inscription) return new \WP_REST_Response(['error' => 'Introuvable.'], 404);
+        if (!$inscription) return new \WP_REST_Response(['error' => __('Introuvable.', 'scout-inscription')], 404);
         Scout_Inscription_Model::update_status($inscription->id, 'approuvee');
         Scout_Access_Log::log(get_current_user_id(), $inscription->id, 'inscription_approved', "Approuvée par " . wp_get_current_user()->display_name);
-        return new \WP_REST_Response(['success' => true, 'message' => 'Inscription approuvée.']);
+        return new \WP_REST_Response(['success' => true, 'message' => __('Inscription approuvée.', 'scout-inscription')]);
     }
 
     // ── REJECT ──
@@ -351,14 +355,14 @@ class Scout_REST_API {
         $ref = sanitize_text_field($request->get_param('ref'));
         $reason = sanitize_textarea_field($request->get_json_params()['reason'] ?? '');
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
-        if (!$inscription) return new \WP_REST_Response(['error' => 'Introuvable.'], 404);
+        if (!$inscription) return new \WP_REST_Response(['error' => __('Introuvable.', 'scout-inscription')], 404);
         Scout_Inscription_Model::update_status($inscription->id, 'rejetee');
         Scout_Inscription_Model::update_payment_status($inscription->id, 'annulee');
         Scout_Access_Log::log(get_current_user_id(), $inscription->id, 'inscription_rejected', "Rejetée: {$reason}");
         if (class_exists('Scout_Email_Handler')) {
             Scout_Email_Handler::send_rejection($inscription, $reason);
         }
-        return new \WP_REST_Response(['success' => true, 'message' => 'Inscription rejetée.']);
+        return new \WP_REST_Response(['success' => true, 'message' => __('Inscription rejetée.', 'scout-inscription')]);
     }
 
     // ── PAYMENT PLAN ──
@@ -366,29 +370,29 @@ class Scout_REST_API {
         $ref = sanitize_text_field($request->get_param('ref'));
         $params = $request->get_json_params();
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
-        if (!$inscription) return new \WP_REST_Response(['error' => 'Introuvable.'], 404);
+        if (!$inscription) return new \WP_REST_Response(['error' => __('Introuvable.', 'scout-inscription')], 404);
         Scout_Inscription_Model::update_status($inscription->id, 'plan_paiement');
         Scout_Access_Log::log(get_current_user_id(), $inscription->id, 'payment_plan_set', "Plan: " . sanitize_text_field($params['note'] ?? ''));
-        return new \WP_REST_Response(['success' => true, 'message' => 'Plan de paiement activé.']);
+        return new \WP_REST_Response(['success' => true, 'message' => __('Plan de paiement activé.', 'scout-inscription')]);
     }
 
     // ── MFA: SEND CODE ──
     public function mfa_send_code(\WP_REST_Request $request): \WP_REST_Response {
         if (!Scout_MFA::user_has_medical_role()) {
-            return new \WP_REST_Response(['error' => 'Accès refusé.'], 403);
+            return new \WP_REST_Response(['error' => __('Accès refusé.', 'scout-inscription')], 403);
         }
         $sent = Scout_MFA::send_code();
         if ($sent) {
-            return new \WP_REST_Response(['success' => true, 'message' => 'Code envoyé par courriel.']);
+            return new \WP_REST_Response(['success' => true, 'message' => __('Code envoyé par courriel.', 'scout-inscription')]);
         }
-        return new \WP_REST_Response(['error' => 'Erreur d\'envoi du courriel.'], 500);
+        return new \WP_REST_Response(['error' => __('Erreur d\'envoi du courriel.', 'scout-inscription')], 500);
     }
 
     // ── MFA: VERIFY CODE ──
     public function mfa_verify_code(\WP_REST_Request $request): \WP_REST_Response {
         $code = sanitize_text_field($request->get_json_params()['code'] ?? '');
         if (empty($code)) {
-            return new \WP_REST_Response(['error' => 'Code requis.'], 400);
+            return new \WP_REST_Response(['error' => __('Code requis.', 'scout-inscription')], 400);
         }
         $result = Scout_MFA::verify_code($code);
         $status = $result['success'] ? 200 : 403;
@@ -414,7 +418,7 @@ class Scout_REST_API {
     public function view_medical(\WP_REST_Request $request): void {
         $ref = sanitize_text_field($request->get_param('ref'));
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
-        if (!$inscription) { wp_die('Inscription introuvable.', 404); }
+        if (!$inscription) { wp_die(__('Inscription introuvable.', 'scout-inscription'), 404); }
 
         $medical = $inscription->medical_data_decrypted ?? [];
         $contacts = Scout_Contact_Model::get_for_inscription($inscription->id);
@@ -424,7 +428,7 @@ class Scout_REST_API {
 
         header('Content-Type: text/html; charset=utf-8');
         echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">';
-        echo '<title>Fiche médicale — ' . esc_html($inscription->ref_number) . '</title>';
+        echo '<title>' . esc_html__('Fiche médicale', 'scout-inscription') . ' — ' . esc_html($inscription->ref_number) . '</title>';
         echo '<style>
             *{margin:0;padding:0;box-sizing:border-box}
             body{font-family:-apple-system,sans-serif;background:#f5f3ee;padding:20px;color:#1a1a16}
@@ -447,34 +451,34 @@ class Scout_REST_API {
         </style></head><body>';
 
         echo '<div style="max-width:700px;margin:0 auto">';
-        echo '<div class="actions"><button class="btn btn-print" onclick="window.print()">🖨️ Imprimer</button>';
-        echo '<button class="btn btn-back" onclick="history.back()">← Retour</button></div>';
+        echo '<div class="actions"><button class="btn btn-print" onclick="window.print()">' . esc_html__('Imprimer', 'scout-inscription') . '</button>';
+        echo '<button class="btn btn-back" onclick="history.back()">← ' . esc_html__('Retour', 'scout-inscription') . '</button></div>';
 
-        echo '<div class="card"><h1>🏥 Fiche médicale <span class="ref">' . esc_html($inscription->ref_number) . '</span></h1>';
+        echo '<div class="card"><h1>' . esc_html__('Fiche médicale', 'scout-inscription') . ' <span class="ref">' . esc_html($inscription->ref_number) . '</span></h1>';
         echo '<table>';
-        echo '<tr><th>Enfant</th><td><strong>' . esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom) . '</strong></td></tr>';
-        echo '<tr><th>Date de naissance</th><td>' . esc_html($inscription->enfant_ddn) . '</td></tr>';
-        echo '<tr><th>Assurance maladie</th><td>' . esc_html($inscription->assurance_maladie) . ' (exp: ' . esc_html($inscription->assurance_expiration) . ')</td></tr>';
+        echo '<tr><th>' . esc_html__('Enfant', 'scout-inscription') . '</th><td><strong>' . esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom) . '</strong></td></tr>';
+        echo '<tr><th>' . esc_html__('Date de naissance', 'scout-inscription') . '</th><td>' . esc_html($inscription->enfant_ddn) . '</td></tr>';
+        echo '<tr><th>' . esc_html__('Assurance maladie', 'scout-inscription') . '</th><td>' . esc_html($inscription->assurance_maladie) . ' (exp: ' . esc_html($inscription->assurance_expiration) . ')</td></tr>';
         echo '</table></div>';
 
         // Allergies (prominent)
         $has_allergies = !empty($medical['allergies_alimentaires']) || !empty($medical['allergies_medicament']);
         if ($has_allergies) {
-            echo '<div class="alert">⚠️ ALLERGIES DÉCLARÉES</div>';
+            echo '<div class="alert">' . esc_html__('ALLERGIES DÉCLARÉES', 'scout-inscription') . '</div>';
         }
 
-        echo '<div class="card"><h2>Santé</h2><table>';
-        echo '<tr><th>Allergies alimentaires</th><td class="' . ($medical['allergies_alimentaires'] ? 'warn' : 'ok') . '">' . esc_html($medical['allergies_alimentaires'] ?: 'Aucune') . '</td></tr>';
-        echo '<tr><th>Allergies médicament</th><td class="' . ($medical['allergies_medicament'] ? 'warn' : 'ok') . '">' . esc_html($medical['allergies_medicament'] ?: 'Aucune') . '</td></tr>';
-        echo '<tr><th>Médicaments / posologie</th><td>' . esc_html($medical['medicaments'] ?: '—') . '</td></tr>';
-        echo '<tr><th>Restrictions alimentaires</th><td>' . esc_html($medical['restrictions_alimentaires'] ?: '—') . '</td></tr>';
-        echo '<tr><th>Vaccins à jour</th><td>' . esc_html($medical['vaccins_jour'] ?? '—') . '</td></tr>';
-        echo '<tr><th>Attention particulière</th><td>' . esc_html(($medical['attention_particuliere'] ?? 'non') !== 'non' ? ($medical['attention_detail'] ?? 'Oui') : 'Non') . '</td></tr>';
-        echo '<tr><th>Limite physique</th><td>' . esc_html(($medical['limite_physique'] ?? 'non') !== 'non' ? ($medical['limite_detail'] ?? 'Oui') : 'Non') . '</td></tr>';
-        echo '<tr><th>Commentaires</th><td>' . esc_html($medical['commentaires_medicaux'] ?? '—') . '</td></tr>';
+        echo '<div class="card"><h2>' . esc_html__('Santé', 'scout-inscription') . '</h2><table>';
+        echo '<tr><th>' . esc_html__('Allergies alimentaires', 'scout-inscription') . '</th><td class="' . ($medical['allergies_alimentaires'] ? 'warn' : 'ok') . '">' . esc_html($medical['allergies_alimentaires'] ?: __('Aucune', 'scout-inscription')) . '</td></tr>';
+        echo '<tr><th>' . esc_html__('Allergies médicament', 'scout-inscription') . '</th><td class="' . ($medical['allergies_medicament'] ? 'warn' : 'ok') . '">' . esc_html($medical['allergies_medicament'] ?: __('Aucune', 'scout-inscription')) . '</td></tr>';
+        echo '<tr><th>' . esc_html__('Médicaments / posologie', 'scout-inscription') . '</th><td>' . esc_html($medical['medicaments'] ?: '—') . '</td></tr>';
+        echo '<tr><th>' . esc_html__('Restrictions alimentaires', 'scout-inscription') . '</th><td>' . esc_html($medical['restrictions_alimentaires'] ?: '—') . '</td></tr>';
+        echo '<tr><th>' . esc_html__('Vaccins à jour', 'scout-inscription') . '</th><td>' . esc_html($medical['vaccins_jour'] ?? '—') . '</td></tr>';
+        echo '<tr><th>' . esc_html__('Attention particulière', 'scout-inscription') . '</th><td>' . esc_html(($medical['attention_particuliere'] ?? 'non') !== 'non' ? ($medical['attention_detail'] ?? __('Oui', 'scout-inscription')) : __('Non', 'scout-inscription')) . '</td></tr>';
+        echo '<tr><th>' . esc_html__('Limite physique', 'scout-inscription') . '</th><td>' . esc_html(($medical['limite_physique'] ?? 'non') !== 'non' ? ($medical['limite_detail'] ?? __('Oui', 'scout-inscription')) : __('Non', 'scout-inscription')) . '</td></tr>';
+        echo '<tr><th>' . esc_html__('Commentaires', 'scout-inscription') . '</th><td>' . esc_html($medical['commentaires_medicaux'] ?? '—') . '</td></tr>';
         echo '</table></div>';
 
-        echo '<div class="card"><h2>🚨 Contacts d\'urgence</h2><table>';
+        echo '<div class="card"><h2>' . esc_html__('Contacts d\'urgence', 'scout-inscription') . '</h2><table>';
         foreach ($urgence as $u) {
             echo '<tr><th>' . esc_html($u->lien) . '</th><td><strong>' . esc_html($u->nom) . '</strong><br>📞 <a href="tel:' . esc_attr($u->telephone) . '">' . esc_html($u->telephone) . '</a></td></tr>';
         }
@@ -488,10 +492,10 @@ class Scout_REST_API {
     // ── FAMILY: Lookup by ref number ──
     public function family_lookup(\WP_REST_Request $request): \WP_REST_Response {
         $ref = sanitize_text_field($request->get_json_params()['ref'] ?? '');
-        if (empty($ref)) return new \WP_REST_Response(['error' => 'Numéro de référence requis.'], 400);
+        if (empty($ref)) return new \WP_REST_Response(['error' => __('Numéro de référence requis.', 'scout-inscription')], 400);
 
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
-        if (!$inscription) return new \WP_REST_Response(['error' => 'Inscription introuvable.'], 404);
+        if (!$inscription) return new \WP_REST_Response(['error' => __('Inscription introuvable.', 'scout-inscription')], 404);
 
         // Get parent email for this inscription
         $contacts = Scout_Contact_Model::get_for_inscription($inscription->id);
@@ -507,7 +511,7 @@ class Scout_REST_API {
         }
 
         if (empty($parent_emails)) {
-            return new \WP_REST_Response(['error' => 'Aucun courriel associé à cette inscription.'], 400);
+            return new \WP_REST_Response(['error' => __('Aucun courriel associé à cette inscription.', 'scout-inscription')], 400);
         }
 
         return new \WP_REST_Response([
@@ -520,10 +524,10 @@ class Scout_REST_API {
     // ── FAMILY: Send dashboard link ──
     public function family_send_link(\WP_REST_Request $request): \WP_REST_Response {
         $ref = sanitize_text_field($request->get_json_params()['ref'] ?? '');
-        if (empty($ref)) return new \WP_REST_Response(['error' => 'Référence requise.'], 400);
+        if (empty($ref)) return new \WP_REST_Response(['error' => __('Référence requise.', 'scout-inscription')], 400);
 
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
-        if (!$inscription) return new \WP_REST_Response(['error' => 'Introuvable.'], 404);
+        if (!$inscription) return new \WP_REST_Response(['error' => __('Introuvable.', 'scout-inscription')], 404);
 
         // Ensure families table exists
         global $wpdb;
@@ -537,7 +541,7 @@ class Scout_REST_API {
             // Check again
             $exists = $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $table));
             if (!$exists) {
-                return new \WP_REST_Response(['error' => 'Table famille manquante. Désactivez et réactivez le plugin.'], 500);
+                return new \WP_REST_Response(['error' => __('Table famille manquante. Désactivez et réactivez le plugin.', 'scout-inscription')], 500);
             }
         }
 
@@ -550,14 +554,14 @@ class Scout_REST_API {
                 break;
             }
         }
-        if (!$parent_email) return new \WP_REST_Response(['error' => 'Aucun courriel trouvé.'], 400);
+        if (!$parent_email) return new \WP_REST_Response(['error' => __('Aucun courriel trouvé.', 'scout-inscription')], 400);
 
         // Find or create family
         $family = Scout_Family_Model::find_by_email($parent_email);
         if (!$family) {
             $family = Scout_Family_Model::create($parent_email);
         }
-        if (!$family) return new \WP_REST_Response(['error' => 'Erreur de création.'], 500);
+        if (!$family) return new \WP_REST_Response(['error' => __('Erreur de création.', 'scout-inscription')], 500);
 
         // Link this inscription if not already linked
         if (empty($inscription->family_id)) {
@@ -579,18 +583,18 @@ class Scout_REST_API {
 
         // Send the link
         $sent = Scout_Family_Model::send_dashboard_link($family);
-        if (!$sent) return new \WP_REST_Response(['error' => 'Erreur d\'envoi du courriel.'], 500);
+        if (!$sent) return new \WP_REST_Response(['error' => __('Erreur d\'envoi du courriel.', 'scout-inscription')], 500);
 
         Scout_Access_Log::log(0, $inscription->id, 'family_link_sent', "Dashboard link sent to parent");
 
-        return new \WP_REST_Response(['success' => true, 'message' => 'Lien envoyé par courriel.']);
+        return new \WP_REST_Response(['success' => true, 'message' => __('Lien envoyé par courriel.', 'scout-inscription')]);
     }
 
     // ── FAMILY: Dashboard data ──
     public function family_dashboard(\WP_REST_Request $request): \WP_REST_Response {
         $tok = sanitize_text_field($request->get_param('tok'));
         $family = Scout_Family_Model::get_by_token($tok);
-        if (!$family) return new \WP_REST_Response(['error' => 'Lien invalide.'], 403);
+        if (!$family) return new \WP_REST_Response(['error' => __('Lien invalide.', 'scout-inscription')], 403);
 
         $inscriptions = Scout_Family_Model::get_inscriptions($family->id);
         $current_year = Scout_Inscription_Model::get_current_year();
@@ -635,11 +639,11 @@ class Scout_REST_API {
         $ref = sanitize_text_field($request->get_param('ref'));
 
         $family = Scout_Family_Model::get_by_token($tok);
-        if (!$family) return new \WP_REST_Response(['error' => 'Lien invalide.'], 403);
+        if (!$family) return new \WP_REST_Response(['error' => __('Lien invalide.', 'scout-inscription')], 403);
 
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
         if (!$inscription || intval($inscription->family_id) !== intval($family->id)) {
-            return new \WP_REST_Response(['error' => 'Accès refusé.'], 403);
+            return new \WP_REST_Response(['error' => __('Accès refusé.', 'scout-inscription')], 403);
         }
 
         // Calculate suggested unit based on age

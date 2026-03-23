@@ -29,12 +29,12 @@ class Scout_Export {
 
         // Header row
         fputcsv($output, [
-            'Référence', 'Année scoute', 'Unité', 'Prénom enfant', 'Nom enfant',
-            'Date de naissance', 'Sexe', 'Adresse', 'Ville', 'Code postal',
-            'Parent 1 - Nom', 'Parent 1 - Téléphone', 'Parent 1 - Courriel',
-            'Contact urgence', 'Téléphone urgence',
-            'Statut paiement', 'Total dû', 'Reçu', 'Solde',
-            'Statut inscription', 'Date inscription',
+            __('Référence', 'scout-inscription'), __('Année scoute', 'scout-inscription'), __('Unité', 'scout-inscription'), __('Prénom enfant', 'scout-inscription'), __('Nom enfant', 'scout-inscription'),
+            __('Date de naissance', 'scout-inscription'), __('Sexe', 'scout-inscription'), __('Adresse', 'scout-inscription'), __('Ville', 'scout-inscription'), __('Code postal', 'scout-inscription'),
+            __('Parent 1 - Nom', 'scout-inscription'), __('Parent 1 - Téléphone', 'scout-inscription'), __('Parent 1 - Courriel', 'scout-inscription'),
+            __('Contact urgence', 'scout-inscription'), __('Téléphone urgence', 'scout-inscription'),
+            __('Statut paiement', 'scout-inscription'), __('Total dû', 'scout-inscription'), __('Reçu', 'scout-inscription'), __('Solde', 'scout-inscription'),
+            __('Statut inscription', 'scout-inscription'), __('Date inscription', 'scout-inscription'),
         ], ';');
 
         foreach ($inscriptions as $ins) {

@@ -58,7 +58,7 @@ class Scout_MFA {
         update_user_meta($user->ID, '_scout_mfa_attempts', 0);
 
         $group_name = get_bloginfo('name');
-        $subject = "[{$group_name}] Code de vérification — Accès données médicales";
+        $subject = sprintf('[%s] %s', $group_name, __('Code de vérification — Accès données médicales', 'scout-inscription'));
         $body = "
             <html><body style='font-family:sans-serif;padding:20px'>
             <h2 style='color:#007748'>🔒 Code de vérification</h2>
@@ -84,19 +84,19 @@ class Scout_MFA {
      */
     public static function verify_code(string $input_code): array {
         $user_id = get_current_user_id();
-        if (!$user_id) return ['success' => false, 'error' => 'Non connecté.'];
+        if (!$user_id) return ['success' => false, 'error' => __('Non connecté.', 'scout-inscription')];
 
         // Rate limit — max 5 attempts
         $attempts = intval(get_user_meta($user_id, '_scout_mfa_attempts', true));
         if ($attempts >= 5) {
             Scout_Access_Log::log($user_id, null, 'mfa_locked', 'Trop de tentatives MFA');
-            return ['success' => false, 'error' => 'Trop de tentatives. Demandez un nouveau code.'];
+            return ['success' => false, 'error' => __('Trop de tentatives. Demandez un nouveau code.', 'scout-inscription')];
         }
 
         // Check expiry
         $code_expiry = intval(get_user_meta($user_id, '_scout_mfa_code_expiry', true));
         if (time() > $code_expiry) {
-            return ['success' => false, 'error' => 'Code expiré. Demandez un nouveau code.'];
+            return ['success' => false, 'error' => __('Code expiré. Demandez un nouveau code.', 'scout-inscription')];
         }
 
         // Verify code (timing-safe)
@@ -104,7 +104,11 @@ class Scout_MFA {
         if (!hash_equals($stored_hash, wp_hash($input_code))) {
             update_user_meta($user_id, '_scout_mfa_attempts', $attempts + 1);
             Scout_Access_Log::log($user_id, null, 'mfa_fail', "Tentative MFA échouée ({$attempts}/5)");
-            return ['success' => false, 'error' => 'Code incorrect. ' . (4 - $attempts) . ' tentatives restantes.'];
+            return ['success' => false, 'error' => sprintf(
+                /* translators: %d: number of remaining attempts */
+                __('Code incorrect. %d tentatives restantes.', 'scout-inscription'),
+                4 - $attempts
+            )];
         }
 
         // Success — create session

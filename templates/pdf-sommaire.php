@@ -19,7 +19,7 @@ th { background: #f5f3ee; font-weight: 600; width: 30%; }
 </style></head><body>
 
 <div class="header">
-    <h1>Sommaire d'inscription</h1>
+    <h1><?php esc_html_e('Sommaire d\'inscription', 'scout-inscription'); ?></h1>
     <p>5e Groupe scout Grand-Moulin · <?php echo esc_html($inscription->annee_scoute); ?></p>
 </div>
 
@@ -29,23 +29,23 @@ th { background: #f5f3ee; font-weight: 600; width: 30%; }
     <?php if (!empty($qr_base64)): ?>
         <img src="<?php echo esc_attr($qr_base64); ?>" alt="QR Code">
     <?php endif; ?>
-    <p style="font-size:9px;color:#6a6a62">Scannez ce code QR pour vérifier l'inscription</p>
+    <p style="font-size:9px;color:#6a6a62"><?php esc_html_e('Scannez ce code QR pour vérifier l\'inscription', 'scout-inscription'); ?></p>
 </div>
 
-<h2>Enfant</h2>
+<h2><?php esc_html_e('Enfant', 'scout-inscription'); ?></h2>
 <table>
-    <tr><th>Nom complet</th><td><?php echo esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom); ?></td></tr>
-    <tr><th>Date de naissance</th><td><?php echo esc_html($inscription->enfant_ddn); ?></td></tr>
-    <tr><th>Unité</th><td><?php echo esc_html(ucfirst($inscription->unite)); ?></td></tr>
-    <tr><th>Adresse</th><td><?php echo esc_html($inscription->enfant_adresse . ', ' . $inscription->enfant_ville . ' ' . $inscription->enfant_code_postal); ?></td></tr>
+    <tr><th><?php esc_html_e('Nom complet', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom); ?></td></tr>
+    <tr><th><?php esc_html_e('Date de naissance', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_ddn); ?></td></tr>
+    <tr><th><?php esc_html_e('Unité', 'scout-inscription'); ?></th><td><?php echo esc_html(ucfirst($inscription->unite)); ?></td></tr>
+    <tr><th><?php esc_html_e('Adresse', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_adresse . ', ' . $inscription->enfant_ville . ' ' . $inscription->enfant_code_postal); ?></td></tr>
 </table>
 
-<h2>Contacts</h2>
+<h2><?php esc_html_e('Contacts', 'scout-inscription'); ?></h2>
 <table>
-    <tr><th>Type</th><th>Nom</th><th>Lien</th><th>Téléphone</th><th>Courriel</th></tr>
+    <tr><th><?php esc_html_e('Type', 'scout-inscription'); ?></th><th><?php esc_html_e('Nom', 'scout-inscription'); ?></th><th><?php esc_html_e('Lien', 'scout-inscription'); ?></th><th><?php esc_html_e('Téléphone', 'scout-inscription'); ?></th><th><?php esc_html_e('Courriel', 'scout-inscription'); ?></th></tr>
     <?php foreach ($contacts as $c): ?>
     <tr>
-        <td><?php echo $c->type === 'parent' ? '👨‍👩‍👧 Parent' : '🚨 Urgence'; ?></td>
+        <td><?php echo $c->type === 'parent' ? esc_html__('Parent', 'scout-inscription') : esc_html__('Urgence', 'scout-inscription'); ?></td>
         <td><?php echo esc_html(($c->prenom ? $c->prenom . ' ' : '') . $c->nom); ?></td>
         <td><?php echo esc_html($c->lien); ?></td>
         <td><?php echo esc_html($c->telephone); ?></td>
@@ -54,30 +54,30 @@ th { background: #f5f3ee; font-weight: 600; width: 30%; }
     <?php endforeach; ?>
 </table>
 
-<h2>Paiement</h2>
+<h2><?php esc_html_e('Paiement', 'scout-inscription'); ?></h2>
 <table>
-    <tr><th>Total dû</th><td><?php echo number_format($inscription->payment_total, 2); ?> $</td></tr>
-    <tr><th>Reçu</th><td><?php echo number_format($inscription->payment_received, 2); ?> $</td></tr>
-    <tr><th>Solde</th><td class="<?php echo ($inscription->payment_total - $inscription->payment_received) > 0 ? 'payment-pending' : 'payment-ok'; ?>">
+    <tr><th><?php esc_html_e('Total dû', 'scout-inscription'); ?></th><td><?php echo number_format($inscription->payment_total, 2); ?> $</td></tr>
+    <tr><th><?php esc_html_e('Reçu', 'scout-inscription'); ?></th><td><?php echo number_format($inscription->payment_received, 2); ?> $</td></tr>
+    <tr><th><?php esc_html_e('Solde', 'scout-inscription'); ?></th><td class="<?php echo ($inscription->payment_total - $inscription->payment_received) > 0 ? 'payment-pending' : 'payment-ok'; ?>">
         <strong><?php echo number_format($inscription->payment_total - $inscription->payment_received, 2); ?> $</strong></td></tr>
-    <tr><th>Statut</th><td><?php
-        $labels = ['en_attente' => '⏳ En attente', 'acompte_recu' => '💰 Acompte reçu', 'paye' => '✅ Payé'];
+    <tr><th><?php esc_html_e('Statut', 'scout-inscription'); ?></th><td><?php
+        $labels = ['en_attente' => __('En attente', 'scout-inscription'), 'acompte_recu' => __('Acompte reçu', 'scout-inscription'), 'paye' => __('Payé', 'scout-inscription')];
         echo esc_html($labels[$inscription->payment_status] ?? $inscription->payment_status);
     ?></td></tr>
 </table>
 
 <?php if (!empty($medical)): ?>
-<h2>Alertes médicales</h2>
+<h2><?php esc_html_e('Alertes médicales', 'scout-inscription'); ?></h2>
 <table>
     <?php $allergies = array_filter([$medical['allergies_alimentaires'] ?? '', $medical['allergies_medicament'] ?? '']); ?>
     <?php if (!empty($allergies)): ?>
-        <tr><th style="color:#c0392b">⚠️ Allergies</th><td><?php echo esc_html(implode(', ', $allergies)); ?></td></tr>
+        <tr><th style="color:#c0392b"><?php esc_html_e('Allergies', 'scout-inscription'); ?></th><td><?php echo esc_html(implode(', ', $allergies)); ?></td></tr>
     <?php endif; ?>
     <?php if (!empty($medical['medicaments'])): ?>
-        <tr><th>Médicaments</th><td><?php echo esc_html($medical['medicaments']); ?></td></tr>
+        <tr><th><?php esc_html_e('Médicaments', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['medicaments']); ?></td></tr>
     <?php endif; ?>
     <?php if (($medical['attention_particuliere'] ?? 'non') !== 'non'): ?>
-        <tr><th>Attention</th><td><?php echo esc_html($medical['attention_detail'] ?? ''); ?></td></tr>
+        <tr><th><?php esc_html_e('Attention', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['attention_detail'] ?? ''); ?></td></tr>
     <?php endif; ?>
 </table>
 <?php endif; ?>

@@ -25,25 +25,25 @@ class Scout_Public_Family {
     private function render_lookup(string $ref): void {
         ?>
         <div style="max-width:500px;margin:0 auto;text-align:center">
-            <h2 style="color:#007748;margin-bottom:8px">👨‍👩‍👧‍👦 Tableau de bord familial</h2>
-            <p style="color:#6a6a62;margin-bottom:24px">Gérez les inscriptions de vos enfants, renouvelez ou inscrivez un nouveau membre.</p>
+            <h2 style="color:#007748;margin-bottom:8px"><?php esc_html_e('Tableau de bord familial', 'scout-inscription'); ?></h2>
+            <p style="color:#6a6a62;margin-bottom:24px"><?php esc_html_e('Gérez les inscriptions de vos enfants, renouvelez ou inscrivez un nouveau membre.', 'scout-inscription'); ?></p>
 
             <div id="lookupPanel" style="background:#f9f8f5;padding:24px;border-radius:12px;border:1px solid #e0ddd4">
-                <h3 style="margin:0 0 16px;font-size:1rem">Accéder à votre dossier</h3>
+                <h3 style="margin:0 0 16px;font-size:1rem"><?php esc_html_e('Accéder à votre dossier', 'scout-inscription'); ?></h3>
                 <div style="margin-bottom:12px">
                     <input type="text" id="refInput" placeholder="Numéro de référence (GM-2025-XXXX)" value="<?php echo esc_attr($ref); ?>"
                         style="width:100%;padding:12px;border:1.5px solid #d0d0c8;border-radius:8px;font-size:14px;text-align:center;letter-spacing:1px;text-transform:uppercase">
                 </div>
                 <button onclick="familyLookup()" id="lookupBtn"
                     style="width:100%;padding:12px;background:#007748;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer">
-                    Rechercher →
+                    <?php esc_html_e('Rechercher', 'scout-inscription'); ?> →
                 </button>
                 <div id="lookupResult" style="margin-top:16px;display:none"></div>
                 <div id="lookupError" style="margin-top:12px;color:#c0392b;display:none"></div>
             </div>
 
             <p style="font-size:13px;color:#6a6a62;margin-top:16px">
-                Vous n'avez pas votre numéro de référence? Vérifiez le courriel de confirmation reçu lors de l'inscription.
+                <?php esc_html_e('Vous n\'avez pas votre numéro de référence? Vérifiez le courriel de confirmation reçu lors de l\'inscription.', 'scout-inscription'); ?>
             </p>
         </div>
         <?php
@@ -52,12 +52,12 @@ class Scout_Public_Family {
     private function render_dashboard(string $tok): void {
         ?>
         <div id="dashboardLoading" style="text-align:center;padding:40px">
-            <p>⏳ Chargement de votre dossier familial...</p>
+            <p><?php esc_html_e('Chargement de votre dossier familial...', 'scout-inscription'); ?></p>
         </div>
         <div id="dashboardContent" style="display:none">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px">
-                <h2 style="color:#007748;margin:0">👨‍👩‍👧‍👦 Tableau de bord familial</h2>
-                <a href="<?php echo esc_url(home_url('/inscription/')); ?>" style="display:inline-block;padding:10px 20px;background:#007748;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px">+ Inscrire un nouvel enfant</a>
+                <h2 style="color:#007748;margin:0"><?php esc_html_e('Tableau de bord familial', 'scout-inscription'); ?></h2>
+                <a href="<?php echo esc_url(home_url('/inscription/')); ?>" style="display:inline-block;padding:10px 20px;background:#007748;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px">+ <?php esc_html_e('Inscrire un nouvel enfant', 'scout-inscription'); ?></a>
             </div>
             <div id="childrenList"></div>
         </div>

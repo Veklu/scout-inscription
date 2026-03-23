@@ -13,7 +13,7 @@ class Scout_PDF_Generator {
     public static function serve_pdf(int $inscription_id, string $type): void {
         $inscription = Scout_Inscription_Model::get($inscription_id);
         if (!$inscription) {
-            wp_die('Inscription introuvable.', 'Erreur', ['response' => 404]);
+            wp_die(__('Inscription introuvable.', 'scout-inscription'), __('Erreur', 'scout-inscription'), ['response' => 404]);
         }
 
         Scout_Access_Log::log(get_current_user_id(), $inscription_id, 'document_view', "Document {$type} consulté");
@@ -30,7 +30,7 @@ class Scout_PDF_Generator {
                 $html = self::render_sommaire($inscription);
                 break;
             default:
-                wp_die('Type de document inconnu.', 'Erreur', ['response' => 400]);
+                wp_die(__('Type de document inconnu.', 'scout-inscription'), __('Erreur', 'scout-inscription'), ['response' => 400]);
         }
 
         header('Content-Type: text/html; charset=utf-8');
@@ -86,41 +86,41 @@ class Scout_PDF_Generator {
 
         $has_allergies = !empty($medical['allergies_alimentaires']) || !empty($medical['allergies_medicament']);
 
-        $html = '<h2>👤 Identification</h2><table>';
-        $html .= '<tr><th>Enfant</th><td><strong>' . esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom) . '</strong></td></tr>';
-        $html .= '<tr><th>Date de naissance</th><td>' . esc_html($inscription->enfant_ddn) . '</td></tr>';
-        $html .= '<tr><th>Unité</th><td>' . esc_html($unite_names[$inscription->unite] ?? $inscription->unite) . '</td></tr>';
-        $html .= '<tr><th>Assurance maladie</th><td>' . esc_html($inscription->assurance_maladie) . ' (exp: ' . esc_html($inscription->assurance_expiration) . ')</td></tr>';
+        $html = '<h2>' . esc_html__('Identification', 'scout-inscription') . '</h2><table>';
+        $html .= '<tr><th>' . esc_html__('Enfant', 'scout-inscription') . '</th><td><strong>' . esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom) . '</strong></td></tr>';
+        $html .= '<tr><th>' . esc_html__('Date de naissance', 'scout-inscription') . '</th><td>' . esc_html($inscription->enfant_ddn) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Unité', 'scout-inscription') . '</th><td>' . esc_html($unite_names[$inscription->unite] ?? $inscription->unite) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Assurance maladie', 'scout-inscription') . '</th><td>' . esc_html($inscription->assurance_maladie) . ' (exp: ' . esc_html($inscription->assurance_expiration) . ')</td></tr>';
         $html .= '</table>';
 
         if ($has_allergies) {
-            $html .= '<div class="alert">⚠️ ALLERGIES DÉCLARÉES — Voir détails ci-dessous</div>';
+            $html .= '<div class="alert">' . esc_html__('ALLERGIES DÉCLARÉES — Voir détails ci-dessous', 'scout-inscription') . '</div>';
         }
 
-        $html .= '<h2>🏥 Informations médicales</h2><table>';
-        $html .= '<tr><th>Allergies alimentaires</th><td class="' . ($medical['allergies_alimentaires'] ? 'warn' : '') . '">' . esc_html($medical['allergies_alimentaires'] ?: 'Aucune') . '</td></tr>';
-        $html .= '<tr><th>Allergies médicament</th><td class="' . ($medical['allergies_medicament'] ? 'warn' : '') . '">' . esc_html($medical['allergies_medicament'] ?: 'Aucune') . '</td></tr>';
-        $html .= '<tr><th>Médicaments / posologie</th><td>' . esc_html($medical['medicaments'] ?: '—') . '</td></tr>';
-        $html .= '<tr><th>Restrictions alimentaires</th><td>' . esc_html($medical['restrictions_alimentaires'] ?: '—') . '</td></tr>';
-        $html .= '<tr><th>Vaccins à jour</th><td>' . esc_html($medical['vaccins_jour'] ?? '—') . '</td></tr>';
-        $html .= '<tr><th>Attention particulière</th><td>' . esc_html(($medical['attention_particuliere'] ?? 'non') !== 'non' ? ($medical['attention_detail'] ?? 'Oui') : 'Non') . '</td></tr>';
-        $html .= '<tr><th>Limite physique</th><td>' . esc_html(($medical['limite_physique'] ?? 'non') !== 'non' ? ($medical['limite_detail'] ?? 'Oui') : 'Non') . '</td></tr>';
-        $html .= '<tr><th>Commentaires</th><td>' . esc_html($medical['commentaires_medicaux'] ?? '—') . '</td></tr>';
+        $html .= '<h2>' . esc_html__('Informations médicales', 'scout-inscription') . '</h2><table>';
+        $html .= '<tr><th>' . esc_html__('Allergies alimentaires', 'scout-inscription') . '</th><td class="' . ($medical['allergies_alimentaires'] ? 'warn' : '') . '">' . esc_html($medical['allergies_alimentaires'] ?: __('Aucune', 'scout-inscription')) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Allergies médicament', 'scout-inscription') . '</th><td class="' . ($medical['allergies_medicament'] ? 'warn' : '') . '">' . esc_html($medical['allergies_medicament'] ?: __('Aucune', 'scout-inscription')) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Médicaments / posologie', 'scout-inscription') . '</th><td>' . esc_html($medical['medicaments'] ?: '—') . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Restrictions alimentaires', 'scout-inscription') . '</th><td>' . esc_html($medical['restrictions_alimentaires'] ?: '—') . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Vaccins à jour', 'scout-inscription') . '</th><td>' . esc_html($medical['vaccins_jour'] ?? '—') . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Attention particulière', 'scout-inscription') . '</th><td>' . esc_html(($medical['attention_particuliere'] ?? 'non') !== 'non' ? ($medical['attention_detail'] ?? 'Oui') : 'Non') . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Limite physique', 'scout-inscription') . '</th><td>' . esc_html(($medical['limite_physique'] ?? 'non') !== 'non' ? ($medical['limite_detail'] ?? 'Oui') : 'Non') . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Commentaires', 'scout-inscription') . '</th><td>' . esc_html($medical['commentaires_medicaux'] ?? '—') . '</td></tr>';
         $html .= '</table>';
 
-        $html .= '<h2>🚨 Contacts d\'urgence</h2><table>';
+        $html .= '<h2>' . esc_html__('Contacts d\'urgence', 'scout-inscription') . '</h2><table>';
         foreach ($urgence as $u) {
             $html .= '<tr><th>' . esc_html($u->lien) . '</th><td><strong>' . esc_html($u->nom) . '</strong> — 📞 ' . esc_html($u->telephone) . '</td></tr>';
         }
         $html .= '</table>';
 
-        return self::page_wrapper('Fiche médicale', $html, $inscription->ref_number);
+        return self::page_wrapper(__('Fiche médicale', 'scout-inscription'), $html, $inscription->ref_number);
     }
 
     private static function render_acceptation_risque(object $inscription): string {
         $signature = $inscription->risk_signature_decrypted ?? [];
 
-        $html = '<h2>⚠️ Acceptation des risques</h2>';
+        $html = '<h2>' . esc_html__('Acceptation des risques', 'scout-inscription') . '</h2>';
         $html .= '<p style="margin-bottom:16px;font-size:0.9rem;color:#3a3a36">Je reconnais que les activités scoutes comportent des risques inhérents, incluant mais non limités aux activités de plein air, au camping, aux randonnées, aux activités nautiques et aux travaux manuels.</p>';
 
         $html .= '<div style="background:#f9f8f5;padding:16px;border-radius:8px;margin-bottom:16px">';
@@ -132,22 +132,22 @@ class Scout_PDF_Generator {
         $html .= '<li>M\'engager à informer le groupe de tout changement dans l\'état de santé de mon enfant</li>';
         $html .= '</ul></div>';
 
-        $html .= '<h2>✍️ Signature</h2>';
+        $html .= '<h2>' . esc_html__('Signature', 'scout-inscription') . '</h2>';
         $html .= '<div class="signature-box">';
         if (is_array($signature) && !empty($signature['name'])) {
             $html .= '<div class="signature-name">' . esc_html($signature['name']) . '</div>';
             $html .= '<div style="font-size:0.78rem;color:#6a6a62;margin-top:4px">Signé électroniquement le ' . esc_html($signature['date'] ?? date('Y-m-d')) . '</div>';
         } else {
-            $html .= '<div style="color:#6a6a62">Signature non disponible</div>';
+            $html .= '<div style="color:#6a6a62">' . esc_html__('Signature non disponible', 'scout-inscription') . '</div>';
         }
         $html .= '</div>';
 
         $html .= '<table style="margin-top:16px">';
-        $html .= '<tr><th>Enfant</th><td>' . esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom) . '</td></tr>';
-        $html .= '<tr><th>Année scoute</th><td>' . esc_html($inscription->annee_scoute) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Enfant', 'scout-inscription') . '</th><td>' . esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Année scoute', 'scout-inscription') . '</th><td>' . esc_html($inscription->annee_scoute) . '</td></tr>';
         $html .= '</table>';
 
-        return self::page_wrapper('Acceptation des risques', $html, $inscription->ref_number);
+        return self::page_wrapper(__('Acceptation des risques', 'scout-inscription'), $html, $inscription->ref_number);
     }
 
     private static function render_sommaire(object $inscription): string {
@@ -159,15 +159,15 @@ class Scout_PDF_Generator {
         $unite_names = ['castors'=>'Castors','louveteaux'=>'Louveteaux','eclaireurs'=>'Éclaireurs','pionniers'=>'Pionniers'];
         $balance = $inscription->payment_total - $inscription->payment_received;
 
-        $html = '<h2>👤 Enfant</h2><table>';
-        $html .= '<tr><th>Nom</th><td><strong>' . esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom) . '</strong></td></tr>';
-        $html .= '<tr><th>Date de naissance</th><td>' . esc_html($inscription->enfant_ddn) . '</td></tr>';
-        $html .= '<tr><th>Unité</th><td>' . esc_html($unite_names[$inscription->unite] ?? $inscription->unite) . '</td></tr>';
-        $html .= '<tr><th>Année scoute</th><td>' . esc_html($inscription->annee_scoute) . '</td></tr>';
-        $html .= '<tr><th>Adresse</th><td>' . esc_html($inscription->enfant_adresse . ', ' . $inscription->enfant_ville . ' ' . $inscription->enfant_code_postal) . '</td></tr>';
+        $html = '<h2>' . esc_html__('Enfant', 'scout-inscription') . '</h2><table>';
+        $html .= '<tr><th>' . esc_html__('Nom', 'scout-inscription') . '</th><td><strong>' . esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom) . '</strong></td></tr>';
+        $html .= '<tr><th>' . esc_html__('Date de naissance', 'scout-inscription') . '</th><td>' . esc_html($inscription->enfant_ddn) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Unité', 'scout-inscription') . '</th><td>' . esc_html($unite_names[$inscription->unite] ?? $inscription->unite) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Année scoute', 'scout-inscription') . '</th><td>' . esc_html($inscription->annee_scoute) . '</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Adresse', 'scout-inscription') . '</th><td>' . esc_html($inscription->enfant_adresse . ', ' . $inscription->enfant_ville . ' ' . $inscription->enfant_code_postal) . '</td></tr>';
         $html .= '</table>';
 
-        $html .= '<h2>👨‍👩‍👧 Parents / Tuteurs</h2><table>';
+        $html .= '<h2>' . esc_html__('Parents / Tuteurs', 'scout-inscription') . '</h2><table>';
         foreach ($parents as $p) {
             $html .= '<tr><th>' . esc_html($p->lien) . '</th><td>' . esc_html($p->prenom . ' ' . $p->nom) . ' — 📞 ' . esc_html($p->telephone);
             if ($p->courriel) $html .= ' — ✉️ ' . esc_html($p->courriel);
@@ -175,20 +175,20 @@ class Scout_PDF_Generator {
         }
         $html .= '</table>';
 
-        $html .= '<h2>🚨 Contacts d\'urgence</h2><table>';
+        $html .= '<h2>' . esc_html__('Contacts d\'urgence', 'scout-inscription') . '</h2><table>';
         foreach ($urgence as $u) {
             $html .= '<tr><th>' . esc_html($u->lien) . '</th><td>' . esc_html($u->nom) . ' — 📞 ' . esc_html($u->telephone) . '</td></tr>';
         }
         $html .= '</table>';
 
-        $html .= '<h2>💳 Paiement</h2><table>';
-        $html .= '<tr><th>Total</th><td>' . number_format($inscription->payment_total, 2) . ' $</td></tr>';
-        $html .= '<tr><th>Reçu</th><td>' . number_format($inscription->payment_received, 2) . ' $</td></tr>';
-        $html .= '<tr><th>Solde</th><td style="color:' . ($balance > 0 ? '#c0392b' : '#27ae60') . ';font-weight:700">' . number_format($balance, 2) . ' $</td></tr>';
+        $html .= '<h2>' . esc_html__('Paiement', 'scout-inscription') . '</h2><table>';
+        $html .= '<tr><th>' . esc_html__('Total', 'scout-inscription') . '</th><td>' . number_format($inscription->payment_total, 2) . ' $</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Reçu', 'scout-inscription') . '</th><td>' . number_format($inscription->payment_received, 2) . ' $</td></tr>';
+        $html .= '<tr><th>' . esc_html__('Solde', 'scout-inscription') . '</th><td style="color:' . ($balance > 0 ? '#c0392b' : '#27ae60') . ';font-weight:700">' . number_format($balance, 2) . ' $</td></tr>';
         $html .= '</table>';
 
         if (!empty($payments)) {
-            $html .= '<table><thead><tr><th>Date</th><th>Mode</th><th>Montant</th></tr></thead><tbody>';
+            $html .= '<table><thead><tr><th>' . esc_html__('Date', 'scout-inscription') . '</th><th>' . esc_html__('Mode', 'scout-inscription') . '</th><th>' . esc_html__('Montant', 'scout-inscription') . '</th></tr></thead><tbody>';
             foreach ($payments as $pay) {
                 $html .= '<tr><td>' . esc_html($pay->date_recu) . '</td><td>' . esc_html(ucfirst($pay->mode)) . '</td><td>' . number_format($pay->montant, 2) . ' $</td></tr>';
             }
@@ -210,6 +210,6 @@ class Scout_PDF_Generator {
         $html .= 'document.getElementById("summaryQR").appendChild(cv);';
         $html .= '</script>';
 
-        return self::page_wrapper('Sommaire d\'inscription', $html, $inscription->ref_number);
+        return self::page_wrapper(__('Sommaire d\'inscription', 'scout-inscription'), $html, $inscription->ref_number);
     }
 }

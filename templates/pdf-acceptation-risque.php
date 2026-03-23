@@ -16,44 +16,44 @@ h1 { color: #007748; font-size: 18px; border-bottom: 3px solid #007748; padding-
 </style></head><body>
 
 <div class="header">
-    <h1>Acceptation des risques</h1>
+    <h1><?php esc_html_e('Acceptation des risques', 'scout-inscription'); ?></h1>
     <p>5e Groupe scout Grand-Moulin · District Les Ailes du Nord · Scouts du Canada</p>
 </div>
 
-<p><strong>Enfant :</strong> <?php echo esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom); ?>
-| <strong>Unité :</strong> <?php echo esc_html(ucfirst($inscription->unite)); ?>
-| <strong>Référence :</strong> <?php echo esc_html($inscription->ref_number); ?></p>
+<p><strong><?php esc_html_e('Enfant :', 'scout-inscription'); ?></strong> <?php echo esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom); ?>
+| <strong><?php esc_html_e('Unité :', 'scout-inscription'); ?></strong> <?php echo esc_html(ucfirst($inscription->unite)); ?>
+| <strong><?php esc_html_e('Référence :', 'scout-inscription'); ?></strong> <?php echo esc_html($inscription->ref_number); ?></p>
 
-<p>Le scoutisme est une activité éducative qui comporte des risques inhérents, incluant sans s'y limiter :</p>
+<p><?php esc_html_e('Le scoutisme est une activité éducative qui comporte des risques inhérents, incluant sans s\'y limiter :', 'scout-inscription'); ?></p>
 
 <ul class="risk-list">
-    <li>Activités de plein air (randonnée, camping, canot)</li>
-    <li>Activités aquatiques</li>
-    <li>Utilisation d'outils (couteaux, haches, scies)</li>
-    <li>Préparation de repas sur feu de camp</li>
-    <li>Transport en véhicule</li>
-    <li>Exposition aux éléments naturels (froid, chaleur, insectes)</li>
-    <li>Activités sportives et physiques</li>
-    <li>Camping en nature (terrain accidenté, faune)</li>
-    <li>Activités nocturnes</li>
-    <li>Construction de structures (ponts, abris)</li>
-    <li>Premiers soins et situations d'urgence</li>
+    <li><?php esc_html_e('Activités de plein air (randonnée, camping, canot)', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Activités aquatiques', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Utilisation d\'outils (couteaux, haches, scies)', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Préparation de repas sur feu de camp', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Transport en véhicule', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Exposition aux éléments naturels (froid, chaleur, insectes)', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Activités sportives et physiques', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Camping en nature (terrain accidenté, faune)', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Activités nocturnes', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Construction de structures (ponts, abris)', 'scout-inscription'); ?></li>
+    <li><?php esc_html_e('Premiers soins et situations d\'urgence', 'scout-inscription'); ?></li>
 </ul>
 
-<div class="clause">☑ Je reconnais avoir été informé(e) des risques inhérents aux activités scoutes.</div>
-<div class="clause">☑ Je reconnais que malgré les mesures de sécurité mises en place, des accidents peuvent survenir.</div>
-<div class="clause">☑ J'autorise mon enfant à participer à toutes les activités du programme scout.</div>
-<div class="clause">☑ En cas d'urgence, j'autorise les responsables à prendre les mesures nécessaires à la sauvegarde de la santé de mon jeune.</div>
+<div class="clause"><?php esc_html_e('Je reconnais avoir été informé(e) des risques inhérents aux activités scoutes.', 'scout-inscription'); ?></div>
+<div class="clause"><?php esc_html_e('Je reconnais que malgré les mesures de sécurité mises en place, des accidents peuvent survenir.', 'scout-inscription'); ?></div>
+<div class="clause"><?php esc_html_e('J\'autorise mon enfant à participer à toutes les activités du programme scout.', 'scout-inscription'); ?></div>
+<div class="clause"><?php esc_html_e('En cas d\'urgence, j\'autorise les responsables à prendre les mesures nécessaires à la sauvegarde de la santé de mon jeune.', 'scout-inscription'); ?></div>
 
 <div class="signature-box">
-    <p><strong>Signature électronique :</strong></p>
+    <p><strong><?php esc_html_e('Signature électronique :', 'scout-inscription'); ?></strong></p>
     <?php if (!empty($signature['name'])): ?>
         <p class="sig-name"><?php echo esc_html($signature['name']); ?></p>
-        <p>Date : <?php echo esc_html($signature['date'] ?? ''); ?></p>
+        <p><?php esc_html_e('Date :', 'scout-inscription'); ?> <?php echo esc_html($signature['date'] ?? ''); ?></p>
         <p style="font-size:9px;color:#6a6a62">IP : <?php echo esc_html($signature['ip'] ?? ''); ?></p>
     <?php else: ?>
         <p>________________________________</p>
-        <p>Date : ______________</p>
+        <p><?php esc_html_e('Date :', 'scout-inscription'); ?> ______________</p>
     <?php endif; ?>
 </div>
 

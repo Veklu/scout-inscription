@@ -1,0 +1,2079 @@
+# English translations for Scout Inscription package.
+# Copyright (C) 2026 THE Scout Inscription'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Scout Inscription package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Scout Inscription 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-23 10:10-0400\n"
+"PO-Revision-Date: 2026-03-23 10:10-0400\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin/class-admin-dashboard.php:8 admin/class-admin-dashboard.php:9
+msgid "Inscriptions"
+msgstr "Registrations"
+
+#: admin/class-admin-dashboard.php:17 admin/class-admin-dashboard.php:18
+msgid "Tableau de bord"
+msgstr "Dashboard"
+
+#: admin/class-admin-dashboard.php:20 admin/class-admin-dashboard.php:21
+msgid "Réglages"
+msgstr "Settings"
+
+#: admin/class-admin-dashboard.php:23 admin/class-admin-dashboard.php:24
+msgid "Journal d'accès"
+msgstr "Access Log"
+
+#: admin/class-admin-dashboard.php:53 admin/class-admin-dashboard.php:105
+#: includes/class-rest-api.php:188 scout-inscription.php:308
+#: templates/pdf-sommaire.php:64
+msgid "En attente"
+msgstr "Pending"
+
+#: admin/class-admin-dashboard.php:53 admin/class-admin-dashboard.php:106
+#: scout-inscription.php:312
+msgid "Acompte"
+msgstr "Deposit"
+
+#: admin/class-admin-dashboard.php:53 admin/class-admin-dashboard.php:107
+#: includes/class-rest-api.php:190 scout-inscription.php:316
+#: templates/pdf-sommaire.php:64
+msgid "Payé"
+msgstr "Paid"
+
+#: admin/class-admin-dashboard.php:53 admin/class-admin-dashboard.php:145
+#: admin/class-admin-dashboard.php:243 admin/class-admin-dashboard.php:307
+#: includes/class-daily-digest.php:158
+msgid "Annulée"
+msgstr "Cancelled"
+
+#: admin/class-admin-dashboard.php:92
+msgid "Inscriptions actives"
+msgstr "Active Registrations"
+
+#: admin/class-admin-dashboard.php:94
+msgid "Total actives"
+msgstr "Total Active"
+
+#: admin/class-admin-dashboard.php:95 includes/class-daily-digest.php:188
+#: scout-inscription.php:264
+msgid "Approuvées"
+msgstr "Approved"
+
+#: admin/class-admin-dashboard.php:96 scout-inscription.php:268
+msgid "À traiter"
+msgstr "To Process"
+
+#: admin/class-admin-dashboard.php:97 scout-inscription.php:272
+msgid "Rejetées"
+msgstr "Rejected"
+
+#: admin/class-admin-dashboard.php:98
+msgid "Annulées"
+msgstr "Cancelled"
+
+#: admin/class-admin-dashboard.php:99
+msgid "Doublons"
+msgstr "Duplicates"
+
+#: admin/class-admin-dashboard.php:103 admin/class-admin-dashboard.php:484
+#: scout-inscription.php:239
+msgid "Paiements"
+msgstr "Payments"
+
+#: admin/class-admin-dashboard.php:108
+msgid "Reçus"
+msgstr "Receipts"
+
+#: admin/class-admin-dashboard.php:110 includes/class-daily-digest.php:269
+msgid "Impayé"
+msgstr "Unpaid"
+
+#: admin/class-admin-dashboard.php:115
+msgid "Par unité"
+msgstr "By Unit"
+
+#: admin/class-admin-dashboard.php:133
+msgid "Toutes les unités"
+msgstr "All Units"
+
+#: admin/class-admin-dashboard.php:139
+msgid "Tous les statuts"
+msgstr "All Statuses"
+
+#: admin/class-admin-dashboard.php:140 admin/class-admin-dashboard.php:243
+#: admin/class-admin-dashboard.php:302 includes/class-daily-digest.php:156
+msgid "Brouillon"
+msgstr "Draft"
+
+#: admin/class-admin-dashboard.php:141 admin/class-admin-dashboard.php:243
+#: admin/class-admin-dashboard.php:303 includes/class-daily-digest.php:156
+msgid "Complète"
+msgstr "Complete"
+
+#: admin/class-admin-dashboard.php:142 admin/class-admin-dashboard.php:243
+#: admin/class-admin-dashboard.php:304 includes/class-daily-digest.php:156
+msgid "Approuvée"
+msgstr "Approved"
+
+#: admin/class-admin-dashboard.php:143 admin/class-admin-dashboard.php:243
+#: admin/class-admin-dashboard.php:305 includes/class-daily-digest.php:157
+msgid "Rejetée"
+msgstr "Rejected"
+
+#: admin/class-admin-dashboard.php:144 admin/class-admin-dashboard.php:243
+#: includes/class-daily-digest.php:157
+msgid "Plan paiement"
+msgstr "Payment Plan"
+
+#: admin/class-admin-dashboard.php:146 admin/class-admin-dashboard.php:243
+#: admin/class-admin-dashboard.php:308 includes/class-daily-digest.php:158
+msgid "Doublon"
+msgstr "Duplicate"
+
+#: admin/class-admin-dashboard.php:149
+msgid "Tous les paiements"
+msgstr "All Payments"
+
+#: admin/class-admin-dashboard.php:154
+msgid "Filtrer"
+msgstr "Filter"
+
+#: admin/class-admin-dashboard.php:156
+msgid "Exporter CSV"
+msgstr "Export CSV"
+
+#: admin/class-admin-dashboard.php:186
+#, php-format
+msgid ""
+"%d inscription(s) marquée(s) comme doublon. Masquées du tableau de bord mais "
+"les codes QR restent fonctionnels."
+msgstr ""
+"%d registration(s) marked as duplicate. Hidden from the dashboard but QR "
+"codes remain functional."
+
+#: admin/class-admin-dashboard.php:189
+#, php-format
+msgid "%d inscription(s) annulée(s)."
+msgstr "%d registration(s) cancelled."
+
+#: admin/class-admin-dashboard.php:203
+msgid "— Actions groupées —"
+msgstr "— Bulk Actions —"
+
+#: admin/class-admin-dashboard.php:204
+msgid "Annuler les sélectionnées"
+msgstr "Cancel Selected"
+
+#: admin/class-admin-dashboard.php:205
+msgid "Marquer comme doublon (masquer, garder QR)"
+msgstr "Mark as duplicate (hide, keep QR)"
+
+#: admin/class-admin-dashboard.php:207
+msgid "Supprimer définitivement"
+msgstr "Delete Permanently"
+
+#: admin/class-admin-dashboard.php:210
+msgid ""
+"Supprimer définitivement les inscriptions sélectionnées? Cette action est "
+"irréversible!"
+msgstr ""
+"Permanently delete selected registrations? This action is irreversible!"
+
+#: admin/class-admin-dashboard.php:210
+msgid "Annuler les inscriptions sélectionnées?"
+msgstr "Cancel selected registrations?"
+
+#: admin/class-admin-dashboard.php:210
+msgid "Sélectionnez au moins une inscription."
+msgstr "Select at least one registration."
+
+#: admin/class-admin-dashboard.php:210
+msgid "Appliquer"
+msgstr "Apply"
+
+#: admin/class-admin-dashboard.php:212
+msgid "Tout sélectionner"
+msgstr "Select All"
+
+#: admin/class-admin-dashboard.php:221 includes/class-export.php:32
+msgid "Référence"
+msgstr "Reference"
+
+#: admin/class-admin-dashboard.php:222 admin/class-admin-dashboard.php:382
+#: includes/class-daily-digest.php:206 includes/class-daily-digest.php:226
+#: includes/class-daily-digest.php:245 includes/class-pdf-generator.php:90
+#: includes/class-pdf-generator.php:146 includes/class-pdf-generator.php:162
+#: includes/class-rest-api.php:459 public/class-public-verify.php:75
+#: templates/email-confirmation.php:24 templates/pdf-sommaire.php:35
+msgid "Enfant"
+msgstr "Child"
+
+#: admin/class-admin-dashboard.php:223 admin/class-admin-dashboard.php:386
+#: includes/class-daily-digest.php:206 includes/class-export.php:32
+#: includes/class-pdf-generator.php:92 includes/class-pdf-generator.php:165
+#: templates/email-confirmation.php:25 templates/form-step-1.php:149
+#: templates/pdf-sommaire.php:39
+msgid "Unité"
+msgstr "Unit"
+
+#: admin/class-admin-dashboard.php:224 includes/class-daily-digest.php:206
+#: templates/pdf-sommaire.php:63
+msgid "Statut"
+msgstr "Status"
+
+#: admin/class-admin-dashboard.php:225 includes/class-pdf-generator.php:184
+#: public/class-public-verify.php:83 templates/email-confirmation.php:30
+#: templates/pdf-sommaire.php:57
+msgid "Paiement"
+msgstr "Payment"
+
+#: admin/class-admin-dashboard.php:226 includes/class-export.php:36
+#: includes/class-pdf-generator.php:186 templates/pdf-sommaire.php:60
+msgid "Reçu"
+msgstr "Received"
+
+#: admin/class-admin-dashboard.php:227 includes/class-export.php:36
+#: includes/class-pdf-generator.php:187 templates/pdf-sommaire.php:61
+msgid "Solde"
+msgstr "Balance"
+
+#: admin/class-admin-dashboard.php:228 admin/class-admin-dashboard.php:493
+#: admin/class-admin-dashboard.php:609 includes/class-pdf-generator.php:191
+msgid "Date"
+msgstr "Date"
+
+#: admin/class-admin-dashboard.php:233
+msgid "Aucune inscription trouvée."
+msgstr "No registration found."
+
+#: admin/class-admin-dashboard.php:264
+#, php-format
+msgid "%s éléments"
+msgstr "%s items"
+
+#: admin/class-admin-dashboard.php:279 public/class-public-verify.php:47
+msgid "Inscription introuvable"
+msgstr "Registration not found"
+
+#: admin/class-admin-dashboard.php:306 admin/class-admin-dashboard.php:326
+msgid "Plan de paiement"
+msgstr "Payment Plan"
+
+#: admin/class-admin-dashboard.php:317
+msgid "Actions"
+msgstr "Actions"
+
+#: admin/class-admin-dashboard.php:320
+msgid "Approuver"
+msgstr "Approve"
+
+#: admin/class-admin-dashboard.php:323
+msgid "Rejeter"
+msgstr "Reject"
+
+#: admin/class-admin-dashboard.php:329
+msgid "Annuler cette inscription?"
+msgstr "Cancel this registration?"
+
+#: admin/class-admin-dashboard.php:329
+msgid "Annulée par l'administrateur"
+msgstr "Cancelled by administrator"
+
+#: admin/class-admin-dashboard.php:329 admin/class-admin-dashboard.php:339
+#: admin/class-admin-dashboard.php:350
+msgid "Annuler"
+msgstr "Cancel"
+
+#: admin/class-admin-dashboard.php:335
+msgid "Raison du rejet"
+msgstr "Reason for Rejection"
+
+#: admin/class-admin-dashboard.php:336
+msgid "Ex: Groupe complet pour cette tranche d'âge, documents manquants..."
+msgstr "E.g.: Group full for this age range, missing documents..."
+
+#: admin/class-admin-dashboard.php:338
+msgid "Confirmer le rejet"
+msgstr "Confirm Rejection"
+
+#: admin/class-admin-dashboard.php:341
+msgid "Un courriel sera envoyé aux parents avec la raison du rejet."
+msgstr "An email will be sent to parents with the reason for rejection."
+
+#: admin/class-admin-dashboard.php:346
+msgid "Configuration du plan de paiement"
+msgstr "Payment Plan Configuration"
+
+#: admin/class-admin-dashboard.php:349
+msgid "Activer le plan"
+msgstr "Activate Plan"
+
+#: admin/class-admin-dashboard.php:352
+msgid ""
+"Ce statut est visible uniquement dans l'admin. Le parent ne voit pas de "
+"distinction — enregistrez les paiements partiels normalement."
+msgstr ""
+"This status is only visible in the admin. Parents do not see a distinction "
+"— record partial payments normally."
+
+#: admin/class-admin-dashboard.php:384 includes/class-pdf-generator.php:163
+#: templates/form-step-1.php:132 templates/form-step-1.php:167
+#: templates/pdf-fiche-medicale.php:32 templates/pdf-fiche-medicale.php:40
+#: templates/pdf-fiche-medicale.php:53 templates/pdf-sommaire.php:45
+msgid "Nom"
+msgstr "Last Name"
+
+#: admin/class-admin-dashboard.php:385 includes/class-export.php:33
+#: includes/class-pdf-generator.php:91 includes/class-pdf-generator.php:164
+#: includes/class-rest-api.php:460 templates/form-step-1.php:133
+#: templates/pdf-fiche-medicale.php:33 templates/pdf-sommaire.php:38
+msgid "Date de naissance"
+msgstr "Date of Birth"
+
+#: admin/class-admin-dashboard.php:386 includes/class-export.php:33
+#: includes/class-pdf-generator.php:167 templates/form-step-1.php:141
+#: templates/pdf-fiche-medicale.php:34 templates/pdf-sommaire.php:40
+msgid "Adresse"
+msgstr "Address"
+
+#: admin/class-admin-dashboard.php:390 includes/class-pdf-generator.php:170
+#: templates/form-step-1.php:161
+msgid "Parents / Tuteurs"
+msgstr "Parents / Guardians"
+
+#: admin/class-admin-dashboard.php:401 includes/class-pdf-generator.php:111
+#: includes/class-pdf-generator.php:178 includes/class-rest-api.php:481
+#: templates/form-step-1.php:185
+msgid "Contacts d'urgence"
+msgstr "Emergency Contacts"
+
+#: admin/class-admin-dashboard.php:413 admin/class-admin-dashboard.php:536
+#: includes/class-pdf-generator.php:117 includes/class-rest-api.php:431
+#: includes/class-rest-api.php:457 templates/form-step-1.php:118
+#: templates/form-step-1.php:213
+msgid "Fiche médicale"
+msgstr "Medical Form"
+
+#: admin/class-admin-dashboard.php:416 includes/class-pdf-generator.php:93
+#: includes/class-rest-api.php:461 templates/pdf-fiche-medicale.php:35
+msgid "Assurance maladie"
+msgstr "Health Insurance"
+
+#: admin/class-admin-dashboard.php:417 includes/class-pdf-generator.php:106
+#: includes/class-rest-api.php:476
+msgid "Attention particulière"
+msgstr "Special Attention"
+
+#: admin/class-admin-dashboard.php:418 includes/class-pdf-generator.php:105
+#: includes/class-rest-api.php:475
+msgid "Vaccins à jour"
+msgstr "Vaccinations Up to Date"
+
+#: admin/class-admin-dashboard.php:419 includes/class-pdf-generator.php:107
+#: includes/class-rest-api.php:477
+msgid "Limite physique"
+msgstr "Physical Limitation"
+
+#: admin/class-admin-dashboard.php:420 includes/class-pdf-generator.php:101
+#: includes/class-rest-api.php:471 templates/form-step-1.php:244
+#: templates/pdf-fiche-medicale.php:70
+msgid "Allergies alimentaires"
+msgstr "Food Allergies"
+
+#: admin/class-admin-dashboard.php:421 includes/class-pdf-generator.php:102
+#: includes/class-rest-api.php:472 templates/pdf-fiche-medicale.php:71
+msgid "Allergies médicament"
+msgstr "Medication Allergies"
+
+#: admin/class-admin-dashboard.php:422 templates/pdf-fiche-medicale.php:69
+#: templates/pdf-sommaire.php:77
+msgid "Médicaments"
+msgstr "Medications"
+
+#: admin/class-admin-dashboard.php:425
+msgid "Voir la fiche complète (HTML)"
+msgstr "View Full Form (HTML)"
+
+#: admin/class-admin-dashboard.php:430
+msgid "Vérification requise pour accéder aux données médicales"
+msgstr "Verification required to access medical data"
+
+#: admin/class-admin-dashboard.php:432
+msgid "Envoyer le code de vérification"
+msgstr "Send Verification Code"
+
+#: admin/class-admin-dashboard.php:434
+msgid "Un code à 6 chiffres a été envoyé à votre courriel."
+msgstr "A 6-digit code has been sent to your email."
+
+#: admin/class-admin-dashboard.php:436
+msgid "Vérifier"
+msgstr "Verify"
+
+#: admin/class-admin-dashboard.php:440
+msgid "Cet accès sera journalisé conformément à la Loi 25."
+msgstr "This access will be logged in accordance with Loi 25."
+
+#: admin/class-admin-dashboard.php:477
+msgid "Vous n'avez pas accès aux données médicales."
+msgstr "You do not have access to medical data."
+
+#: admin/class-admin-dashboard.php:478
+msgid "Contactez un administrateur pour obtenir les permissions nécessaires."
+msgstr "Contact an administrator to obtain the necessary permissions."
+
+#: admin/class-admin-dashboard.php:486
+msgid "Total dû:"
+msgstr "Total Due:"
+
+#: admin/class-admin-dashboard.php:487
+msgid "Reçu:"
+msgstr "Received:"
+
+#: admin/class-admin-dashboard.php:488
+msgid "Solde:"
+msgstr "Balance:"
+
+#: admin/class-admin-dashboard.php:493 includes/class-pdf-generator.php:191
+msgid "Mode"
+msgstr "Method"
+
+#: admin/class-admin-dashboard.php:493 includes/class-daily-digest.php:245
+#: includes/class-pdf-generator.php:191
+msgid "Montant"
+msgstr "Amount"
+
+#: admin/class-admin-dashboard.php:493
+msgid "Par"
+msgstr "By"
+
+#: admin/class-admin-dashboard.php:493
+msgid "Note"
+msgstr "Note"
+
+#: admin/class-admin-dashboard.php:510
+msgid "Enregistrer un paiement"
+msgstr "Record a Payment"
+
+#: admin/class-admin-dashboard.php:523
+msgid "Note (optionnel)"
+msgstr "Note (optional)"
+
+#: admin/class-admin-dashboard.php:524
+msgid "Enregistrer"
+msgstr "Save"
+
+#: admin/class-admin-dashboard.php:532
+msgid "Documents"
+msgstr "Documents"
+
+#: admin/class-admin-dashboard.php:537
+msgid "Acceptation risques"
+msgstr "Risk Acceptance"
+
+#: admin/class-admin-dashboard.php:538
+msgid "Sommaire + QR"
+msgstr "Summary + QR"
+
+#: admin/class-admin-dashboard.php:543
+msgid "Code QR de vérification"
+msgstr "Verification QR Code"
+
+#: admin/class-admin-dashboard.php:548 templates/form-step-1.php:343
+msgid "Télécharger le QR"
+msgstr "Download QR"
+
+#: admin/class-admin-dashboard.php:549 includes/class-rest-api.php:454
+#: templates/form-step-1.php:344
+msgid "Imprimer"
+msgstr "Print"
+
+#: admin/class-admin-dashboard.php:606
+msgid "Journal d'accès (Loi 25)"
+msgstr "Access Log (Loi 25)"
+
+#: admin/class-admin-dashboard.php:607
+msgid "Les 100 derniers accès aux données personnelles."
+msgstr "The last 100 accesses to personal data."
+
+#: admin/class-admin-dashboard.php:609
+msgid "Utilisateur"
+msgstr "User"
+
+#: admin/class-admin-dashboard.php:609
+msgid "Action"
+msgstr "Action"
+
+#: admin/class-admin-dashboard.php:609
+msgid "Inscription"
+msgstr "Registration"
+
+#: admin/class-admin-dashboard.php:609
+msgid "IP"
+msgstr "IP"
+
+#: admin/class-admin-dashboard.php:609
+msgid "Détails"
+msgstr "Details"
+
+#: admin/class-admin-dashboard.php:614
+msgid "Anonyme"
+msgstr "Anonymous"
+
+#: admin/class-admin-dashboard.php:631
+msgid "Nonce invalide"
+msgstr "Invalid Nonce"
+
+#: admin/class-admin-dashboard.php:634
+msgid "Permission refusée"
+msgstr "Permission Denied"
+
+#: admin/class-admin-settings.php:46
+msgid "Réglages — Plugin d'inscription"
+msgstr "Settings — Registration Plugin"
+
+#: admin/class-admin-settings.php:52
+msgid "Année scoute active"
+msgstr "Active Scout Year"
+
+#: admin/class-admin-settings.php:54
+msgid "Laisser vide pour calcul automatique (sept-août)."
+msgstr "Leave empty for automatic calculation (Sept-Aug)."
+
+#: admin/class-admin-settings.php:57
+msgid "Courriel générique du groupe"
+msgstr "Group Generic Email"
+
+#: admin/class-admin-settings.php:59
+msgid ""
+"Utilisé comme adresse d'expéditeur pour tous les courriels (confirmations, "
+"rejets, MFA, rappels) et comme adresse de contact dans les messages aux "
+"parents."
+msgstr ""
+"Used as the sender address for all emails (confirmations, rejections, MFA, "
+"reminders) and as the contact address in messages to parents."
+
+#: admin/class-admin-settings.php:62
+msgid "Responsable vie privée (Loi 25)"
+msgstr "Privacy Officer (Loi 25)"
+
+#: admin/class-admin-settings.php:66
+msgid "Rétention données (années)"
+msgstr "Data Retention (years)"
+
+#: admin/class-admin-settings.php:68
+msgid ""
+"Nombre d'années après la fin de l'année scoute avant la suppression "
+"automatique des données personnelles."
+msgstr ""
+"Number of years after the end of the scout year before automatic deletion "
+"of personal data."
+
+#: admin/class-admin-settings.php:72
+msgid "Tarification par unité et par année"
+msgstr "Pricing by Unit and Year"
+
+#: admin/class-admin-settings.php:73
+msgid ""
+"Définissez les prix pour chaque unité par année scoute. L'année active est "
+"utilisée pour les nouvelles inscriptions."
+msgstr ""
+"Set prices for each unit per scout year. The active year is used for new "
+"registrations."
+
+#: admin/class-admin-settings.php:94
+msgid "Année"
+msgstr "Year"
+
+#: admin/class-admin-settings.php:116
+msgid "Ajouter une année"
+msgstr "Add a Year"
+
+#: admin/class-admin-settings.php:133 admin/class-admin-settings.php:181
+msgid "Sauvegarder les réglages"
+msgstr "Save Settings"
+
+#: admin/class-admin-settings.php:135
+msgid "Accès aux données médicales (Loi 25)"
+msgstr "Access to Medical Data (Loi 25)"
+
+#: admin/class-admin-settings.php:138
+msgid "Qui peut voir les fiches médicales?"
+msgstr "Who can view medical forms?"
+
+#: admin/class-admin-settings.php:143
+msgid "Administrateur"
+msgstr "Administrator"
+
+#: admin/class-admin-settings.php:144 includes/class-activator.php:138
+msgid "Animateur scout"
+msgstr "Scout Leader"
+
+#: admin/class-admin-settings.php:145 includes/class-activator.php:146
+msgid "Trésorier scout"
+msgstr "Scout Treasurer"
+
+#: admin/class-admin-settings.php:154
+msgid ""
+"Seuls les utilisateurs avec ces rôles ET le MFA activé pourront accéder aux "
+"données médicales."
+msgstr ""
+"Only users with these roles AND MFA enabled will be able to access medical "
+"data."
+
+#: admin/class-admin-settings.php:158
+msgid "Exiger la vérification MFA"
+msgstr "Require MFA Verification"
+
+#: admin/class-admin-settings.php:162
+msgid ""
+"Oui — les utilisateurs doivent confirmer un code par courriel avant de voir "
+"les données médicales"
+msgstr ""
+"Yes — users must confirm a code by email before viewing medical data"
+
+#: admin/class-admin-settings.php:164
+msgid ""
+"Un code à 6 chiffres est envoyé par courriel. Valide pendant la durée "
+"choisie. Chaque accès est journalisé (Loi 25)."
+msgstr ""
+"A 6-digit code is sent by email. Valid for the chosen duration. Each access "
+"is logged (Loi 25)."
+
+#: admin/class-admin-settings.php:168
+msgid "Durée de la session MFA"
+msgstr "MFA Session Duration"
+
+#: admin/class-admin-settings.php:172
+msgid "5 minutes"
+msgstr "5 minutes"
+
+#: admin/class-admin-settings.php:173
+msgid "15 minutes"
+msgstr "15 minutes"
+
+#: admin/class-admin-settings.php:174
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: admin/class-admin-settings.php:175
+msgid "1 heure"
+msgstr "1 hour"
+
+#: admin/class-admin-settings.php:186
+msgid "Rapport quotidien automatique"
+msgstr "Automatic Daily Report"
+
+#: admin/class-admin-settings.php:187
+msgid ""
+"Un courriel récapitulatif est envoyé chaque jour aux destinataires "
+"configurés. Il résume les nouvelles inscriptions, paiements et revenus."
+msgstr ""
+"A summary email is sent daily to configured recipients. It summarizes new "
+"registrations, payments, and revenue."
+
+#: admin/class-admin-settings.php:200
+msgid "Activer le rapport quotidien"
+msgstr "Enable Daily Report"
+
+#: admin/class-admin-settings.php:204
+msgid "Envoyer un rapport chaque jour"
+msgstr "Send a report every day"
+
+#: admin/class-admin-settings.php:209
+msgid "Heure d'envoi"
+msgstr "Send Time"
+
+#: admin/class-admin-settings.php:212
+#, php-format
+msgid "Fuseau horaire du serveur WordPress (%s)"
+msgstr "WordPress server timezone (%s)"
+
+#: admin/class-admin-settings.php:216
+msgid "Destinataires"
+msgstr "Recipients"
+
+#: admin/class-admin-settings.php:242
+msgid "Rechercher un utilisateur…"
+msgstr "Search for a user…"
+
+#: admin/class-admin-settings.php:251
+msgid "Aucun utilisateur trouvé."
+msgstr "No user found."
+
+#: admin/class-admin-settings.php:272
+msgid ""
+"Cochez les utilisateurs qui recevront le rapport quotidien. Seuls les "
+"administrateurs, animateurs, trésoriers et éditeurs sont listés."
+msgstr ""
+"Check the users who will receive the daily report. Only administrators, "
+"leaders, treasurers, and editors are listed."
+
+#: admin/class-admin-settings.php:276
+msgid "Sections à inclure"
+msgstr "Sections to Include"
+
+#: admin/class-admin-settings.php:282
+msgid "Résumé global"
+msgstr "Global Summary"
+
+#: admin/class-admin-settings.php:282
+msgid "Total inscriptions, approuvées, en attente, par unité"
+msgstr "Total registrations, approved, pending, by unit"
+
+#: admin/class-admin-settings.php:283
+msgid "Nouvelles inscriptions"
+msgstr "New Registrations"
+
+#: admin/class-admin-settings.php:283
+msgid "Liste des inscriptions reçues dans les dernières 24h"
+msgstr "List of registrations received in the last 24 hours"
+
+#: admin/class-admin-settings.php:284
+msgid "Changements de statut"
+msgstr "Status Changes"
+
+#: admin/class-admin-settings.php:284
+msgid "Inscriptions dont le statut a changé (approuvée, rejetée, etc.)"
+msgstr "Registrations whose status has changed (approved, rejected, etc.)"
+
+#: admin/class-admin-settings.php:285
+msgid "Paiements reçus"
+msgstr "Payments Received"
+
+#: admin/class-admin-settings.php:285
+msgid "Détail des paiements enregistrés dans les dernières 24h"
+msgstr "Details of payments recorded in the last 24 hours"
+
+#: admin/class-admin-settings.php:286
+msgid "Revenus & impayés"
+msgstr "Revenue & Unpaid"
+
+#: admin/class-admin-settings.php:286
+msgid "Total attendu, reçu et solde impayé"
+msgstr "Total expected, received, and unpaid balance"
+
+#: admin/class-admin-settings.php:300
+msgid "Sauvegarder les réglages du rapport"
+msgstr "Save Report Settings"
+
+#: admin/class-admin-settings.php:305
+msgid "Tester l'envoi"
+msgstr "Test Send"
+
+#: admin/class-admin-settings.php:311
+#, php-format
+msgid "Dernier envoi : %s"
+msgstr "Last sent: %s"
+
+#: admin/class-admin-settings.php:314
+#, php-format
+msgid "Prochain envoi prévu : %s"
+msgstr "Next scheduled send: %s"
+
+#: admin/class-admin-settings.php:316
+msgid ""
+"Le cron n'est pas programmé. Désactivez puis réactivez le rapport ou "
+"sauvegardez les réglages."
+msgstr ""
+"The cron is not scheduled. Disable then re-enable the report or save the "
+"settings."
+
+#: admin/class-admin-settings.php:320
+msgid "Envoyer un courriel test maintenant aux destinataires configurés?"
+msgstr "Send a test email now to configured recipients?"
+
+#: admin/class-admin-settings.php:320
+msgid "Envoyer un test maintenant"
+msgstr "Send a test now"
+
+#: admin/class-admin-settings.php:321
+msgid "Envoie le rapport avec les données actuelles à tous les destinataires."
+msgstr "Sends the report with current data to all recipients."
+
+#: includes/class-daily-digest.php:176
+msgid "Rapport quotidien — Inscriptions"
+msgstr "Daily Report — Registrations"
+
+#: includes/class-daily-digest.php:185
+#, php-format
+msgid "Résumé — %s"
+msgstr "Summary — %s"
+
+#: includes/class-daily-digest.php:187
+msgid "Total inscriptions actives"
+msgstr "Total Active Registrations"
+
+#: includes/class-daily-digest.php:189
+msgid "En attente de traitement"
+msgstr "Pending Processing"
+
+#: includes/class-daily-digest.php:190
+msgid "Par unité:"
+msgstr "By Unit:"
+
+#: includes/class-daily-digest.php:201
+msgid "Nouvelles inscriptions (dernières 24h)"
+msgstr "New Registrations (last 24h)"
+
+#: includes/class-daily-digest.php:203
+msgid "Aucune nouvelle inscription."
+msgstr "No new registrations."
+
+#: includes/class-daily-digest.php:206 includes/class-daily-digest.php:226
+#: includes/class-daily-digest.php:245
+msgid "Réf"
+msgstr "Ref"
+
+#: includes/class-daily-digest.php:221
+msgid "Changements de statut (dernières 24h)"
+msgstr "Status Changes (last 24h)"
+
+#: includes/class-daily-digest.php:223
+msgid "Aucun changement."
+msgstr "No changes."
+
+#: includes/class-daily-digest.php:226
+msgid "Statut actuel"
+msgstr "Current Status"
+
+#: includes/class-daily-digest.php:240
+msgid "Paiements reçus (dernières 24h)"
+msgstr "Payments Received (last 24h)"
+
+#: includes/class-daily-digest.php:242
+msgid "Aucun nouveau paiement."
+msgstr "No new payments."
+
+#: includes/class-daily-digest.php:245
+msgid "Méthode"
+msgstr "Method"
+
+#: includes/class-daily-digest.php:256 includes/class-daily-digest.php:268
+msgid "Total reçu"
+msgstr "Total Received"
+
+#: includes/class-daily-digest.php:265
+msgid "Revenus — Solde"
+msgstr "Revenue — Balance"
+
+#: includes/class-daily-digest.php:267
+msgid "Total attendu"
+msgstr "Total Expected"
+
+#: includes/class-daily-digest.php:276
+msgid "Ouvrir le tableau de bord"
+msgstr "Open Dashboard"
+
+#: includes/class-daily-digest.php:277
+msgid ""
+"Ce courriel est envoyé automatiquement chaque jour. Vous pouvez modifier les "
+"destinataires et les sections dans Réglages."
+msgstr ""
+"This email is sent automatically every day. You can modify the recipients "
+"and sections in Settings."
+
+#: includes/class-daily-digest.php:308
+#, php-format
+msgid "Rapport inscriptions — %s"
+msgstr "Registration Report — %s"
+
+#: includes/class-daily-digest.php:371
+#, php-format
+msgid "[TEST] Rapport inscriptions — %s"
+msgstr "[TEST] Registration Report — %s"
+
+#: includes/class-email-handler.php:19
+#, php-format
+msgid "[5e Grand-Moulin] Confirmation d'inscription — %1$s %2$s (%3$s)"
+msgstr "[5e Grand-Moulin] Registration Confirmation — %1$s %2$s (%3$s)"
+
+#: includes/class-email-handler.php:63
+#, php-format
+msgid "[5e Grand-Moulin] Rappel de paiement — %1$s (%2$s)"
+msgstr "[5e Grand-Moulin] Payment Reminder — %1$s (%2$s)"
+
+#: includes/class-email-handler.php:105
+msgid "Inscription payée en totalité"
+msgstr "Registration paid in full"
+
+#: includes/class-email-handler.php:105
+#, php-format
+msgid "Solde restant : %s $"
+msgstr "Remaining balance: %s $"
+
+#: includes/class-email-handler.php:110
+#, php-format
+msgid "[5e Grand-Moulin] Paiement reçu — %s"
+msgstr "[5e Grand-Moulin] Payment Received — %s"
+
+#: includes/class-email-handler.php:163
+#, php-format
+msgid "Inscription %s — Information importante"
+msgstr "Registration %s — Important Information"
+
+#: includes/class-export.php:32 includes/class-pdf-generator.php:147
+#: includes/class-pdf-generator.php:166 templates/email-confirmation.php:26
+msgid "Année scoute"
+msgstr "Scout Year"
+
+#: includes/class-export.php:32
+msgid "Prénom enfant"
+msgstr "Child First Name"
+
+#: includes/class-export.php:32
+msgid "Nom enfant"
+msgstr "Child Last Name"
+
+#: includes/class-export.php:33 templates/form-step-1.php:135
+#: templates/pdf-fiche-medicale.php:33
+msgid "Sexe"
+msgstr "Sex"
+
+#: includes/class-export.php:33 templates/form-step-1.php:142
+msgid "Ville"
+msgstr "City"
+
+#: includes/class-export.php:33 templates/form-step-1.php:143
+msgid "Code postal"
+msgstr "Postal Code"
+
+#: includes/class-export.php:34
+msgid "Parent 1 - Nom"
+msgstr "Parent 1 - Name"
+
+#: includes/class-export.php:34
+msgid "Parent 1 - Téléphone"
+msgstr "Parent 1 - Phone"
+
+#: includes/class-export.php:34
+msgid "Parent 1 - Courriel"
+msgstr "Parent 1 - Email"
+
+#: includes/class-export.php:35
+msgid "Contact urgence"
+msgstr "Emergency Contact"
+
+#: includes/class-export.php:35
+msgid "Téléphone urgence"
+msgstr "Emergency Phone"
+
+#: includes/class-export.php:36
+msgid "Statut paiement"
+msgstr "Payment Status"
+
+#: includes/class-export.php:36 templates/pdf-sommaire.php:59
+msgid "Total dû"
+msgstr "Total Due"
+
+#: includes/class-export.php:37
+msgid "Statut inscription"
+msgstr "Registration Status"
+
+#: includes/class-export.php:37
+msgid "Date inscription"
+msgstr "Registration Date"
+
+#: includes/class-form-handler.php:34
+#, php-format
+msgid ""
+"Une inscription existe déjà pour cet enfant cette année (réf: %s). Si vous "
+"souhaitez modifier l'inscription, veuillez contacter le groupe."
+msgstr ""
+"A registration already exists for this child this year (ref: %s). If you "
+"wish to modify the registration, please contact the group."
+
+#: includes/class-form-handler.php:104
+msgid "Erreur lors de la création de l'inscription."
+msgstr "Error creating the registration."
+
+#: includes/class-form-handler.php:192
+msgid "Le prénom de l'enfant est requis."
+msgstr "The child's first name is required."
+
+#: includes/class-form-handler.php:193
+msgid "Le nom de l'enfant est requis."
+msgstr "The child's last name is required."
+
+#: includes/class-form-handler.php:194
+msgid "La date de naissance est requise."
+msgstr "The date of birth is required."
+
+#: includes/class-form-handler.php:195
+msgid "L'unité est requise."
+msgstr "The unit is required."
+
+#: includes/class-form-handler.php:199
+msgid "Au moins un parent/tuteur est requis."
+msgstr "At least one parent/guardian is required."
+
+#: includes/class-form-handler.php:204
+msgid "Au moins un contact d'urgence est requis."
+msgstr "At least one emergency contact is required."
+
+#: includes/class-form-handler.php:209
+msgid "La signature d'acceptation des risques est requise."
+msgstr "The risk acceptance signature is required."
+
+#: includes/class-form-handler.php:213
+msgid "Le consentement à la collecte de données est requis."
+msgstr "Consent to data collection is required."
+
+#: includes/class-form-handler.php:214
+msgid "Le consentement à l'acceptation de risques est requis."
+msgstr "Consent to risk acceptance is required."
+
+#: includes/class-form-handler.php:215
+msgid "L'acceptation des conditions est requise."
+msgstr "Acceptance of terms is required."
+
+#: includes/class-form-handler.php:216
+msgid "L'acceptation de la politique de confidentialité est requise."
+msgstr "Acceptance of the privacy policy is required."
+
+#: includes/class-mfa.php:61
+msgid "Code de vérification — Accès données médicales"
+msgstr "Verification Code — Medical Data Access"
+
+#: includes/class-mfa.php:87
+msgid "Non connecté."
+msgstr "Not logged in."
+
+#: includes/class-mfa.php:93
+msgid "Trop de tentatives. Demandez un nouveau code."
+msgstr "Too many attempts. Request a new code."
+
+#: includes/class-mfa.php:99
+msgid "Code expiré. Demandez un nouveau code."
+msgstr "Code expired. Request a new code."
+
+#: includes/class-mfa.php:109
+#, php-format
+msgid "Code incorrect. %d tentatives restantes."
+msgstr "Incorrect code. %d attempts remaining."
+
+#: includes/class-pdf-generator.php:16 includes/class-rest-api.php:182
+#: includes/class-rest-api.php:216 includes/class-rest-api.php:262
+#: includes/class-rest-api.php:314 includes/class-rest-api.php:421
+#: includes/class-rest-api.php:498 scout-inscription.php:228
+msgid "Inscription introuvable."
+msgstr "Registration not found."
+
+#: includes/class-pdf-generator.php:16 includes/class-pdf-generator.php:33
+#: includes/class-rest-api.php:314 scout-inscription.php:228
+msgid "Erreur"
+msgstr "Error"
+
+#: includes/class-pdf-generator.php:33
+msgid "Type de document inconnu."
+msgstr "Unknown document type."
+
+#: includes/class-pdf-generator.php:89
+msgid "Identification"
+msgstr "Identification"
+
+#: includes/class-pdf-generator.php:97
+msgid "ALLERGIES DÉCLARÉES — Voir détails ci-dessous"
+msgstr "DECLARED ALLERGIES — See details below"
+
+#: includes/class-pdf-generator.php:100
+msgid "Informations médicales"
+msgstr "Medical Information"
+
+#: includes/class-pdf-generator.php:101 includes/class-pdf-generator.php:102
+#: includes/class-rest-api.php:471 includes/class-rest-api.php:472
+msgid "Aucune"
+msgstr "None"
+
+#: includes/class-pdf-generator.php:103 includes/class-rest-api.php:473
+msgid "Médicaments / posologie"
+msgstr "Medications / Dosage"
+
+#: includes/class-pdf-generator.php:104 includes/class-rest-api.php:474
+#: templates/pdf-fiche-medicale.php:72
+msgid "Restrictions alimentaires"
+msgstr "Dietary Restrictions"
+
+#: includes/class-pdf-generator.php:108 includes/class-rest-api.php:478
+#: templates/pdf-fiche-medicale.php:64
+msgid "Commentaires"
+msgstr "Comments"
+
+#: includes/class-pdf-generator.php:123 includes/class-pdf-generator.php:150
+#: templates/form-step-1.php:257 templates/pdf-acceptation-risque.php:19
+msgid "Acceptation des risques"
+msgstr "Risk Acceptance"
+
+#: includes/class-pdf-generator.php:135
+msgid "Signature"
+msgstr "Signature"
+
+#: includes/class-pdf-generator.php:141
+msgid "Signature non disponible"
+msgstr "Signature not available"
+
+#: includes/class-pdf-generator.php:185
+msgid "Total"
+msgstr "Total"
+
+#: includes/class-pdf-generator.php:213 templates/pdf-sommaire.php:22
+msgid "Sommaire d'inscription"
+msgstr "Registration Summary"
+
+#: includes/class-rest-api.php:133
+msgid "Nonce invalide."
+msgstr "Invalid nonce."
+
+#: includes/class-rest-api.php:144
+msgid "Inscription complétée avec succès!"
+msgstr "Registration completed successfully!"
+
+#: includes/class-rest-api.php:164
+msgid "Trop de tentatives. Réessayez dans une heure."
+msgstr "Too many attempts. Try again in one hour."
+
+#: includes/class-rest-api.php:170
+msgid "Paramètres manquants."
+msgstr "Missing parameters."
+
+#: includes/class-rest-api.php:176
+msgid "Code QR invalide."
+msgstr "Invalid QR code."
+
+#: includes/class-rest-api.php:189 templates/pdf-sommaire.php:64
+msgid "Acompte reçu"
+msgstr "Deposit received"
+
+#: includes/class-rest-api.php:195
+msgid "Cette inscription est un doublon. Vérifiez l'inscription principale."
+msgstr "This registration is a duplicate. Check the main registration."
+
+#: includes/class-rest-api.php:269
+msgid "Erreur lors de l'enregistrement du paiement."
+msgstr "Error recording the payment."
+
+#: includes/class-rest-api.php:292
+msgid "Export non disponible."
+msgstr "Export not available."
+
+#: includes/class-rest-api.php:300
+#, php-format
+msgid "Veuillez vous connecter pour accéder à ce document. %s"
+msgstr "Please log in to access this document. %s"
+
+#: includes/class-rest-api.php:300
+msgid "Se connecter"
+msgstr "Log In"
+
+#: includes/class-rest-api.php:301
+msgid "Connexion requise"
+msgstr "Login Required"
+
+#: includes/class-rest-api.php:306
+msgid "Vous n'avez pas les permissions nécessaires pour accéder à ce document."
+msgstr "You do not have the necessary permissions to access this document."
+
+#: includes/class-rest-api.php:306 scout-inscription.php:223
+msgid "Accès refusé"
+msgstr "Access Denied"
+
+#: includes/class-rest-api.php:347 includes/class-rest-api.php:358
+#: includes/class-rest-api.php:373 includes/class-rest-api.php:530
+msgid "Introuvable."
+msgstr "Not found."
+
+#: includes/class-rest-api.php:350
+msgid "Inscription approuvée."
+msgstr "Registration approved."
+
+#: includes/class-rest-api.php:365
+msgid "Inscription rejetée."
+msgstr "Registration rejected."
+
+#: includes/class-rest-api.php:376
+msgid "Plan de paiement activé."
+msgstr "Payment plan activated."
+
+#: includes/class-rest-api.php:382 includes/class-rest-api.php:646
+msgid "Accès refusé."
+msgstr "Access denied."
+
+#: includes/class-rest-api.php:386
+msgid "Code envoyé par courriel."
+msgstr "Code sent by email."
+
+#: includes/class-rest-api.php:388 includes/class-rest-api.php:586
+msgid "Erreur d'envoi du courriel."
+msgstr "Error sending email."
+
+#: includes/class-rest-api.php:395
+msgid "Code requis."
+msgstr "Code required."
+
+#: includes/class-rest-api.php:455
+msgid "Retour"
+msgstr "Back"
+
+#: includes/class-rest-api.php:467
+msgid "ALLERGIES DÉCLARÉES"
+msgstr "DECLARED ALLERGIES"
+
+#: includes/class-rest-api.php:470 public/class-public-verify.php:96
+msgid "Santé"
+msgstr "Health"
+
+#: includes/class-rest-api.php:476 includes/class-rest-api.php:477
+#: templates/form-step-1.php:203 templates/form-step-1.php:222
+#: templates/form-step-1.php:228 templates/form-step-1.php:233
+msgid "Oui"
+msgstr "Yes"
+
+#: includes/class-rest-api.php:476 includes/class-rest-api.php:477
+#: templates/form-step-1.php:203 templates/form-step-1.php:223
+#: templates/form-step-1.php:229 templates/form-step-1.php:234
+msgid "Non"
+msgstr "No"
+
+#: includes/class-rest-api.php:495
+msgid "Numéro de référence requis."
+msgstr "Reference number required."
+
+#: includes/class-rest-api.php:514
+msgid "Aucun courriel associé à cette inscription."
+msgstr "No email associated with this registration."
+
+#: includes/class-rest-api.php:527
+msgid "Référence requise."
+msgstr "Reference required."
+
+#: includes/class-rest-api.php:544
+msgid "Table famille manquante. Désactivez et réactivez le plugin."
+msgstr "Family table missing. Deactivate and reactivate the plugin."
+
+#: includes/class-rest-api.php:557
+msgid "Aucun courriel trouvé."
+msgstr "No email found."
+
+#: includes/class-rest-api.php:564
+msgid "Erreur de création."
+msgstr "Creation error."
+
+#: includes/class-rest-api.php:590
+msgid "Lien envoyé par courriel."
+msgstr "Link sent by email."
+
+#: includes/class-rest-api.php:597 includes/class-rest-api.php:642
+msgid "Lien invalide."
+msgstr "Invalid link."
+
+#: public/class-public-family.php:28 public/class-public-family.php:59
+msgid "Tableau de bord familial"
+msgstr "Family Dashboard"
+
+#: public/class-public-family.php:29
+msgid ""
+"Gérez les inscriptions de vos enfants, renouvelez ou inscrivez un nouveau "
+"membre."
+msgstr ""
+"Manage your children's registrations, renew, or register a new member."
+
+#: public/class-public-family.php:32
+msgid "Accéder à votre dossier"
+msgstr "Access Your File"
+
+#: public/class-public-family.php:39
+msgid "Rechercher"
+msgstr "Search"
+
+#: public/class-public-family.php:46
+msgid ""
+"Vous n'avez pas votre numéro de référence? Vérifiez le courriel de "
+"confirmation reçu lors de l'inscription."
+msgstr ""
+"Don't have your reference number? Check the confirmation email received "
+"during registration."
+
+#: public/class-public-family.php:55
+msgid "Chargement de votre dossier familial..."
+msgstr "Loading your family file..."
+
+#: public/class-public-family.php:60
+msgid "Inscrire un nouvel enfant"
+msgstr "Register a New Child"
+
+#: public/class-public-verify.php:13
+msgid "Paramètres manquants"
+msgstr "Missing Parameters"
+
+#: public/class-public-verify.php:14
+msgid ""
+"Ce lien ne contient pas les paramètres nécessaires. Veuillez scanner le code "
+"QR fourni avec l'inscription."
+msgstr ""
+"This link does not contain the required parameters. Please scan the QR code "
+"provided with the registration."
+
+#: public/class-public-verify.php:28
+msgid "Trop de tentatives"
+msgstr "Too Many Attempts"
+
+#: public/class-public-verify.php:29
+msgid "Vous avez atteint la limite de vérifications. Réessayez dans une heure."
+msgstr "You have reached the verification limit. Try again in one hour."
+
+#: public/class-public-verify.php:38
+msgid "Code QR invalide"
+msgstr "Invalid QR Code"
+
+#: public/class-public-verify.php:39
+msgid ""
+"Ce code QR ne correspond à aucune inscription valide. Il a peut-être expiré "
+"ou été altéré."
+msgstr ""
+"This QR code does not match any valid registration. It may have expired or "
+"been tampered with."
+
+#: public/class-public-verify.php:68
+msgid "Inscription vérifiée"
+msgstr "Registration Verified"
+
+#: public/class-public-verify.php:78
+#, php-format
+msgid "Né(e) le %s"
+msgstr "Born on %s"
+
+#: public/class-public-verify.php:87
+#, php-format
+msgid "Reçu : %1$s $ / %2$s $"
+msgstr "Received: %1$s $ / %2$s $"
+
+#: public/class-public-verify.php:89
+#, php-format
+msgid "Solde : %s $"
+msgstr "Balance: %s $"
+
+#: public/class-public-verify.php:102
+msgid "Allergies :"
+msgstr "Allergies:"
+
+#: public/class-public-verify.php:104
+msgid "Aucune allergie déclarée"
+msgstr "No declared allergies"
+
+#: public/class-public-verify.php:107
+msgid "Médicaments :"
+msgstr "Medications:"
+
+#: public/class-public-verify.php:110
+msgid "Attention :"
+msgstr "Attention:"
+
+#: public/class-public-verify.php:116 templates/pdf-sommaire.php:48
+msgid "Urgence"
+msgstr "Emergency"
+
+#: public/class-public-verify.php:134
+msgid "Zone administrateur — Réimprimer pour un parent"
+msgstr "Administrator Zone — Reprint for a parent"
+
+#: public/class-public-verify.php:142
+msgid "Imprimer la confirmation avec QR"
+msgstr "Print Confirmation with QR"
+
+#: public/class-public-verify.php:171
+msgid "Cet accès est enregistré dans le journal (Loi 25)."
+msgstr "This access is recorded in the log (Loi 25)."
+
+#: scout-inscription.php:95
+msgid "Courriel test envoyé avec succès!"
+msgstr "Test email sent successfully!"
+
+#: scout-inscription.php:97
+msgid "Échec d'envoi. Vérifiez les destinataires."
+msgstr "Send failed. Check the recipients."
+
+#: scout-inscription.php:223
+msgid "Vous n'avez pas les permissions nécessaires."
+msgstr "You do not have the necessary permissions."
+
+#: scout-inscription.php:238
+msgid "Inscriptions — Vue d'ensemble"
+msgstr "Registrations — Overview"
+
+#: scout-inscription.php:240
+msgid "Inscriptions par unité"
+msgstr "Registrations by Unit"
+
+#: scout-inscription.php:241
+msgid "Inscriptions récentes"
+msgstr "Recent Registrations"
+
+#: scout-inscription.php:244
+msgid "Revenus"
+msgstr "Revenue"
+
+#: scout-inscription.php:277
+#, php-format
+msgid "%d plan(s) de paiement actif(s)"
+msgstr "%d active payment plan(s)"
+
+#: scout-inscription.php:280
+msgid "Voir toutes les inscriptions"
+msgstr "View All Registrations"
+
+#: scout-inscription.php:298
+#, php-format
+msgid "%s%% payé"
+msgstr "%s%% paid"
+
+#: scout-inscription.php:366
+msgid "Aucune inscription."
+msgstr "No registrations."
+
+#: scout-inscription.php:383
+msgid "Voir tout"
+msgstr "View All"
+
+#: scout-inscription.php:397
+#, php-format
+msgid "reçu sur %s $ dû"
+msgstr "received of %s $ due"
+
+#: scout-inscription.php:400
+#, php-format
+msgid "%s%% collecté"
+msgstr "%s%% collected"
+
+#: scout-inscription.php:401
+#, php-format
+msgid "%s $ restant"
+msgstr "%s $ remaining"
+
+#: templates/email-confirmation.php:13
+msgid "Inscription confirmée!"
+msgstr "Registration Confirmed!"
+
+#: templates/email-confirmation.php:14
+#, php-format
+msgid "Bonjour %s,"
+msgstr "Hello %s,"
+
+#: templates/email-confirmation.php:15
+#, php-format
+msgid ""
+"L'inscription de %s au 5e Groupe scout Grand-Moulin a été complétée avec "
+"succès."
+msgstr ""
+"The registration of %s at 5e Groupe scout Grand-Moulin has been completed "
+"successfully."
+
+#: templates/email-confirmation.php:18
+msgid "Numéro de référence"
+msgstr "Reference Number"
+
+#: templates/email-confirmation.php:20
+msgid "Conservez ce numéro pour toute communication."
+msgstr "Keep this number for all communications."
+
+#: templates/email-confirmation.php:27
+msgid "Montant dû"
+msgstr "Amount Due"
+
+#: templates/email-confirmation.php:31
+msgid "Modes de paiement acceptés :"
+msgstr "Accepted payment methods:"
+
+#: templates/email-confirmation.php:33
+msgid "Virement Interac"
+msgstr "Interac e-Transfer"
+
+#: templates/email-confirmation.php:33
+msgid "à :"
+msgstr "to:"
+
+#: templates/email-confirmation.php:34
+msgid "Chèque"
+msgstr "Cheque"
+
+#: templates/email-confirmation.php:34
+msgid "à l'ordre de : 5e Groupe scout Grand-Moulin"
+msgstr "payable to: 5e Groupe scout Grand-Moulin"
+
+#: templates/email-confirmation.php:35
+msgid "Comptant"
+msgstr "Cash"
+
+#: templates/email-confirmation.php:35
+msgid "lors d'une réunion"
+msgstr "at a meeting"
+
+#: templates/email-confirmation.php:37
+#, php-format
+msgid "Incluez votre numéro de référence %s dans votre virement Interac."
+msgstr "Include your reference number %s in your Interac e-Transfer."
+
+#: templates/email-confirmation.php:39
+msgid "Prochaines étapes"
+msgstr "Next Steps"
+
+#: templates/email-confirmation.php:40
+msgid "1. Conservez ce courriel et votre numéro de référence"
+msgstr "1. Keep this email and your reference number"
+
+#: templates/email-confirmation.php:41
+msgid "2. Effectuez le paiement"
+msgstr "2. Make the payment"
+
+#: templates/email-confirmation.php:42
+msgid "3. Vous recevrez les détails de la première réunion par courriel"
+msgstr "3. You will receive the details of the first meeting by email"
+
+#: templates/email-confirmation.php:44
+msgid "Bienvenue dans la famille scoute!"
+msgstr "Welcome to the Scouting family!"
+
+#: templates/email-confirmation.php:45
+msgid "L'équipe du 5e Groupe scout Grand-Moulin"
+msgstr "The 5e Groupe scout Grand-Moulin Team"
+
+#: templates/form-step-1.php:117
+msgid "Informations"
+msgstr "Information"
+
+#: templates/form-step-1.php:119
+msgid "Risques"
+msgstr "Risks"
+
+#: templates/form-step-1.php:120
+msgid "Consentements"
+msgstr "Consents"
+
+#: templates/form-step-1.php:121
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: templates/form-step-1.php:128
+msgid "Informations de l'enfant"
+msgstr "Child's Information"
+
+#: templates/form-step-1.php:131 templates/form-step-1.php:166
+#: templates/pdf-fiche-medicale.php:32
+msgid "Prénom"
+msgstr "First Name"
+
+#: templates/form-step-1.php:136
+msgid "Masculin"
+msgstr "Male"
+
+#: templates/form-step-1.php:136
+msgid "Féminin"
+msgstr "Female"
+
+#: templates/form-step-1.php:136
+msgid "Autre"
+msgstr "Other"
+
+#: templates/form-step-1.php:147
+msgid "Téléphone maison"
+msgstr "Home Phone"
+
+#: templates/form-step-1.php:151
+msgid "Sélectionner…"
+msgstr "Select…"
+
+#: templates/form-step-1.php:152
+msgid "Castors (7-8 ans)"
+msgstr "Beavers (7-8 yrs)"
+
+#: templates/form-step-1.php:153
+msgid "Louveteaux (9-11 ans)"
+msgstr "Cubs (9-11 yrs)"
+
+#: templates/form-step-1.php:154
+msgid "Éclaireurs (12-14 ans)"
+msgstr "Scouts (12-14 yrs)"
+
+#: templates/form-step-1.php:155
+msgid "Pionniers (14-17 ans)"
+msgstr "Venturers (14-17 yrs)"
+
+#: templates/form-step-1.php:164
+msgid "Parent / Tuteur 1"
+msgstr "Parent / Guardian 1"
+
+#: templates/form-step-1.php:164
+msgid "principal"
+msgstr "primary"
+
+#: templates/form-step-1.php:169 templates/form-step-1.php:192
+#: templates/pdf-fiche-medicale.php:40 templates/pdf-fiche-medicale.php:53
+#: templates/pdf-sommaire.php:45
+msgid "Lien"
+msgstr "Relationship"
+
+#: templates/form-step-1.php:170
+msgid "Père"
+msgstr "Father"
+
+#: templates/form-step-1.php:170
+msgid "Mère"
+msgstr "Mother"
+
+#: templates/form-step-1.php:170
+msgid "Tuteur"
+msgstr "Guardian"
+
+#: templates/form-step-1.php:174 templates/form-step-1.php:191
+#: templates/pdf-fiche-medicale.php:40 templates/pdf-fiche-medicale.php:53
+#: templates/pdf-sommaire.php:45
+msgid "Téléphone"
+msgstr "Phone"
+
+#: templates/form-step-1.php:175
+msgid "Cellulaire"
+msgstr "Cell Phone"
+
+#: templates/form-step-1.php:176 templates/pdf-fiche-medicale.php:40
+#: templates/pdf-sommaire.php:45
+msgid "Courriel"
+msgstr "Email"
+
+#: templates/form-step-1.php:178
+msgid "Responsable des finances"
+msgstr "Financial Contact"
+
+#: templates/form-step-1.php:181
+msgid "Ajouter un parent / tuteur"
+msgstr "Add a Parent / Guardian"
+
+#: templates/form-step-1.php:188
+msgid "Contact d'urgence 1"
+msgstr "Emergency Contact 1"
+
+#: templates/form-step-1.php:190 templates/pdf-sommaire.php:37
+msgid "Nom complet"
+msgstr "Full Name"
+
+#: templates/form-step-1.php:192
+msgid "Grand-parent, voisin…"
+msgstr "Grandparent, neighbour…"
+
+#: templates/form-step-1.php:196
+msgid "Ajouter un contact d'urgence"
+msgstr "Add an Emergency Contact"
+
+#: templates/form-step-1.php:200
+msgid "Date d'entrée dans le mouvement (année/mois)"
+msgstr "Date of entry into the movement (year/month)"
+
+#: templates/form-step-1.php:202
+msgid "Autres enfants dans le groupe?"
+msgstr "Other children in the group?"
+
+#: templates/form-step-1.php:205
+msgid "Si oui, nom et unité"
+msgstr "If yes, name and unit"
+
+#: templates/form-step-1.php:208 templates/form-step-1.php:251
+#: templates/form-step-1.php:284
+msgid "Suivant"
+msgstr "Next"
+
+#: templates/form-step-1.php:216
+msgid "No. assurance maladie"
+msgstr "Health Insurance No."
+
+#: templates/form-step-1.php:217 templates/pdf-fiche-medicale.php:35
+msgid "Expiration"
+msgstr "Expiry"
+
+#: templates/form-step-1.php:221 templates/pdf-fiche-medicale.php:61
+msgid "Attention particulière requise?"
+msgstr "Special attention required?"
+
+#: templates/form-step-1.php:224 templates/form-step-1.php:235
+msgid "Si oui, précisez…"
+msgstr "If yes, specify…"
+
+#: templates/form-step-1.php:227
+msgid "Les vaccins de l'enfant sont-ils à jour?"
+msgstr "Are the child's vaccinations up to date?"
+
+#: templates/form-step-1.php:232
+msgid "Les antécédents médicaux limitent-ils l'activité physique?"
+msgstr "Does the medical history limit physical activity?"
+
+#: templates/form-step-1.php:238
+msgid "Commentaires supplémentaires"
+msgstr "Additional Comments"
+
+#: templates/form-step-1.php:241 templates/pdf-fiche-medicale.php:67
+msgid "Allergies et médicaments"
+msgstr "Allergies and Medications"
+
+#: templates/form-step-1.php:243
+msgid "Médicaments et posologie"
+msgstr "Medications and Dosage"
+
+#: templates/form-step-1.php:245
+msgid "Allergies à un médicament"
+msgstr "Drug Allergies"
+
+#: templates/form-step-1.php:246
+msgid "Autres restrictions alimentaires"
+msgstr "Other Dietary Restrictions"
+
+#: templates/form-step-1.php:250 templates/form-step-1.php:283
+#: templates/form-step-1.php:329
+msgid "Précédent"
+msgstr "Previous"
+
+#: templates/form-step-1.php:259 templates/pdf-acceptation-risque.php:27
+msgid ""
+"Le scoutisme est une activité éducative qui comporte des risques inhérents, "
+"incluant sans s'y limiter :"
+msgstr ""
+"Scouting is an educational activity that involves inherent risks, including "
+"but not limited to:"
+
+#: templates/form-step-1.php:261 templates/pdf-acceptation-risque.php:30
+msgid "Activités de plein air (randonnée, camping, canot)"
+msgstr "Outdoor activities (hiking, camping, canoeing)"
+
+#: templates/form-step-1.php:262 templates/pdf-acceptation-risque.php:31
+msgid "Activités aquatiques"
+msgstr "Water activities"
+
+#: templates/form-step-1.php:263 templates/pdf-acceptation-risque.php:32
+msgid "Utilisation d'outils (couteaux, haches, scies)"
+msgstr "Use of tools (knives, axes, saws)"
+
+#: templates/form-step-1.php:264
+msgid "Préparation de repas sur feu"
+msgstr "Cooking over fire"
+
+#: templates/form-step-1.php:265 templates/pdf-acceptation-risque.php:34
+msgid "Transport en véhicule"
+msgstr "Vehicle transportation"
+
+#: templates/form-step-1.php:266 templates/pdf-acceptation-risque.php:35
+msgid "Exposition aux éléments naturels (froid, chaleur, insectes)"
+msgstr "Exposure to natural elements (cold, heat, insects)"
+
+#: templates/form-step-1.php:267 templates/pdf-acceptation-risque.php:36
+msgid "Activités sportives et physiques"
+msgstr "Sports and physical activities"
+
+#: templates/form-step-1.php:271 templates/pdf-acceptation-risque.php:43
+msgid ""
+"Je reconnais avoir été informé(e) des risques inhérents aux activités "
+"scoutes."
+msgstr ""
+"I acknowledge having been informed of the inherent risks of scouting "
+"activities."
+
+#: templates/form-step-1.php:272
+msgid ""
+"Je reconnais que malgré les mesures de sécurité, des accidents peuvent "
+"survenir."
+msgstr ""
+"I acknowledge that despite safety measures, accidents may occur."
+
+#: templates/form-step-1.php:273 templates/pdf-acceptation-risque.php:45
+msgid ""
+"J'autorise mon enfant à participer à toutes les activités du programme scout."
+msgstr ""
+"I authorize my child to participate in all activities of the scouting "
+"program."
+
+#: templates/form-step-1.php:274 templates/pdf-acceptation-risque.php:46
+msgid ""
+"En cas d'urgence, j'autorise les responsables à prendre les mesures "
+"nécessaires à la sauvegarde de la santé de mon jeune."
+msgstr ""
+"In case of emergency, I authorize the leaders to take the necessary measures "
+"to safeguard the health of my child."
+
+#: templates/form-step-1.php:277
+msgid "Signature électronique"
+msgstr "Electronic Signature"
+
+#: templates/form-step-1.php:277
+msgid "Tapez votre nom complet en guise de signature"
+msgstr "Type your full name as a signature"
+
+#: templates/form-step-1.php:278
+msgid "Ex: Marie Tremblay"
+msgstr "E.g.: Marie Tremblay"
+
+#: templates/form-step-1.php:279
+#, php-format
+msgid ""
+"En tapant votre nom, vous confirmez avoir lu et accepté les risques ci-"
+"dessus. Date : %s"
+msgstr ""
+"By typing your name, you confirm that you have read and accepted the risks "
+"above. Date: %s"
+
+#: templates/form-step-1.php:290
+msgid "Consentements (Loi 25 du Québec)"
+msgstr "Consents (Loi 25 of Quebec)"
+
+#: templates/form-step-1.php:291
+msgid ""
+"Conformément à la Loi 25 sur la protection des renseignements personnels, "
+"nous demandons votre consentement explicite pour chacun des éléments "
+"suivants :"
+msgstr ""
+"In accordance with Loi 25 on the protection of personal information, we "
+"request your explicit consent for each of the following:"
+
+#: templates/form-step-1.php:295
+msgid "Collecte et utilisation des données"
+msgstr "Data Collection and Use"
+
+#: templates/form-step-1.php:296
+msgid ""
+"J'autorise le 5e Groupe scout Grand-Moulin à collecter et utiliser les "
+"renseignements personnels de mon enfant aux fins d'inscription, de gestion "
+"des activités scoutes et de communication."
+msgstr ""
+"I authorize 5e Groupe scout Grand-Moulin to collect and use my child's "
+"personal information for registration, management of scouting activities, "
+"and communication purposes."
+
+#: templates/form-step-1.php:301
+msgid "Photos et vidéos (optionnel)"
+msgstr "Photos and Videos (optional)"
+
+#: templates/form-step-1.php:302
+msgid ""
+"J'autorise l'utilisation de photos et vidéos de mon enfant pour les "
+"communications du groupe (site web, réseaux sociaux, publications internes)."
+msgstr ""
+"I authorize the use of photos and videos of my child for group "
+"communications (website, social media, internal publications)."
+
+#: templates/form-step-1.php:307
+msgid "Fiche médicale et acceptation des risques"
+msgstr "Medical Form and Risk Acceptance"
+
+#: templates/form-step-1.php:308
+msgid ""
+"Je confirme que les informations médicales fournies sont exactes et "
+"j'accepte les risques liés aux activités scoutes."
+msgstr ""
+"I confirm that the medical information provided is accurate and I accept the "
+"risks related to scouting activities."
+
+#: templates/form-step-1.php:313
+msgid "Conditions d'utilisation"
+msgstr "Terms of Use"
+
+#: templates/form-step-1.php:314
+#, php-format
+msgid ""
+"J'ai lu et j'accepte les <a href=\"%s\" target=\"_blank\">conditions "
+"d'utilisation</a>."
+msgstr ""
+"I have read and accept the <a href=\"%s\" target=\"_blank\">terms of use</a>."
+
+#: templates/form-step-1.php:319
+msgid "Politique de confidentialité"
+msgstr "Privacy Policy"
+
+#: templates/form-step-1.php:320
+#, php-format
+msgid ""
+"J'ai lu et j'accepte la <a href=\"%s\" target=\"_blank\">politique de "
+"confidentialité</a> du groupe."
+msgstr ""
+"I have read and accept the group's <a href=\"%s\" target=\"_blank\">privacy "
+"policy</a>."
+
+#: templates/form-step-1.php:324
+#, php-format
+msgid "Responsable de la protection des renseignements : %s"
+msgstr "Person responsible for the protection of personal information: %s"
+
+#: templates/form-step-1.php:325
+msgid ""
+"Vous pouvez retirer votre consentement à tout moment en communiquant avec "
+"nous."
+msgstr "You may withdraw your consent at any time by contacting us."
+
+#: templates/form-step-1.php:330
+msgid "Soumettre l'inscription"
+msgstr "Submit Registration"
+
+#: templates/form-step-1.php:337
+msgid "Inscription complétée!"
+msgstr "Registration Completed!"
+
+#: templates/form-step-1.php:338
+msgid ""
+"L'inscription a été soumise avec succès. Vous recevrez un courriel de "
+"confirmation."
+msgstr ""
+"The registration has been submitted successfully. You will receive a "
+"confirmation email."
+
+#: templates/form-step-1.php:341
+msgid ""
+"Présentez ce code QR lors de la première réunion pour vérification rapide."
+msgstr "Present this QR code at the first meeting for quick verification."
+
+#: templates/form-step-1.php:347
+msgid "Prochaines étapes :"
+msgstr "Next Steps:"
+
+#: templates/form-step-1.php:348
+msgid "1. Conservez votre numéro de référence et code QR"
+msgstr "1. Keep your reference number and QR code"
+
+#: templates/form-step-1.php:349
+msgid "2. Effectuez le paiement par Interac, chèque ou comptant"
+msgstr "2. Make the payment by Interac, cheque, or cash"
+
+#: templates/form-step-1.php:350
+msgid "3. Vérifiez votre courriel pour les détails de la première réunion"
+msgstr "3. Check your email for details of the first meeting"
+
+#: templates/pdf-acceptation-risque.php:23
+msgid "Enfant :"
+msgstr "Child:"
+
+#: templates/pdf-acceptation-risque.php:24
+msgid "Unité :"
+msgstr "Unit:"
+
+#: templates/pdf-acceptation-risque.php:25
+msgid "Référence :"
+msgstr "Reference:"
+
+#: templates/pdf-acceptation-risque.php:33
+msgid "Préparation de repas sur feu de camp"
+msgstr "Cooking over campfire"
+
+#: templates/pdf-acceptation-risque.php:37
+msgid "Camping en nature (terrain accidenté, faune)"
+msgstr "Nature camping (rough terrain, wildlife)"
+
+#: templates/pdf-acceptation-risque.php:38
+msgid "Activités nocturnes"
+msgstr "Night activities"
+
+#: templates/pdf-acceptation-risque.php:39
+msgid "Construction de structures (ponts, abris)"
+msgstr "Building structures (bridges, shelters)"
+
+#: templates/pdf-acceptation-risque.php:40
+msgid "Premiers soins et situations d'urgence"
+msgstr "First aid and emergency situations"
+
+#: templates/pdf-acceptation-risque.php:44
+msgid ""
+"Je reconnais que malgré les mesures de sécurité mises en place, des "
+"accidents peuvent survenir."
+msgstr ""
+"I acknowledge that despite the safety measures in place, accidents may "
+"occur."
+
+#: templates/pdf-acceptation-risque.php:49
+msgid "Signature électronique :"
+msgstr "Electronic Signature:"
+
+#: templates/pdf-acceptation-risque.php:52
+#: templates/pdf-acceptation-risque.php:56
+msgid "Date :"
+msgstr "Date:"
+
+#: templates/pdf-fiche-medicale.php:21
+msgid "Fiche Médicale"
+msgstr "Medical Form"
+
+#: templates/pdf-fiche-medicale.php:26
+msgid "Unité:"
+msgstr "Unit:"
+
+#: templates/pdf-fiche-medicale.php:27
+msgid "Année scoute:"
+msgstr "Scout Year:"
+
+#: templates/pdf-fiche-medicale.php:30
+msgid "Informations du jeune"
+msgstr "Youth Information"
+
+#: templates/pdf-fiche-medicale.php:38
+msgid "Informations des parents / tuteurs"
+msgstr "Parent / Guardian Information"
+
+#: templates/pdf-fiche-medicale.php:51
+msgid "Contact d'urgence"
+msgstr "Emergency Contact"
+
+#: templates/pdf-fiche-medicale.php:59
+msgid "Antécédents de santé"
+msgstr "Health History"
+
+#: templates/pdf-fiche-medicale.php:62
+msgid "Vaccins à jour?"
+msgstr "Vaccinations up to date?"
+
+#: templates/pdf-fiche-medicale.php:63
+msgid "Limite physique?"
+msgstr "Physical limitation?"
+
+#: templates/pdf-fiche-medicale.php:76
+msgid ""
+"En cas d'urgence, j'autorise les responsables ou le personnel médical à "
+"prendre les mesures nécessaires à la sauvegarde de la santé de mon jeune."
+msgstr ""
+"In case of emergency, I authorize the leaders or medical personnel to take "
+"the necessary measures to safeguard the health of my child."
+
+#: templates/pdf-fiche-medicale.php:77
+msgid "Signature de l'autorité parentale:"
+msgstr "Parental authority signature:"
+
+#: templates/pdf-fiche-medicale.php:77
+msgid "Date:"
+msgstr "Date:"
+
+#: templates/pdf-sommaire.php:32
+msgid "Scannez ce code QR pour vérifier l'inscription"
+msgstr "Scan this QR code to verify the registration"
+
+#: templates/pdf-sommaire.php:43
+msgid "Contacts"
+msgstr "Contacts"
+
+#: templates/pdf-sommaire.php:45
+msgid "Type"
+msgstr "Type"
+
+#: templates/pdf-sommaire.php:48
+msgid "Parent"
+msgstr "Parent"
+
+#: templates/pdf-sommaire.php:70
+msgid "Alertes médicales"
+msgstr "Medical Alerts"
+
+#: templates/pdf-sommaire.php:74
+msgid "Allergies"
+msgstr "Allergies"
+
+#: templates/pdf-sommaire.php:80
+msgid "Attention"
+msgstr "Attention"

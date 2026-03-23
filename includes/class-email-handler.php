@@ -14,7 +14,9 @@ class Scout_Email_Handler {
         if (!$parent || !$parent->courriel) return false;
 
         $to = $parent->courriel;
-        $subject = sprintf('[5e Grand-Moulin] Confirmation d\'inscription — %s %s (%s)',
+        $subject = sprintf(
+            /* translators: 1: first name, 2: last name, 3: reference number */
+            __('[5e Grand-Moulin] Confirmation d\'inscription — %1$s %2$s (%3$s)', 'scout-inscription'),
             $inscription->enfant_prenom, $inscription->enfant_nom, $inscription->ref_number);
 
         $unite_names = [
@@ -56,7 +58,9 @@ class Scout_Email_Handler {
 
         $balance = $inscription->payment_total - $inscription->payment_received;
         $to = $parent->courriel;
-        $subject = sprintf('[5e Grand-Moulin] Rappel de paiement — %s (%s)',
+        $subject = sprintf(
+            /* translators: 1: first name, 2: reference number */
+            __('[5e Grand-Moulin] Rappel de paiement — %1$s (%2$s)', 'scout-inscription'),
             $inscription->enfant_prenom, $inscription->ref_number);
 
         $body = self::wrap_email("
@@ -98,10 +102,13 @@ class Scout_Email_Handler {
         if (!$parent || !$parent->courriel) return false;
 
         $balance = $inscription->payment_total - $inscription->payment_received;
-        $status_text = $balance <= 0 ? '✅ Inscription payée en totalité' : 'Solde restant : ' . number_format($balance, 2) . ' $';
+        $status_text = $balance <= 0 ? __('Inscription payée en totalité', 'scout-inscription') : sprintf(__('Solde restant : %s $', 'scout-inscription'), number_format($balance, 2));
 
         $to = $parent->courriel;
-        $subject = sprintf('[5e Grand-Moulin] Paiement reçu — %s', $inscription->ref_number);
+        $subject = sprintf(
+            /* translators: %s: reference number */
+            __('[5e Grand-Moulin] Paiement reçu — %s', 'scout-inscription'),
+            $inscription->ref_number);
 
         $body = self::wrap_email("
             <h2 style='color:#007748'>Paiement reçu — merci!</h2>
@@ -153,7 +160,7 @@ class Scout_Email_Handler {
         $group_name = get_bloginfo('name');
         $contact_email = get_option('scout_ins_email_from', get_option('admin_email'));
 
-        $subject = "Inscription {$inscription->ref_number} — Information importante";
+        $subject = sprintf(__('Inscription %s — Information importante', 'scout-inscription'), $inscription->ref_number);
 
         $reason_html = $reason ? '<p style="background:#fff5f5;padding:16px;border-radius:8px;border-left:4px solid #c0392b;margin:16px 0"><strong>Motif :</strong> ' . esc_html($reason) . '</p>' : '';
 

@@ -29,8 +29,11 @@ class Scout_Form_Handler {
                     'success' => false,
                     'ref' => $duplicate->ref_number,
                     'errors' => [
-                        'Une inscription existe déjà pour cet enfant cette année (réf: ' . $duplicate->ref_number . '). ' .
-                        'Si vous souhaitez modifier l\'inscription, veuillez contacter le groupe.'
+                        sprintf(
+                        /* translators: %s: reference number */
+                        __('Une inscription existe déjà pour cet enfant cette année (réf: %s). Si vous souhaitez modifier l\'inscription, veuillez contacter le groupe.', 'scout-inscription'),
+                        $duplicate->ref_number
+                    )
                     ],
                 ];
             }
@@ -98,7 +101,7 @@ class Scout_Form_Handler {
         ]);
 
         if (!$inscription_id) {
-            return ['success' => false, 'ref' => '', 'errors' => ['Erreur lors de la création de l\'inscription.']];
+            return ['success' => false, 'ref' => '', 'errors' => [__('Erreur lors de la création de l\'inscription.', 'scout-inscription')]];
         }
 
         // Add parents
@@ -186,31 +189,31 @@ class Scout_Form_Handler {
         $errors = [];
 
         // Step 1: Child info
-        if (empty($data['enfant_prenom']))  $errors[] = 'Le prénom de l\'enfant est requis.';
-        if (empty($data['enfant_nom']))     $errors[] = 'Le nom de l\'enfant est requis.';
-        if (empty($data['enfant_ddn']))     $errors[] = 'La date de naissance est requise.';
-        if (empty($data['unite']))          $errors[] = 'L\'unité est requise.';
+        if (empty($data['enfant_prenom']))  $errors[] = __('Le prénom de l\'enfant est requis.', 'scout-inscription');
+        if (empty($data['enfant_nom']))     $errors[] = __('Le nom de l\'enfant est requis.', 'scout-inscription');
+        if (empty($data['enfant_ddn']))     $errors[] = __('La date de naissance est requise.', 'scout-inscription');
+        if (empty($data['unite']))          $errors[] = __('L\'unité est requise.', 'scout-inscription');
 
         // At least one parent
         if (empty($data['parent_1_prenom']) && empty($data['parent_1_nom'])) {
-            $errors[] = 'Au moins un parent/tuteur est requis.';
+            $errors[] = __('Au moins un parent/tuteur est requis.', 'scout-inscription');
         }
 
         // At least one emergency contact
         if (empty($data['urgence_1_nom'])) {
-            $errors[] = 'Au moins un contact d\'urgence est requis.';
+            $errors[] = __('Au moins un contact d\'urgence est requis.', 'scout-inscription');
         }
 
         // Step 3: Risk signature
         if (empty($data['risk_signature'])) {
-            $errors[] = 'La signature d\'acceptation des risques est requise.';
+            $errors[] = __('La signature d\'acceptation des risques est requise.', 'scout-inscription');
         }
 
         // Step 4: Required consents
-        if (empty($data['consent_donnees']))         $errors[] = 'Le consentement à la collecte de données est requis.';
-        if (empty($data['consent_risque']))           $errors[] = 'Le consentement à l\'acceptation de risques est requis.';
-        if (empty($data['consent_conditions']))       $errors[] = 'L\'acceptation des conditions est requise.';
-        if (empty($data['consent_confidentialite']))  $errors[] = 'L\'acceptation de la politique de confidentialité est requise.';
+        if (empty($data['consent_donnees']))         $errors[] = __('Le consentement à la collecte de données est requis.', 'scout-inscription');
+        if (empty($data['consent_risque']))           $errors[] = __('Le consentement à l\'acceptation de risques est requis.', 'scout-inscription');
+        if (empty($data['consent_conditions']))       $errors[] = __('L\'acceptation des conditions est requise.', 'scout-inscription');
+        if (empty($data['consent_confidentialite']))  $errors[] = __('L\'acceptation de la politique de confidentialité est requise.', 'scout-inscription');
 
         return $errors;
     }

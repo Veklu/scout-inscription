@@ -92,9 +92,9 @@ add_action('init', function () {
             $sent = Scout_Daily_Digest::send_test();
             add_action('admin_notices', function() use ($sent) {
                 if ($sent) {
-                    echo '<div class="notice notice-success"><p>📧 Courriel test envoyé avec succès!</p></div>';
+                    echo '<div class="notice notice-success"><p>' . esc_html__('Courriel test envoyé avec succès!', 'scout-inscription') . '</p></div>';
                 } else {
-                    echo '<div class="notice notice-error"><p>❌ Échec d\'envoi. Vérifiez les destinataires.</p></div>';
+                    echo '<div class="notice notice-error"><p>' . esc_html__('Échec d\'envoi. Vérifiez les destinataires.', 'scout-inscription') . '</p></div>';
                 }
             });
         }
@@ -220,12 +220,12 @@ add_action('init', function() {
         exit;
     }
     if (!current_user_can('scout_view_inscriptions') && !current_user_can('manage_options')) {
-        wp_die('Vous n\'avez pas les permissions nécessaires.', 'Accès refusé', ['response' => 403]);
+        wp_die(__('Vous n\'avez pas les permissions nécessaires.', 'scout-inscription'), __('Accès refusé', 'scout-inscription'), ['response' => 403]);
     }
 
     $inscription = Scout_Inscription_Model::get_by_ref($ref);
     if (!$inscription) {
-        wp_die('Inscription introuvable.', 'Erreur', ['response' => 404]);
+        wp_die(__('Inscription introuvable.', 'scout-inscription'), __('Erreur', 'scout-inscription'), ['response' => 404]);
     }
 
     Scout_PDF_Generator::serve_pdf($inscription->id, $type);
@@ -235,13 +235,13 @@ add_action('init', function() {
 add_action('wp_dashboard_setup', function() {
     if (!current_user_can('scout_view_inscriptions') && !current_user_can('manage_options')) return;
 
-    wp_add_dashboard_widget('scout_overview', '⚜️ Inscriptions — Vue d\'ensemble', 'scout_dashboard_overview');
-    wp_add_dashboard_widget('scout_payments', '💳 Paiements', 'scout_dashboard_payments');
-    wp_add_dashboard_widget('scout_units', '🏕️ Inscriptions par unité', 'scout_dashboard_units');
-    wp_add_dashboard_widget('scout_recent', '📋 Inscriptions récentes', 'scout_dashboard_recent');
+    wp_add_dashboard_widget('scout_overview', '⚜️ ' . __('Inscriptions — Vue d\'ensemble', 'scout-inscription'), 'scout_dashboard_overview');
+    wp_add_dashboard_widget('scout_payments', __('Paiements', 'scout-inscription'), 'scout_dashboard_payments');
+    wp_add_dashboard_widget('scout_units', __('Inscriptions par unité', 'scout-inscription'), 'scout_dashboard_units');
+    wp_add_dashboard_widget('scout_recent', __('Inscriptions récentes', 'scout-inscription'), 'scout_dashboard_recent');
 
     if (current_user_can('scout_manage_payments') || current_user_can('manage_options')) {
-        wp_add_dashboard_widget('scout_revenue', '💵 Revenus', 'scout_dashboard_revenue');
+        wp_add_dashboard_widget('scout_revenue', __('Revenus', 'scout-inscription'), 'scout_dashboard_revenue');
     }
 });
 
@@ -261,23 +261,23 @@ function scout_dashboard_overview() {
         </div>
         <div style="background:#f0faf4;padding:14px;border-radius:8px;text-align:center">
             <div style="font-size:28px;font-weight:700;color:#27ae60"><?php echo $approved; ?></div>
-            <div style="font-size:11px;color:#6a6a62">✅ Approuvées</div>
+            <div style="font-size:11px;color:#6a6a62"><?php esc_html_e('Approuvées', 'scout-inscription'); ?></div>
         </div>
         <div style="background:#fff8f0;padding:14px;border-radius:8px;text-align:center">
             <div style="font-size:28px;font-weight:700;color:#e67e22"><?php echo $pending; ?></div>
-            <div style="font-size:11px;color:#6a6a62">📋 À traiter</div>
+            <div style="font-size:11px;color:#6a6a62"><?php esc_html_e('À traiter', 'scout-inscription'); ?></div>
         </div>
         <div style="background:#fff5f5;padding:14px;border-radius:8px;text-align:center">
             <div style="font-size:28px;font-weight:700;color:#c0392b"><?php echo $rejected; ?></div>
-            <div style="font-size:11px;color:#6a6a62">❌ Rejetées</div>
+            <div style="font-size:11px;color:#6a6a62"><?php esc_html_e('Rejetées', 'scout-inscription'); ?></div>
         </div>
     </div>
     <?php if ($plans > 0): ?>
     <div style="margin-top:8px;background:#e0f2fe;padding:8px 12px;border-radius:6px;font-size:12px;color:#0e7490;text-align:center">
-        📅 <?php echo $plans; ?> plan(s) de paiement actif(s)
+        <?php /* translators: %d: number of active payment plans */ printf(esc_html__('%d plan(s) de paiement actif(s)', 'scout-inscription'), $plans); ?>
     </div>
     <?php endif; ?>
-    <p style="text-align:right;margin-top:10px"><a href="<?php echo esc_url($link); ?>">Voir toutes les inscriptions →</a></p>
+    <p style="text-align:right;margin-top:10px"><a href="<?php echo esc_url($link); ?>"><?php esc_html_e('Voir toutes les inscriptions', 'scout-inscription'); ?> →</a></p>
     <?php
 }
 
@@ -295,7 +295,7 @@ function scout_dashboard_payments() {
     ?>
     <div style="margin-bottom:12px">
         <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">
-            <span><?php echo $pct_paid; ?>% payé</span>
+            <span><?php /* translators: %s: percentage */ printf(esc_html__('%s%% payé', 'scout-inscription'), $pct_paid); ?></span>
             <span><?php echo $paid; ?>/<?php echo $total_active; ?></span>
         </div>
         <div style="background:#e0ddd4;border-radius:20px;height:12px;overflow:hidden">
@@ -305,15 +305,15 @@ function scout_dashboard_payments() {
     <div style="display:flex;gap:8px;justify-content:center">
         <div style="text-align:center;flex:1;padding:8px;background:#fff5f5;border-radius:6px">
             <div style="font-size:20px;font-weight:700;color:#c0392b"><?php echo $waiting; ?></div>
-            <div style="font-size:10px;color:#6a6a62">⏳ En attente</div>
+            <div style="font-size:10px;color:#6a6a62"><?php esc_html_e('En attente', 'scout-inscription'); ?></div>
         </div>
         <div style="text-align:center;flex:1;padding:8px;background:#fff8f0;border-radius:6px">
             <div style="font-size:20px;font-weight:700;color:#e67e22"><?php echo $partial; ?></div>
-            <div style="font-size:10px;color:#6a6a62">💰 Acompte</div>
+            <div style="font-size:10px;color:#6a6a62"><?php esc_html_e('Acompte', 'scout-inscription'); ?></div>
         </div>
         <div style="text-align:center;flex:1;padding:8px;background:#f0faf4;border-radius:6px">
             <div style="font-size:20px;font-weight:700;color:#27ae60"><?php echo $paid; ?></div>
-            <div style="font-size:10px;color:#6a6a62">✅ Payé</div>
+            <div style="font-size:10px;color:#6a6a62"><?php esc_html_e('Payé', 'scout-inscription'); ?></div>
         </div>
     </div>
     <?php
@@ -363,7 +363,7 @@ function scout_dashboard_units() {
 function scout_dashboard_recent() {
     $items = Scout_Inscription_Model::list([], 5, 0);
     if (empty($items)) {
-        echo '<p style="color:#6a6a62;text-align:center;padding:12px">Aucune inscription.</p>';
+        echo '<p style="color:#6a6a62;text-align:center;padding:12px">' . esc_html__('Aucune inscription.', 'scout-inscription') . '</p>';
         return;
     }
     $status_icons = ['brouillon'=>'🔘','complete'=>'📋','approuvee'=>'✅','rejetee'=>'❌','plan_paiement'=>'📅','annulee'=>'🚫','doublon'=>'🔁'];
@@ -380,7 +380,7 @@ function scout_dashboard_recent() {
     </tr>
     <?php endforeach;
     echo '</table>';
-    echo '<p style="text-align:right;margin-top:8px"><a href="' . admin_url('admin.php?page=scout-inscription') . '">Voir tout →</a></p>';
+    echo '<p style="text-align:right;margin-top:8px"><a href="' . admin_url('admin.php?page=scout-inscription') . '">' . esc_html__('Voir tout', 'scout-inscription') . ' →</a></p>';
 }
 
 function scout_dashboard_revenue() {
@@ -394,11 +394,11 @@ function scout_dashboard_revenue() {
     ?>
     <div style="text-align:center;margin-bottom:12px">
         <div style="font-size:32px;font-weight:700;color:#007748"><?php echo number_format($received, 2); ?> $</div>
-        <div style="font-size:11px;color:#6a6a62">reçu sur <?php echo number_format($due, 2); ?> $ dû</div>
+        <div style="font-size:11px;color:#6a6a62"><?php /* translators: %s: amount due */ printf(esc_html__('reçu sur %s $ dû', 'scout-inscription'), number_format($due, 2)); ?></div>
     </div>
     <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">
-        <span><?php echo $pct; ?>% collecté</span>
-        <span style="color:#c0392b"><?php echo number_format($outstanding, 2); ?> $ restant</span>
+        <span><?php /* translators: %s: percentage */ printf(esc_html__('%s%% collecté', 'scout-inscription'), $pct); ?></span>
+        <span style="color:#c0392b"><?php /* translators: %s: amount remaining */ printf(esc_html__('%s $ restant', 'scout-inscription'), number_format($outstanding, 2)); ?></span>
     </div>
     <div style="background:#e0ddd4;border-radius:20px;height:14px;overflow:hidden">
         <div style="background:linear-gradient(90deg,#007748,#27ae60);height:100%;width:<?php echo $pct; ?>%;border-radius:20px"></div>

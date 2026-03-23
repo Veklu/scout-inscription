@@ -43,34 +43,34 @@ class Scout_Admin_Settings {
         $pricing = get_option('scout_ins_pricing', ['castors' => 245, 'louveteaux' => 285, 'eclaireurs' => 285, 'pionniers' => 285]);
         ?>
         <div class="wrap">
-            <h1>⚙️ Réglages — Plugin d'inscription</h1>
+            <h1><?php esc_html_e('Réglages — Plugin d\'inscription', 'scout-inscription'); ?></h1>
             <form method="post" action="options.php">
                 <?php settings_fields('scout_ins_settings'); ?>
 
                 <table class="form-table">
                     <tr>
-                        <th>Année scoute active</th>
+                        <th><?php esc_html_e('Année scoute active', 'scout-inscription'); ?></th>
                         <td><input type="text" name="scout_ins_current_year" value="<?php echo esc_attr(get_option('scout_ins_current_year', '')); ?>" placeholder="<?php echo esc_attr(Scout_Inscription_Model::get_current_year()); ?>">
-                        <p class="description">Laisser vide pour calcul automatique (sept-août).</p></td>
+                        <p class="description"><?php esc_html_e('Laisser vide pour calcul automatique (sept-août).', 'scout-inscription'); ?></p></td>
                     </tr>
                     <tr>
-                        <th>Courriel générique du groupe</th>
+                        <th><?php esc_html_e('Courriel générique du groupe', 'scout-inscription'); ?></th>
                         <td><input type="email" name="scout_ins_email_from" value="<?php echo esc_attr(get_option('scout_ins_email_from', 'info@5escoutgrandmoulin.org')); ?>" class="regular-text">
-                        <p class="description">Utilisé comme adresse d'expéditeur pour tous les courriels (confirmations, rejets, MFA, rappels) et comme adresse de contact dans les messages aux parents.</p></td>
+                        <p class="description"><?php esc_html_e('Utilisé comme adresse d\'expéditeur pour tous les courriels (confirmations, rejets, MFA, rappels) et comme adresse de contact dans les messages aux parents.', 'scout-inscription'); ?></p></td>
                     </tr>
                     <tr>
-                        <th>Responsable vie privée (Loi 25)</th>
+                        <th><?php esc_html_e('Responsable vie privée (Loi 25)', 'scout-inscription'); ?></th>
                         <td><input type="text" name="scout_ins_privacy_officer" value="<?php echo esc_attr(get_option('scout_ins_privacy_officer', 'Jean Côté')); ?>" class="regular-text"></td>
                     </tr>
                     <tr>
-                        <th>Rétention données (années)</th>
+                        <th><?php esc_html_e('Rétention données (années)', 'scout-inscription'); ?></th>
                         <td><input type="number" name="scout_ins_retention_years" min="1" max="10" value="<?php echo esc_attr(get_option('scout_ins_retention_years', 2)); ?>">
-                        <p class="description">Nombre d'années après la fin de l'année scoute avant la suppression automatique des données personnelles.</p></td>
+                        <p class="description"><?php esc_html_e('Nombre d\'années après la fin de l\'année scoute avant la suppression automatique des données personnelles.', 'scout-inscription'); ?></p></td>
                     </tr>
                 </table>
 
-                <h2>💰 Tarification par unité et par année</h2>
-                <p class="description">Définissez les prix pour chaque unité par année scoute. L'année active est utilisée pour les nouvelles inscriptions.</p>
+                <h2><?php esc_html_e('Tarification par unité et par année', 'scout-inscription'); ?></h2>
+                <p class="description"><?php esc_html_e('Définissez les prix pour chaque unité par année scoute. L\'année active est utilisée pour les nouvelles inscriptions.', 'scout-inscription'); ?></p>
                 <?php
                 $pricing_years = get_option('scout_ins_pricing_years', []);
                 $current_year = get_option('scout_ins_current_year', '') ?: Scout_Inscription_Model::get_current_year();
@@ -91,7 +91,7 @@ class Scout_Admin_Settings {
                 <table class="wp-list-table widefat fixed striped" style="margin-bottom:16px" id="pricingTable">
                     <thead>
                         <tr>
-                            <th style="width:120px">Année</th>
+                            <th style="width:120px"><?php esc_html_e('Année', 'scout-inscription'); ?></th>
                             <?php foreach ($units_list as $u): ?>
                                 <th><?php echo esc_html($u['name']); ?></th>
                             <?php endforeach; ?>
@@ -113,7 +113,7 @@ class Scout_Admin_Settings {
                     <?php endforeach; ?>
                     </tbody>
                 </table>
-                <button type="button" class="button" onclick="addPricingYear()">+ Ajouter une année</button>
+                <button type="button" class="button" onclick="addPricingYear()">+ <?php esc_html_e('Ajouter une année', 'scout-inscription'); ?></button>
                 <script>
                 function addPricingYear() {
                     var tbody = document.querySelector('#pricingTable tbody');
@@ -130,19 +130,19 @@ class Scout_Admin_Settings {
                 }
                 </script>
 
-                <?php submit_button('Sauvegarder les réglages'); ?>
+                <?php submit_button(__('Sauvegarder les réglages', 'scout-inscription')); ?>
 
-                <h2>🔒 Accès aux données médicales (Loi 25)</h2>
+                <h2><?php esc_html_e('Accès aux données médicales (Loi 25)', 'scout-inscription'); ?></h2>
                 <table class="form-table">
                     <tr>
-                        <th>Qui peut voir les fiches médicales?</th>
+                        <th><?php esc_html_e('Qui peut voir les fiches médicales?', 'scout-inscription'); ?></th>
                         <td>
                             <?php $med_roles = get_option('scout_ins_medical_roles', ['administrator']); if (!is_array($med_roles)) $med_roles = ['administrator']; ?>
                             <?php
                             $all_roles = [
-                                'administrator' => 'Administrateur',
-                                'scout_animateur' => 'Animateur scout',
-                                'scout_tresorier' => 'Trésorier scout',
+                                'administrator' => __('Administrateur', 'scout-inscription'),
+                                'scout_animateur' => __('Animateur scout', 'scout-inscription'),
+                                'scout_tresorier' => __('Trésorier scout', 'scout-inscription'),
                             ];
                             foreach ($all_roles as $role_key => $role_label): ?>
                                 <label style="display:block;margin-bottom:6px">
@@ -151,40 +151,40 @@ class Scout_Admin_Settings {
                                     <?php echo esc_html($role_label); ?>
                                 </label>
                             <?php endforeach; ?>
-                            <p class="description">Seuls les utilisateurs avec ces rôles ET le MFA activé pourront accéder aux données médicales.</p>
+                            <p class="description"><?php esc_html_e('Seuls les utilisateurs avec ces rôles ET le MFA activé pourront accéder aux données médicales.', 'scout-inscription'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th>Exiger la vérification MFA</th>
+                        <th><?php esc_html_e('Exiger la vérification MFA', 'scout-inscription'); ?></th>
                         <td>
                             <label>
                                 <input type="checkbox" name="scout_ins_require_mfa" value="1" <?php checked(get_option('scout_ins_require_mfa', 1)); ?>>
-                                Oui — les utilisateurs doivent confirmer un code par courriel avant de voir les données médicales
+                                <?php esc_html_e('Oui — les utilisateurs doivent confirmer un code par courriel avant de voir les données médicales', 'scout-inscription'); ?>
                             </label>
-                            <p class="description">Un code à 6 chiffres est envoyé par courriel. Valide pendant la durée choisie. Chaque accès est journalisé (Loi 25).</p>
+                            <p class="description"><?php esc_html_e('Un code à 6 chiffres est envoyé par courriel. Valide pendant la durée choisie. Chaque accès est journalisé (Loi 25).', 'scout-inscription'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th>Durée de la session MFA</th>
+                        <th><?php esc_html_e('Durée de la session MFA', 'scout-inscription'); ?></th>
                         <td>
                             <select name="scout_ins_mfa_duration">
                                 <?php $dur = intval(get_option('scout_ins_mfa_duration', 15)); ?>
-                                <option value="5" <?php selected($dur, 5); ?>>5 minutes</option>
-                                <option value="15" <?php selected($dur, 15); ?>>15 minutes</option>
-                                <option value="30" <?php selected($dur, 30); ?>>30 minutes</option>
-                                <option value="60" <?php selected($dur, 60); ?>>1 heure</option>
+                                <option value="5" <?php selected($dur, 5); ?>><?php esc_html_e('5 minutes', 'scout-inscription'); ?></option>
+                                <option value="15" <?php selected($dur, 15); ?>><?php esc_html_e('15 minutes', 'scout-inscription'); ?></option>
+                                <option value="30" <?php selected($dur, 30); ?>><?php esc_html_e('30 minutes', 'scout-inscription'); ?></option>
+                                <option value="60" <?php selected($dur, 60); ?>><?php esc_html_e('1 heure', 'scout-inscription'); ?></option>
                             </select>
                         </td>
                     </tr>
                 </table>
 
-                <?php submit_button('Sauvegarder les réglages'); ?>
+                <?php submit_button(__('Sauvegarder les réglages', 'scout-inscription')); ?>
             </form>
 
             <!-- Daily Digest Settings (separate form) -->
             <hr style="margin:32px 0">
-            <h2>📧 Rapport quotidien automatique</h2>
-            <p class="description" style="margin-bottom:16px">Un courriel récapitulatif est envoyé chaque jour aux destinataires configurés. Il résume les nouvelles inscriptions, paiements et revenus.</p>
+            <h2><?php esc_html_e('Rapport quotidien automatique', 'scout-inscription'); ?></h2>
+            <p class="description" style="margin-bottom:16px"><?php esc_html_e('Un courriel récapitulatif est envoyé chaque jour aux destinataires configurés. Il résume les nouvelles inscriptions, paiements et revenus.', 'scout-inscription'); ?></p>
 
             <form method="post" action="options.php">
                 <?php
@@ -197,23 +197,23 @@ class Scout_Admin_Settings {
                 ?>
                 <table class="form-table">
                     <tr>
-                        <th>Activer le rapport quotidien</th>
+                        <th><?php esc_html_e('Activer le rapport quotidien', 'scout-inscription'); ?></th>
                         <td>
                             <label>
                                 <input type="checkbox" name="<?php echo Scout_Daily_Digest::OPTION_ENABLED; ?>" value="1" <?php checked(get_option(Scout_Daily_Digest::OPTION_ENABLED, 0)); ?>>
-                                Envoyer un rapport chaque jour
+                                <?php esc_html_e('Envoyer un rapport chaque jour', 'scout-inscription'); ?>
                             </label>
                         </td>
                     </tr>
                     <tr>
-                        <th>Heure d'envoi</th>
+                        <th><?php esc_html_e('Heure d\'envoi', 'scout-inscription'); ?></th>
                         <td>
                             <input type="time" name="<?php echo Scout_Daily_Digest::OPTION_TIME; ?>" value="<?php echo esc_attr(get_option(Scout_Daily_Digest::OPTION_TIME, '07:00')); ?>">
-                            <p class="description">Fuseau horaire du serveur WordPress (<?php echo esc_html(wp_timezone_string()); ?>)</p>
+                            <p class="description"><?php /* translators: %s: timezone string */ printf(esc_html__('Fuseau horaire du serveur WordPress (%s)', 'scout-inscription'), esc_html(wp_timezone_string())); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th>Destinataires</th>
+                        <th><?php esc_html_e('Destinataires', 'scout-inscription'); ?></th>
                         <td>
                             <?php
                             $selected_users = get_option(Scout_Daily_Digest::OPTION_RECIPIENTS, []);
@@ -239,7 +239,7 @@ class Scout_Admin_Settings {
                             ]);
                             ?>
                             <div style="margin-bottom:8px">
-                                <input type="text" id="digest-user-search" placeholder="🔍 Rechercher un utilisateur..." style="width:100%;max-width:400px;padding:6px 10px" oninput="
+                                <input type="text" id="digest-user-search" placeholder="<?php echo esc_attr__('Rechercher un utilisateur…', 'scout-inscription'); ?>" style="width:100%;max-width:400px;padding:6px 10px" oninput="
                                     var q = this.value.toLowerCase();
                                     document.querySelectorAll('.digest-user-item').forEach(function(el) {
                                         el.style.display = el.dataset.search.toLowerCase().indexOf(q) >= 0 ? '' : 'none';
@@ -248,7 +248,7 @@ class Scout_Admin_Settings {
                             </div>
                             <div style="max-height:250px;overflow-y:auto;border:1px solid #ddd;border-radius:6px;padding:8px;background:#fafafa">
                                 <?php if (empty($all_users)): ?>
-                                    <p style="color:#6a6a62;margin:0">Aucun utilisateur trouvé.</p>
+                                    <p style="color:#6a6a62;margin:0"><?php esc_html_e('Aucun utilisateur trouvé.', 'scout-inscription'); ?></p>
                                 <?php endif; ?>
                                 <?php foreach ($all_users as $user):
                                     $roles = implode(', ', $user->roles);
@@ -269,21 +269,21 @@ class Scout_Admin_Settings {
                                     </label>
                                 <?php endforeach; ?>
                             </div>
-                            <p class="description" style="margin-top:6px">Cochez les utilisateurs qui recevront le rapport quotidien. Seuls les administrateurs, animateurs, trésoriers et éditeurs sont listés.</p>
+                            <p class="description" style="margin-top:6px"><?php esc_html_e('Cochez les utilisateurs qui recevront le rapport quotidien. Seuls les administrateurs, animateurs, trésoriers et éditeurs sont listés.', 'scout-inscription'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th>Sections à inclure</th>
+                        <th><?php esc_html_e('Sections à inclure', 'scout-inscription'); ?></th>
                         <td>
                             <?php
                             $current_sections = get_option(Scout_Daily_Digest::OPTION_SECTIONS, ['summary', 'new_inscriptions', 'payments', 'outstanding']);
                             if (!is_array($current_sections)) $current_sections = ['summary', 'new_inscriptions', 'payments', 'outstanding'];
                             $available_sections = [
-                                'summary'           => ['📊 Résumé global', 'Total inscriptions, approuvées, en attente, par unité'],
-                                'new_inscriptions'  => ['🆕 Nouvelles inscriptions', 'Liste des inscriptions reçues dans les dernières 24h'],
-                                'status_changes'    => ['🔄 Changements de statut', 'Inscriptions dont le statut a changé (approuvée, rejetée, etc.)'],
-                                'payments'          => ['💰 Paiements reçus', 'Détail des paiements enregistrés dans les dernières 24h'],
-                                'outstanding'       => ['⚠️ Revenus & impayés', 'Total attendu, reçu et solde impayé'],
+                                'summary'           => [__('Résumé global', 'scout-inscription'), __('Total inscriptions, approuvées, en attente, par unité', 'scout-inscription')],
+                                'new_inscriptions'  => [__('Nouvelles inscriptions', 'scout-inscription'), __('Liste des inscriptions reçues dans les dernières 24h', 'scout-inscription')],
+                                'status_changes'    => [__('Changements de statut', 'scout-inscription'), __('Inscriptions dont le statut a changé (approuvée, rejetée, etc.)', 'scout-inscription')],
+                                'payments'          => [__('Paiements reçus', 'scout-inscription'), __('Détail des paiements enregistrés dans les dernières 24h', 'scout-inscription')],
+                                'outstanding'       => [__('Revenus & impayés', 'scout-inscription'), __('Total attendu, reçu et solde impayé', 'scout-inscription')],
                             ];
                             foreach ($available_sections as $key => $info): ?>
                                 <label style="display:block;margin-bottom:8px">
@@ -297,28 +297,28 @@ class Scout_Admin_Settings {
                     </tr>
                 </table>
 
-                <?php submit_button('Sauvegarder les réglages du rapport'); ?>
+                <?php submit_button(__('Sauvegarder les réglages du rapport', 'scout-inscription')); ?>
             </form>
 
             <!-- Test Send -->
             <div style="background:#f9f8f5;border:1px solid #e0ddd4;border-radius:8px;padding:16px;margin-top:12px">
-                <h3 style="margin:0 0 8px;font-size:14px">🧪 Tester l'envoi</h3>
+                <h3 style="margin:0 0 8px;font-size:14px"><?php esc_html_e('Tester l\'envoi', 'scout-inscription'); ?></h3>
                 <?php
                 $last_sent = get_option('scout_ins_digest_last_sent', '');
                 $next = wp_next_scheduled(Scout_Daily_Digest::CRON_HOOK);
                 ?>
                 <?php if ($last_sent): ?>
-                    <p style="font-size:13px;color:#6a6a62;margin:0 0 8px">📅 Dernier envoi : <strong><?php echo esc_html($last_sent); ?></strong></p>
+                    <p style="font-size:13px;color:#6a6a62;margin:0 0 8px"><?php /* translators: %s: date of last send */ printf(esc_html__('Dernier envoi : %s', 'scout-inscription'), '<strong>' . esc_html($last_sent) . '</strong>'); ?></p>
                 <?php endif; ?>
                 <?php if ($next): ?>
-                    <p style="font-size:13px;color:#6a6a62;margin:0 0 8px">⏰ Prochain envoi prévu : <strong><?php echo esc_html(wp_date('Y-m-d H:i', $next)); ?></strong></p>
+                    <p style="font-size:13px;color:#6a6a62;margin:0 0 8px"><?php /* translators: %s: next scheduled date */ printf(esc_html__('Prochain envoi prévu : %s', 'scout-inscription'), '<strong>' . esc_html(wp_date('Y-m-d H:i', $next)) . '</strong>'); ?></p>
                 <?php elseif (get_option(Scout_Daily_Digest::OPTION_ENABLED, 0)): ?>
-                    <p style="font-size:13px;color:#e67e22;margin:0 0 8px">⚠️ Le cron n'est pas programmé. Désactivez puis réactivez le rapport ou sauvegardez les réglages.</p>
+                    <p style="font-size:13px;color:#e67e22;margin:0 0 8px"><?php esc_html_e('Le cron n\'est pas programmé. Désactivez puis réactivez le rapport ou sauvegardez les réglages.', 'scout-inscription'); ?></p>
                 <?php endif; ?>
                 <form method="post">
                     <?php wp_nonce_field('scout_digest_test', '_scout_digest_test_nonce'); ?>
-                    <button type="submit" name="scout_send_test_digest" class="button" onclick="return confirm('Envoyer un courriel test maintenant aux destinataires configurés?')">📧 Envoyer un test maintenant</button>
-                    <span style="font-size:12px;color:#6a6a62;margin-left:8px">Envoie le rapport avec les données actuelles à tous les destinataires.</span>
+                    <button type="submit" name="scout_send_test_digest" class="button" onclick="return confirm('<?php echo esc_js(__('Envoyer un courriel test maintenant aux destinataires configurés?', 'scout-inscription')); ?>')"><?php esc_html_e('Envoyer un test maintenant', 'scout-inscription'); ?></button>
+                    <span style="font-size:12px;color:#6a6a62;margin-left:8px"><?php esc_html_e('Envoie le rapport avec les données actuelles à tous les destinataires.', 'scout-inscription'); ?></span>
                 </form>
             </div>
 

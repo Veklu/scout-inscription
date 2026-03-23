@@ -50,7 +50,7 @@ class Scout_Admin_Dashboard {
 
         $current_year = Scout_Inscription_Model::get_current_year();
         $unites = ['castors' => 'Castors', 'louveteaux' => 'Louveteaux', 'eclaireurs' => 'Éclaireurs', 'pionniers' => 'Pionniers'];
-        $payment_statuses = ['en_attente' => '⏳ En attente', 'acompte_recu' => '💰 Acompte', 'paye' => '✅ Payé', 'annulee' => '🚫 Annulée'];
+        $payment_statuses = ['en_attente' => __('En attente', 'scout-inscription'), 'acompte_recu' => __('Acompte', 'scout-inscription'), 'paye' => __('Payé', 'scout-inscription'), 'annulee' => __('Annulée', 'scout-inscription')];
 
         ?>
         <div class="wrap">
@@ -89,30 +89,30 @@ class Scout_Admin_Dashboard {
             ?>
 
             <!-- Inscriptions -->
-            <div class="scout-stat-section">Inscriptions actives</div>
+            <div class="scout-stat-section"><?php esc_html_e('Inscriptions actives', 'scout-inscription'); ?></div>
             <div class="scout-stats-grid">
-                <div class="scout-stat" style="border-color:#007748"><div class="scout-stat-num" style="color:#007748"><?php echo $active_total; ?></div><div class="scout-stat-label">Total actives</div></div>
-                <div class="scout-stat" style="border-color:#27ae60"><div class="scout-stat-num" style="color:#27ae60"><?php echo $approved; ?></div><div class="scout-stat-label">✅ Approuvées</div></div>
-                <div class="scout-stat" style="border-color:#e67e22"><div class="scout-stat-num" style="color:#e67e22"><?php echo $pending; ?></div><div class="scout-stat-label">📋 À traiter</div></div>
-                <div class="scout-stat" style="border-color:#c0392b"><div class="scout-stat-num" style="color:#c0392b"><?php echo $rejected; ?></div><div class="scout-stat-label">❌ Rejetées</div></div>
-                <div class="scout-stat" style="border-color:#6a6a62"><div class="scout-stat-num" style="color:#6a6a62"><?php echo $cancelled; ?></div><div class="scout-stat-label">🚫 Annulées</div></div>
-                <div class="scout-stat" style="border-color:#9ca3af"><div class="scout-stat-num" style="color:#9ca3af"><?php echo $doublons; ?></div><div class="scout-stat-label">🔁 Doublons</div></div>
+                <div class="scout-stat" style="border-color:#007748"><div class="scout-stat-num" style="color:#007748"><?php echo $active_total; ?></div><div class="scout-stat-label"><?php esc_html_e('Total actives', 'scout-inscription'); ?></div></div>
+                <div class="scout-stat" style="border-color:#27ae60"><div class="scout-stat-num" style="color:#27ae60"><?php echo $approved; ?></div><div class="scout-stat-label"><?php esc_html_e('Approuvées', 'scout-inscription'); ?></div></div>
+                <div class="scout-stat" style="border-color:#e67e22"><div class="scout-stat-num" style="color:#e67e22"><?php echo $pending; ?></div><div class="scout-stat-label"><?php esc_html_e('À traiter', 'scout-inscription'); ?></div></div>
+                <div class="scout-stat" style="border-color:#c0392b"><div class="scout-stat-num" style="color:#c0392b"><?php echo $rejected; ?></div><div class="scout-stat-label"><?php esc_html_e('Rejetées', 'scout-inscription'); ?></div></div>
+                <div class="scout-stat" style="border-color:#6a6a62"><div class="scout-stat-num" style="color:#6a6a62"><?php echo $cancelled; ?></div><div class="scout-stat-label"><?php esc_html_e('Annulées', 'scout-inscription'); ?></div></div>
+                <div class="scout-stat" style="border-color:#9ca3af"><div class="scout-stat-num" style="color:#9ca3af"><?php echo $doublons; ?></div><div class="scout-stat-label"><?php esc_html_e('Doublons', 'scout-inscription'); ?></div></div>
             </div>
 
             <!-- Paiements -->
-            <div class="scout-stat-section">Paiements</div>
+            <div class="scout-stat-section"><?php esc_html_e('Paiements', 'scout-inscription'); ?></div>
             <div class="scout-stats-grid">
-                <div class="scout-stat" style="border-color:#c0392b"><div class="scout-stat-num" style="color:#c0392b"><?php echo $pay_waiting; ?></div><div class="scout-stat-label">⏳ En attente</div></div>
-                <div class="scout-stat" style="border-color:#e67e22"><div class="scout-stat-num" style="color:#e67e22"><?php echo $pay_partial; ?></div><div class="scout-stat-label">💰 Acompte</div></div>
-                <div class="scout-stat" style="border-color:#27ae60"><div class="scout-stat-num" style="color:#27ae60"><?php echo $pay_done; ?></div><div class="scout-stat-label">✅ Payé</div></div>
-                <div class="scout-stat" style="border-color:#007748"><div class="scout-stat-num" style="color:#007748;font-size:20px"><?php echo number_format($total_received, 2); ?> $</div><div class="scout-stat-label">💵 Reçus</div></div>
+                <div class="scout-stat" style="border-color:#c0392b"><div class="scout-stat-num" style="color:#c0392b"><?php echo $pay_waiting; ?></div><div class="scout-stat-label"><?php esc_html_e('En attente', 'scout-inscription'); ?></div></div>
+                <div class="scout-stat" style="border-color:#e67e22"><div class="scout-stat-num" style="color:#e67e22"><?php echo $pay_partial; ?></div><div class="scout-stat-label"><?php esc_html_e('Acompte', 'scout-inscription'); ?></div></div>
+                <div class="scout-stat" style="border-color:#27ae60"><div class="scout-stat-num" style="color:#27ae60"><?php echo $pay_done; ?></div><div class="scout-stat-label"><?php esc_html_e('Payé', 'scout-inscription'); ?></div></div>
+                <div class="scout-stat" style="border-color:#007748"><div class="scout-stat-num" style="color:#007748;font-size:20px"><?php echo number_format($total_received, 2); ?> $</div><div class="scout-stat-label"><?php esc_html_e('Reçus', 'scout-inscription'); ?></div></div>
                 <?php if ($total_outstanding > 0): ?>
-                <div class="scout-stat" style="border-color:#c0392b;background:#fff5f5"><div class="scout-stat-num" style="color:#c0392b;font-size:20px"><?php echo number_format($total_outstanding, 2); ?> $</div><div class="scout-stat-label">⚠️ Impayé</div></div>
+                <div class="scout-stat" style="border-color:#c0392b;background:#fff5f5"><div class="scout-stat-num" style="color:#c0392b;font-size:20px"><?php echo number_format($total_outstanding, 2); ?> $</div><div class="scout-stat-label"><?php esc_html_e('Impayé', 'scout-inscription'); ?></div></div>
                 <?php endif; ?>
             </div>
 
             <!-- Unités -->
-            <div class="scout-stat-section">Par unité</div>
+            <div class="scout-stat-section"><?php esc_html_e('Par unité', 'scout-inscription'); ?></div>
             <div class="scout-stats-grid">
                 <?php foreach ($unites as $uk => $un):
                     $uc = $unit_colors[$uk] ?? '#007748';
@@ -130,30 +130,30 @@ class Scout_Admin_Dashboard {
             <form method="get" style="margin-bottom:16px;display:flex;gap:8px;align-items:end;flex-wrap:wrap">
                 <input type="hidden" name="page" value="scout-inscription">
                 <select name="unite" style="padding:6px 10px">
-                    <option value="">Toutes les unités</option>
+                    <option value=""><?php esc_html_e('Toutes les unités', 'scout-inscription'); ?></option>
                     <?php foreach ($unites as $k => $v): ?>
                         <option value="<?php echo esc_attr($k); ?>" <?php selected($filters['unite'] ?? '', $k); ?>><?php echo esc_html($v); ?></option>
                     <?php endforeach; ?>
                 </select>
                 <select name="statut" style="padding:6px 10px">
-                    <option value="">Tous les statuts</option>
-                    <option value="brouillon" <?php selected($filters['status'] ?? '', 'brouillon'); ?>>🔘 Brouillon</option>
-                    <option value="complete" <?php selected($filters['status'] ?? '', 'complete'); ?>>📋 Complète</option>
-                    <option value="approuvee" <?php selected($filters['status'] ?? '', 'approuvee'); ?>>✅ Approuvée</option>
-                    <option value="rejetee" <?php selected($filters['status'] ?? '', 'rejetee'); ?>>❌ Rejetée</option>
-                    <option value="plan_paiement" <?php selected($filters['status'] ?? '', 'plan_paiement'); ?>>📅 Plan paiement</option>
-                    <option value="annulee" <?php selected($filters['status'] ?? '', 'annulee'); ?>>🚫 Annulée</option>
-                    <option value="doublon" <?php selected($filters['status'] ?? '', 'doublon'); ?>>🔁 Doublon</option>
+                    <option value=""><?php esc_html_e('Tous les statuts', 'scout-inscription'); ?></option>
+                    <option value="brouillon" <?php selected($filters['status'] ?? '', 'brouillon'); ?>><?php esc_html_e('Brouillon', 'scout-inscription'); ?></option>
+                    <option value="complete" <?php selected($filters['status'] ?? '', 'complete'); ?>><?php esc_html_e('Complète', 'scout-inscription'); ?></option>
+                    <option value="approuvee" <?php selected($filters['status'] ?? '', 'approuvee'); ?>><?php esc_html_e('Approuvée', 'scout-inscription'); ?></option>
+                    <option value="rejetee" <?php selected($filters['status'] ?? '', 'rejetee'); ?>><?php esc_html_e('Rejetée', 'scout-inscription'); ?></option>
+                    <option value="plan_paiement" <?php selected($filters['status'] ?? '', 'plan_paiement'); ?>><?php esc_html_e('Plan paiement', 'scout-inscription'); ?></option>
+                    <option value="annulee" <?php selected($filters['status'] ?? '', 'annulee'); ?>><?php esc_html_e('Annulée', 'scout-inscription'); ?></option>
+                    <option value="doublon" <?php selected($filters['status'] ?? '', 'doublon'); ?>><?php esc_html_e('Doublon', 'scout-inscription'); ?></option>
                 </select>
                 <select name="payment" style="padding:6px 10px">
-                    <option value="">Tous les paiements</option>
+                    <option value=""><?php esc_html_e('Tous les paiements', 'scout-inscription'); ?></option>
                     <?php foreach ($payment_statuses as $k => $v): ?>
                         <option value="<?php echo esc_attr($k); ?>" <?php selected($filters['payment_status'] ?? '', $k); ?>><?php echo esc_html($v); ?></option>
                     <?php endforeach; ?>
                 </select>
-                <button type="submit" class="button">Filtrer</button>
+                <button type="submit" class="button"><?php esc_html_e('Filtrer', 'scout-inscription'); ?></button>
                 <?php if (current_user_can('scout_export')): ?>
-                    <a href="<?php echo esc_url(rest_url('scout-gm/v1/inscriptions/export?' . http_build_query($filters))); ?>" class="button">📥 Exporter CSV</a>
+                    <a href="<?php echo esc_url(rest_url('scout-gm/v1/inscriptions/export?' . http_build_query($filters))); ?>" class="button"><?php esc_html_e('Exporter CSV', 'scout-inscription'); ?></a>
                 <?php endif; ?>
             </form>
 
@@ -181,8 +181,13 @@ class Scout_Admin_Dashboard {
                         }
                     }
                     echo '<div class="notice notice-success"><p>';
-                    if ($action === 'duplicate') echo "🔁 {$count} inscription(s) marquée(s) comme doublon. Masquées du tableau de bord mais les codes QR restent fonctionnels.";
-                    else echo "🚫 {$count} inscription(s) annulée(s).";
+                    if ($action === 'duplicate') {
+                        /* translators: %d: number of inscriptions */
+                        printf(esc_html__('%d inscription(s) marquée(s) comme doublon. Masquées du tableau de bord mais les codes QR restent fonctionnels.', 'scout-inscription'), $count);
+                    } else {
+                        /* translators: %d: number of inscriptions */
+                        printf(esc_html__('%d inscription(s) annulée(s).', 'scout-inscription'), $count);
+                    }
                     echo '</p></div>';
                     // Refresh the list
                     $items = Scout_Inscription_Model::list($filters, 25, ($page - 1) * 25);
@@ -195,16 +200,16 @@ class Scout_Admin_Dashboard {
             <?php wp_nonce_field('scout_bulk_action', '_scout_bulk_nonce'); ?>
             <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px">
                 <select name="bulk_action_select" style="padding:4px 8px">
-                    <option value="">— Actions groupées —</option>
-                    <option value="cancel">🚫 Annuler les sélectionnées</option>
-                    <option value="duplicate">🔁 Marquer comme doublon (masquer, garder QR)</option>
+                    <option value=""><?php esc_html_e('— Actions groupées —', 'scout-inscription'); ?></option>
+                    <option value="cancel"><?php esc_html_e('Annuler les sélectionnées', 'scout-inscription'); ?></option>
+                    <option value="duplicate"><?php esc_html_e('Marquer comme doublon (masquer, garder QR)', 'scout-inscription'); ?></option>
                     <?php if (current_user_can('manage_options')): ?>
-                    <option value="delete">🗑️ Supprimer définitivement</option>
+                    <option value="delete"><?php esc_html_e('Supprimer définitivement', 'scout-inscription'); ?></option>
                     <?php endif; ?>
                 </select>
-                <button type="submit" name="scout_bulk_action" class="button" onclick="return document.querySelectorAll('input[name=\'bulk_ids[]\']:checked').length ? (this.form.bulk_action_select.value === 'delete' ? confirm('⚠️ Supprimer définitivement les inscriptions sélectionnées? Cette action est irréversible!') : confirm('Annuler les inscriptions sélectionnées?')) : (alert('Sélectionnez au moins une inscription.'), false)">Appliquer</button>
+                <button type="submit" name="scout_bulk_action" class="button" onclick="return document.querySelectorAll('input[name=\'bulk_ids[]\']:checked').length ? (this.form.bulk_action_select.value === 'delete' ? confirm('<?php echo esc_js(__('Supprimer définitivement les inscriptions sélectionnées? Cette action est irréversible!', 'scout-inscription')); ?>') : confirm('<?php echo esc_js(__('Annuler les inscriptions sélectionnées?', 'scout-inscription')); ?>')) : (alert('<?php echo esc_js(__('Sélectionnez au moins une inscription.', 'scout-inscription')); ?>'), false)"><?php esc_html_e('Appliquer', 'scout-inscription'); ?></button>
                 <span style="font-size:12px;color:#6a6a62;margin-left:8px">
-                    <label><input type="checkbox" id="selectAll" onchange="document.querySelectorAll('input[name=\'bulk_ids[]\']').forEach(c => c.checked = this.checked)"> Tout sélectionner</label>
+                    <label><input type="checkbox" id="selectAll" onchange="document.querySelectorAll('input[name=\'bulk_ids[]\']').forEach(c => c.checked = this.checked)"> <?php esc_html_e('Tout sélectionner', 'scout-inscription'); ?></label>
                 </span>
             </div>
 
@@ -213,19 +218,19 @@ class Scout_Admin_Dashboard {
                 <thead>
                     <tr>
                         <th style="width:30px"><input type="checkbox" onchange="document.querySelectorAll('input[name=\'bulk_ids[]\']').forEach(c => c.checked = this.checked)"></th>
-                        <th style="width:120px">Référence</th>
-                        <th>Enfant</th>
-                        <th style="width:100px">Unité</th>
-                        <th style="width:120px">Statut</th>
-                        <th style="width:120px">Paiement</th>
-                        <th style="width:90px">Reçu</th>
-                        <th style="width:90px">Solde</th>
-                        <th style="width:130px">Date</th>
+                        <th style="width:120px"><?php esc_html_e('Référence', 'scout-inscription'); ?></th>
+                        <th><?php esc_html_e('Enfant', 'scout-inscription'); ?></th>
+                        <th style="width:100px"><?php esc_html_e('Unité', 'scout-inscription'); ?></th>
+                        <th style="width:120px"><?php esc_html_e('Statut', 'scout-inscription'); ?></th>
+                        <th style="width:120px"><?php esc_html_e('Paiement', 'scout-inscription'); ?></th>
+                        <th style="width:90px"><?php esc_html_e('Reçu', 'scout-inscription'); ?></th>
+                        <th style="width:90px"><?php esc_html_e('Solde', 'scout-inscription'); ?></th>
+                        <th style="width:130px"><?php esc_html_e('Date', 'scout-inscription'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (empty($items)): ?>
-                        <tr><td colspan="9" style="text-align:center;padding:40px;color:#6a6a62">Aucune inscription trouvée.</td></tr>
+                        <tr><td colspan="9" style="text-align:center;padding:40px;color:#6a6a62"><?php esc_html_e('Aucune inscription trouvée.', 'scout-inscription'); ?></td></tr>
                     <?php endif; ?>
                     <?php foreach ($items as $ins): ?>
                         <tr<?php if ($ins->status === 'annulee') echo ' style="opacity:0.5"'; ?>>
@@ -235,7 +240,7 @@ class Scout_Admin_Dashboard {
                             <td><span class="scout-badge scout-badge-<?php echo esc_attr($ins->unite); ?>"><?php echo esc_html(ucfirst($ins->unite)); ?></span></td>
                             <td><?php
                                 $st_map = ['brouillon'=>'🔘','complete'=>'📋','approuvee'=>'✅','rejetee'=>'❌','plan_paiement'=>'📅','annulee'=>'🚫','doublon'=>'🔁'];
-                                $st_labels = ['brouillon'=>'Brouillon','complete'=>'Complète','approuvee'=>'Approuvée','rejetee'=>'Rejetée','plan_paiement'=>'Plan paiement','annulee'=>'Annulée','doublon'=>'Doublon'];
+                                $st_labels = ['brouillon'=>__('Brouillon','scout-inscription'),'complete'=>__('Complète','scout-inscription'),'approuvee'=>__('Approuvée','scout-inscription'),'rejetee'=>__('Rejetée','scout-inscription'),'plan_paiement'=>__('Plan paiement','scout-inscription'),'annulee'=>__('Annulée','scout-inscription'),'doublon'=>__('Doublon','scout-inscription')];
                                 $st_colors = ['brouillon'=>'#6a6a62','complete'=>'#2563eb','approuvee'=>'#27ae60','rejetee'=>'#c0392b','plan_paiement'=>'#e67e22','annulee'=>'#6a6a62','doublon'=>'#9ca3af'];
                                 $icon = $st_map[$ins->status] ?? '❓';
                                 $label = $st_labels[$ins->status] ?? $ins->status;
@@ -256,7 +261,7 @@ class Scout_Admin_Dashboard {
             <?php if ($pages > 1): ?>
                 <div class="tablenav" style="margin-top:12px">
                     <div class="tablenav-pages">
-                        <span class="displaying-num"><?php echo esc_html($total); ?> éléments</span>
+                        <span class="displaying-num"><?php /* translators: %s: total count */ printf(esc_html__('%s éléments', 'scout-inscription'), esc_html($total)); ?></span>
                         <?php for ($i = 1; $i <= $pages; $i++): ?>
                             <a class="page-numbers <?php echo $i === $page ? 'current' : ''; ?>"
                                href="<?php echo esc_url(add_query_arg('paged', $i)); ?>"><?php echo $i; ?></a>
@@ -271,7 +276,7 @@ class Scout_Admin_Dashboard {
     private function render_detail(string $ref): void {
         $inscription = Scout_Inscription_Model::get_by_ref($ref);
         if (!$inscription) {
-            echo '<div class="wrap"><h1>Inscription introuvable</h1></div>';
+            echo '<div class="wrap"><h1>' . esc_html__('Inscription introuvable', 'scout-inscription') . '</h1></div>';
             return;
         }
 
@@ -294,13 +299,13 @@ class Scout_Admin_Dashboard {
                 <span style="font-size:14px;color:#6a6a62;margin-left:12px"><?php echo esc_html($inscription->ref_number); ?></span>
                 <?php
                 $status_labels = [
-                    'brouillon' => ['🔘', 'Brouillon', '#6a6a62'],
-                    'complete' => ['📋', 'Complète', '#2563eb'],
-                    'approuvee' => ['✅', 'Approuvée', '#27ae60'],
-                    'rejetee' => ['❌', 'Rejetée', '#c0392b'],
-                    'plan_paiement' => ['📅', 'Plan de paiement', '#e67e22'],
-                    'annulee' => ['🚫', 'Annulée', '#6a6a62'],
-                    'doublon' => ['🔁', 'Doublon', '#9ca3af'],
+                    'brouillon' => ['🔘', __('Brouillon', 'scout-inscription'), '#6a6a62'],
+                    'complete' => ['📋', __('Complète', 'scout-inscription'), '#2563eb'],
+                    'approuvee' => ['✅', __('Approuvée', 'scout-inscription'), '#27ae60'],
+                    'rejetee' => ['❌', __('Rejetée', 'scout-inscription'), '#c0392b'],
+                    'plan_paiement' => ['📅', __('Plan de paiement', 'scout-inscription'), '#e67e22'],
+                    'annulee' => ['🚫', __('Annulée', 'scout-inscription'), '#6a6a62'],
+                    'doublon' => ['🔁', __('Doublon', 'scout-inscription'), '#9ca3af'],
                 ];
                 $st = $status_labels[$inscription->status] ?? ['❓', $inscription->status, '#6a6a62'];
                 ?>
@@ -309,42 +314,42 @@ class Scout_Admin_Dashboard {
 
             <!-- ═══ ADMIN ACTIONS ═══ -->
             <div style="background:#fff;border:1px solid #e0ddd4;border-radius:12px;padding:20px;margin-top:16px;margin-bottom:20px">
-                <h3 style="margin:0 0 12px;font-size:15px">⚡ Actions</h3>
+                <h3 style="margin:0 0 12px;font-size:15px"><?php esc_html_e('Actions', 'scout-inscription'); ?></h3>
                 <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:start">
                     <?php if ($inscription->status !== 'approuvee'): ?>
-                        <button onclick="scoutAction('approve')" class="button button-primary" style="background:#27ae60;border-color:#27ae60">✅ Approuver</button>
+                        <button onclick="scoutAction('approve')" class="button button-primary" style="background:#27ae60;border-color:#27ae60"><?php esc_html_e('Approuver', 'scout-inscription'); ?></button>
                     <?php endif; ?>
                     <?php if ($inscription->status !== 'rejetee'): ?>
-                        <button onclick="document.getElementById('rejectPanel').style.display='block'" class="button" style="color:#c0392b;border-color:#c0392b">❌ Rejeter</button>
+                        <button onclick="document.getElementById('rejectPanel').style.display='block'" class="button" style="color:#c0392b;border-color:#c0392b"><?php esc_html_e('Rejeter', 'scout-inscription'); ?></button>
                     <?php endif; ?>
                     <?php if ($inscription->status !== 'plan_paiement'): ?>
-                        <button onclick="document.getElementById('planPanel').style.display='block'" class="button" style="color:#e67e22;border-color:#e67e22">📅 Plan de paiement</button>
+                        <button onclick="document.getElementById('planPanel').style.display='block'" class="button" style="color:#e67e22;border-color:#e67e22"><?php esc_html_e('Plan de paiement', 'scout-inscription'); ?></button>
                     <?php endif; ?>
                     <?php if ($inscription->status !== 'annulee'): ?>
-                        <button onclick="if(confirm('Annuler cette inscription?'))scoutAction('reject',{reason:'Annulée par l\'administrateur'})" class="button" style="color:#6a6a62">🚫 Annuler</button>
+                        <button onclick="if(confirm('<?php echo esc_js(__('Annuler cette inscription?', 'scout-inscription')); ?>'))scoutAction('reject',{reason:'<?php echo esc_js(__('Annulée par l\'administrateur', 'scout-inscription')); ?>'})" class="button" style="color:#6a6a62"><?php esc_html_e('Annuler', 'scout-inscription'); ?></button>
                     <?php endif; ?>
                 </div>
 
                 <!-- Reject panel (hidden) -->
                 <div id="rejectPanel" style="display:none;margin-top:16px;background:#fff5f5;padding:16px;border-radius:8px;border:1px solid #f0c0c0">
-                    <h4 style="margin:0 0 8px;color:#c0392b">Raison du rejet</h4>
-                    <textarea id="rejectReason" rows="3" style="width:100%;padding:8px;border:1px solid #d0d0c8;border-radius:6px;font-family:inherit" placeholder="Ex: Groupe complet pour cette tranche d'âge, documents manquants..."></textarea>
+                    <h4 style="margin:0 0 8px;color:#c0392b"><?php esc_html_e('Raison du rejet', 'scout-inscription'); ?></h4>
+                    <textarea id="rejectReason" rows="3" style="width:100%;padding:8px;border:1px solid #d0d0c8;border-radius:6px;font-family:inherit" placeholder="<?php echo esc_attr__('Ex: Groupe complet pour cette tranche d\'âge, documents manquants...', 'scout-inscription'); ?>"></textarea>
                     <div style="margin-top:8px;display:flex;gap:8px">
-                        <button onclick="scoutAction('reject',{reason:document.getElementById('rejectReason').value})" class="button" style="background:#c0392b;color:#fff;border-color:#c0392b">Confirmer le rejet</button>
-                        <button onclick="document.getElementById('rejectPanel').style.display='none'" class="button">Annuler</button>
+                        <button onclick="scoutAction('reject',{reason:document.getElementById('rejectReason').value})" class="button" style="background:#c0392b;color:#fff;border-color:#c0392b"><?php esc_html_e('Confirmer le rejet', 'scout-inscription'); ?></button>
+                        <button onclick="document.getElementById('rejectPanel').style.display='none'" class="button"><?php esc_html_e('Annuler', 'scout-inscription'); ?></button>
                     </div>
-                    <p style="font-size:12px;color:#6a6a62;margin-top:8px">Un courriel sera envoyé aux parents avec la raison du rejet.</p>
+                    <p style="font-size:12px;color:#6a6a62;margin-top:8px"><?php esc_html_e('Un courriel sera envoyé aux parents avec la raison du rejet.', 'scout-inscription'); ?></p>
                 </div>
 
                 <!-- Payment plan panel (hidden) -->
                 <div id="planPanel" style="display:none;margin-top:16px;background:#fff8f0;padding:16px;border-radius:8px;border:1px solid #f0d8a0">
-                    <h4 style="margin:0 0 8px;color:#e67e22">📅 Configuration du plan de paiement</h4>
+                    <h4 style="margin:0 0 8px;color:#e67e22"><?php esc_html_e('Configuration du plan de paiement', 'scout-inscription'); ?></h4>
                     <textarea id="planNote" rows="3" style="width:100%;padding:8px;border:1px solid #d0d0c8;border-radius:6px;font-family:inherit" placeholder="Ex: 3 versements de 95$ — 1er oct, 1er nov, 1er déc&#10;Entente conclue avec M./Mme [nom]"></textarea>
                     <div style="margin-top:8px;display:flex;gap:8px">
-                        <button onclick="scoutAction('payment-plan',{note:document.getElementById('planNote').value})" class="button" style="background:#e67e22;color:#fff;border-color:#e67e22">Activer le plan</button>
-                        <button onclick="document.getElementById('planPanel').style.display='none'" class="button">Annuler</button>
+                        <button onclick="scoutAction('payment-plan',{note:document.getElementById('planNote').value})" class="button" style="background:#e67e22;color:#fff;border-color:#e67e22"><?php esc_html_e('Activer le plan', 'scout-inscription'); ?></button>
+                        <button onclick="document.getElementById('planPanel').style.display='none'" class="button"><?php esc_html_e('Annuler', 'scout-inscription'); ?></button>
                     </div>
-                    <p style="font-size:12px;color:#6a6a62;margin-top:8px">Ce statut est visible uniquement dans l'admin. Le parent ne voit pas de distinction — enregistrez les paiements partiels normalement.</p>
+                    <p style="font-size:12px;color:#6a6a62;margin-top:8px"><?php esc_html_e('Ce statut est visible uniquement dans l\'admin. Le parent ne voit pas de distinction — enregistrez les paiements partiels normalement.', 'scout-inscription'); ?></p>
                 </div>
             </div>
 
@@ -374,15 +379,15 @@ class Scout_Admin_Dashboard {
 
                 <!-- Left: Child info -->
                 <div class="postbox" style="padding:20px">
-                    <h2 style="margin-top:0">👤 Enfant</h2>
+                    <h2 style="margin-top:0"><?php esc_html_e('Enfant', 'scout-inscription'); ?></h2>
                     <table class="form-table">
-                        <tr><th>Nom</th><td><?php echo esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom); ?></td></tr>
-                        <tr><th>Date de naissance</th><td><?php echo esc_html($inscription->enfant_ddn); ?></td></tr>
-                        <tr><th>Unité</th><td><?php echo esc_html($unite_names[$inscription->unite] ?? $inscription->unite); ?></td></tr>
-                        <tr><th>Adresse</th><td><?php echo esc_html($inscription->enfant_adresse . ', ' . $inscription->enfant_ville . ' ' . $inscription->enfant_code_postal); ?></td></tr>
+                        <tr><th><?php esc_html_e('Nom', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_prenom . ' ' . $inscription->enfant_nom); ?></td></tr>
+                        <tr><th><?php esc_html_e('Date de naissance', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_ddn); ?></td></tr>
+                        <tr><th><?php esc_html_e('Unité', 'scout-inscription'); ?></th><td><?php echo esc_html($unite_names[$inscription->unite] ?? $inscription->unite); ?></td></tr>
+                        <tr><th><?php esc_html_e('Adresse', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->enfant_adresse . ', ' . $inscription->enfant_ville . ' ' . $inscription->enfant_code_postal); ?></td></tr>
                     </table>
 
-                    <h3>👨‍👩‍👧 Parents / Tuteurs</h3>
+                    <h3><?php esc_html_e('Parents / Tuteurs', 'scout-inscription'); ?></h3>
                     <?php foreach ($parents as $p): ?>
                         <div style="background:#f9f8f5;padding:12px;border-radius:8px;margin-bottom:8px">
                             <strong><?php echo esc_html($p->prenom . ' ' . $p->nom); ?></strong>
@@ -393,7 +398,7 @@ class Scout_Admin_Dashboard {
                         </div>
                     <?php endforeach; ?>
 
-                    <h3>🚨 Contacts d'urgence</h3>
+                    <h3><?php esc_html_e('Contacts d\'urgence', 'scout-inscription'); ?></h3>
                     <?php foreach ($urgence as $u): ?>
                         <div style="background:#fff3f3;padding:12px;border-radius:8px;margin-bottom:8px">
                             <strong><?php echo esc_html($u->nom); ?></strong> (<?php echo esc_html($u->lien); ?>)
@@ -405,34 +410,34 @@ class Scout_Admin_Dashboard {
                 <!-- Right: Medical + Payments -->
                 <div>
                     <div class="postbox" style="padding:20px;margin-bottom:20px">
-                        <h2 style="margin-top:0">🏥 Fiche médicale</h2>
+                        <h2 style="margin-top:0"><?php esc_html_e('Fiche médicale', 'scout-inscription'); ?></h2>
                         <?php if (Scout_MFA::can_access_medical()): ?>
                             <table class="form-table">
-                                <tr><th>Assurance maladie</th><td><?php echo esc_html($inscription->assurance_maladie); ?> (exp: <?php echo esc_html($inscription->assurance_expiration); ?>)</td></tr>
-                                <tr><th>Attention particulière</th><td><?php echo esc_html($medical['attention_particuliere'] ?? 'Non'); ?> <?php echo esc_html($medical['attention_detail'] ?? ''); ?></td></tr>
-                                <tr><th>Vaccins à jour</th><td><?php echo esc_html($medical['vaccins_jour'] ?? ''); ?></td></tr>
-                                <tr><th>Limite physique</th><td><?php echo esc_html($medical['limite_physique'] ?? 'Non'); ?> <?php echo esc_html($medical['limite_detail'] ?? ''); ?></td></tr>
-                                <tr><th>Allergies alimentaires</th><td style="<?php echo !empty($medical['allergies_alimentaires']) ? 'color:#c0392b;font-weight:700' : ''; ?>"><?php echo esc_html($medical['allergies_alimentaires'] ?: '—'); ?></td></tr>
-                                <tr><th>Allergies médicament</th><td style="<?php echo !empty($medical['allergies_medicament']) ? 'color:#c0392b;font-weight:700' : ''; ?>"><?php echo esc_html($medical['allergies_medicament'] ?: '—'); ?></td></tr>
-                                <tr><th>Médicaments</th><td><?php echo esc_html($medical['medicaments'] ?? '—'); ?></td></tr>
+                                <tr><th><?php esc_html_e('Assurance maladie', 'scout-inscription'); ?></th><td><?php echo esc_html($inscription->assurance_maladie); ?> (exp: <?php echo esc_html($inscription->assurance_expiration); ?>)</td></tr>
+                                <tr><th><?php esc_html_e('Attention particulière', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['attention_particuliere'] ?? 'Non'); ?> <?php echo esc_html($medical['attention_detail'] ?? ''); ?></td></tr>
+                                <tr><th><?php esc_html_e('Vaccins à jour', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['vaccins_jour'] ?? ''); ?></td></tr>
+                                <tr><th><?php esc_html_e('Limite physique', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['limite_physique'] ?? 'Non'); ?> <?php echo esc_html($medical['limite_detail'] ?? ''); ?></td></tr>
+                                <tr><th><?php esc_html_e('Allergies alimentaires', 'scout-inscription'); ?></th><td style="<?php echo !empty($medical['allergies_alimentaires']) ? 'color:#c0392b;font-weight:700' : ''; ?>"><?php echo esc_html($medical['allergies_alimentaires'] ?: '—'); ?></td></tr>
+                                <tr><th><?php esc_html_e('Allergies médicament', 'scout-inscription'); ?></th><td style="<?php echo !empty($medical['allergies_medicament']) ? 'color:#c0392b;font-weight:700' : ''; ?>"><?php echo esc_html($medical['allergies_medicament'] ?: '—'); ?></td></tr>
+                                <tr><th><?php esc_html_e('Médicaments', 'scout-inscription'); ?></th><td><?php echo esc_html($medical['medicaments'] ?? '—'); ?></td></tr>
                             </table>
                             <div style="margin-top:12px">
-                                <a href="<?php echo esc_url(rest_url("scout-gm/v1/inscription/{$inscription->ref_number}/medical")); ?>" class="button" target="_blank">📋 Voir la fiche complète (HTML)</a>
+                                <a href="<?php echo esc_url(rest_url("scout-gm/v1/inscription/{$inscription->ref_number}/medical")); ?>" class="button" target="_blank"><?php esc_html_e('Voir la fiche complète (HTML)', 'scout-inscription'); ?></a>
                             </div>
                             <?php Scout_Access_Log::log(get_current_user_id(), $inscription->id, 'medical_view_admin', 'Données médicales affichées dans admin'); ?>
                         <?php elseif (Scout_MFA::user_has_medical_role()): ?>
                             <div style="background:#fff8f0;border:2px solid #e67e22;border-radius:8px;padding:20px;text-align:center">
-                                <p style="font-size:1.1rem;margin-bottom:12px">🔒 Vérification requise pour accéder aux données médicales</p>
+                                <p style="font-size:1.1rem;margin-bottom:12px"><?php esc_html_e('Vérification requise pour accéder aux données médicales', 'scout-inscription'); ?></p>
                                 <div id="mfaPanel">
-                                    <button onclick="sendMfaCode()" class="button button-primary" id="mfaSendBtn">📧 Envoyer le code de vérification</button>
+                                    <button onclick="sendMfaCode()" class="button button-primary" id="mfaSendBtn"><?php esc_html_e('Envoyer le code de vérification', 'scout-inscription'); ?></button>
                                     <div id="mfaCodeInput" style="display:none;margin-top:12px">
-                                        <p style="font-size:13px;color:#6a6a62;margin-bottom:8px">Un code à 6 chiffres a été envoyé à votre courriel.</p>
+                                        <p style="font-size:13px;color:#6a6a62;margin-bottom:8px"><?php esc_html_e('Un code à 6 chiffres a été envoyé à votre courriel.', 'scout-inscription'); ?></p>
                                         <input type="text" id="mfaCode" maxlength="6" placeholder="000000" style="font-size:24px;text-align:center;letter-spacing:6px;width:180px;padding:8px;border:2px solid #e67e22;border-radius:8px;font-family:monospace">
-                                        <button onclick="verifyMfaCode()" class="button button-primary" style="margin-left:8px">Vérifier</button>
+                                        <button onclick="verifyMfaCode()" class="button button-primary" style="margin-left:8px"><?php esc_html_e('Vérifier', 'scout-inscription'); ?></button>
                                         <div id="mfaError" style="color:#c0392b;margin-top:8px;font-size:13px"></div>
                                     </div>
                                 </div>
-                                <p style="font-size:11px;color:#6a6a62;margin-top:12px">Cet accès sera journalisé conformément à la Loi 25.</p>
+                                <p style="font-size:11px;color:#6a6a62;margin-top:12px"><?php esc_html_e('Cet accès sera journalisé conformément à la Loi 25.', 'scout-inscription'); ?></p>
                             </div>
                             <script>
                             var mfaRestUrl = '<?php echo esc_url(rest_url("scout-gm/v1/")); ?>';
@@ -469,23 +474,23 @@ class Scout_Admin_Dashboard {
                             </script>
                         <?php else: ?>
                             <div style="background:#f5f3ee;padding:16px;border-radius:8px;text-align:center;color:#6a6a62">
-                                <p>🚫 Vous n'avez pas accès aux données médicales.</p>
-                                <p style="font-size:12px">Contactez un administrateur pour obtenir les permissions nécessaires.</p>
+                                <p><?php esc_html_e('Vous n\'avez pas accès aux données médicales.', 'scout-inscription'); ?></p>
+                                <p style="font-size:12px"><?php esc_html_e('Contactez un administrateur pour obtenir les permissions nécessaires.', 'scout-inscription'); ?></p>
                             </div>
                         <?php endif; ?>
                     </div>
 
                     <div class="postbox" style="padding:20px">
-                        <h2 style="margin-top:0">💳 Paiements</h2>
+                        <h2 style="margin-top:0"><?php esc_html_e('Paiements', 'scout-inscription'); ?></h2>
                         <div style="display:flex;gap:16px;margin-bottom:16px">
-                            <div><strong>Total dû:</strong> <?php echo number_format($inscription->payment_total, 2); ?> $</div>
-                            <div><strong>Reçu:</strong> <?php echo number_format($inscription->payment_received, 2); ?> $</div>
-                            <div><strong>Solde:</strong> <span style="color:<?php echo $balance > 0 ? '#c0392b' : '#27ae60'; ?>"><?php echo number_format($balance, 2); ?> $</span></div>
+                            <div><strong><?php esc_html_e('Total dû:', 'scout-inscription'); ?></strong> <?php echo number_format($inscription->payment_total, 2); ?> $</div>
+                            <div><strong><?php esc_html_e('Reçu:', 'scout-inscription'); ?></strong> <?php echo number_format($inscription->payment_received, 2); ?> $</div>
+                            <div><strong><?php esc_html_e('Solde:', 'scout-inscription'); ?></strong> <span style="color:<?php echo $balance > 0 ? '#c0392b' : '#27ae60'; ?>"><?php echo number_format($balance, 2); ?> $</span></div>
                         </div>
 
                         <?php if (!empty($payments)): ?>
                             <table class="wp-list-table widefat fixed striped" style="margin-bottom:16px">
-                                <thead><tr><th>Date</th><th>Mode</th><th>Montant</th><th>Par</th><th>Note</th></tr></thead>
+                                <thead><tr><th><?php esc_html_e('Date', 'scout-inscription'); ?></th><th><?php esc_html_e('Mode', 'scout-inscription'); ?></th><th><?php esc_html_e('Montant', 'scout-inscription'); ?></th><th><?php esc_html_e('Par', 'scout-inscription'); ?></th><th><?php esc_html_e('Note', 'scout-inscription'); ?></th></tr></thead>
                                 <tbody>
                                 <?php foreach ($payments as $pay): ?>
                                     <tr>
@@ -502,7 +507,7 @@ class Scout_Admin_Dashboard {
 
                         <?php if (current_user_can('scout_manage_payments') && $balance > 0): ?>
                             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="background:#f9f8f5;padding:16px;border-radius:8px">
-                                <h3 style="margin-top:0">Enregistrer un paiement</h3>
+                                <h3 style="margin-top:0"><?php esc_html_e('Enregistrer un paiement', 'scout-inscription'); ?></h3>
                                 <?php wp_nonce_field('scout_add_payment', '_scout_nonce'); ?>
                                 <input type="hidden" name="action" value="scout_add_payment">
                                 <input type="hidden" name="inscription_id" value="<?php echo esc_attr($inscription->id); ?>">
@@ -515,8 +520,8 @@ class Scout_Admin_Dashboard {
                                         <option value="cheque">Chèque</option>
                                     </select>
                                     <input type="date" name="date_recu" value="<?php echo esc_attr(date('Y-m-d')); ?>" required style="padding:6px">
-                                    <input type="text" name="note" placeholder="Note (optionnel)" style="padding:6px;flex:1;min-width:150px">
-                                    <button type="submit" class="button button-primary">Enregistrer</button>
+                                    <input type="text" name="note" placeholder="<?php echo esc_attr__('Note (optionnel)', 'scout-inscription'); ?>" style="padding:6px;flex:1;min-width:150px">
+                                    <button type="submit" class="button button-primary"><?php esc_html_e('Enregistrer', 'scout-inscription'); ?></button>
                                 </div>
                             </form>
                         <?php endif; ?>
@@ -524,24 +529,24 @@ class Scout_Admin_Dashboard {
 
                     <!-- PDFs -->
                     <div class="postbox" style="padding:20px;margin-top:20px">
-                        <h2 style="margin-top:0">📄 Documents</h2>
+                        <h2 style="margin-top:0"><?php esc_html_e('Documents', 'scout-inscription'); ?></h2>
                         <?php
                         $doc_base = home_url('/?scout_doc=' . urlencode($inscription->ref_number) . '&doc_type=');
                         ?>
-                        <a href="<?php echo esc_url($doc_base . 'fiche_medicale'); ?>" class="button" target="_blank">Fiche médicale</a>
-                        <a href="<?php echo esc_url($doc_base . 'acceptation_risque'); ?>" class="button" target="_blank">Acceptation risques</a>
-                        <a href="<?php echo esc_url($doc_base . 'sommaire'); ?>" class="button" target="_blank">Sommaire + QR</a>
+                        <a href="<?php echo esc_url($doc_base . 'fiche_medicale'); ?>" class="button" target="_blank"><?php esc_html_e('Fiche médicale', 'scout-inscription'); ?></a>
+                        <a href="<?php echo esc_url($doc_base . 'acceptation_risque'); ?>" class="button" target="_blank"><?php esc_html_e('Acceptation risques', 'scout-inscription'); ?></a>
+                        <a href="<?php echo esc_url($doc_base . 'sommaire'); ?>" class="button" target="_blank"><?php esc_html_e('Sommaire + QR', 'scout-inscription'); ?></a>
                     </div>
 
                     <!-- QR Code -->
                     <div class="postbox" style="padding:20px;margin-top:20px;text-align:center">
-                        <h2 style="margin-top:0">📱 Code QR de vérification</h2>
+                        <h2 style="margin-top:0"><?php esc_html_e('Code QR de vérification', 'scout-inscription'); ?></h2>
                         <div id="adminQR" style="margin:16px auto"></div>
                         <p style="font-size:12px;color:#6a6a62;margin:8px 0 16px">
                             <?php echo esc_html($inscription->ref_number); ?> · Signé HMAC-SHA256
                         </p>
-                        <button onclick="adminDownloadQR()" class="button button-primary">📥 Télécharger le QR</button>
-                        <button onclick="adminPrintQR()" class="button">🖨️ Imprimer</button>
+                        <button onclick="adminDownloadQR()" class="button button-primary"><?php esc_html_e('Télécharger le QR', 'scout-inscription'); ?></button>
+                        <button onclick="adminPrintQR()" class="button"><?php esc_html_e('Imprimer', 'scout-inscription'); ?></button>
                     </div>
 
                     <script src="<?php echo esc_url(SCOUT_INS_URL . 'public/js/qrcode-generator.js'); ?>"></script>
@@ -598,15 +603,15 @@ class Scout_Admin_Dashboard {
         $logs = Scout_Access_Log::get_recent(100);
         ?>
         <div class="wrap">
-            <h1>📋 Journal d'accès (Loi 25)</h1>
-            <p>Les 100 derniers accès aux données personnelles.</p>
+            <h1><?php esc_html_e('Journal d\'accès (Loi 25)', 'scout-inscription'); ?></h1>
+            <p><?php esc_html_e('Les 100 derniers accès aux données personnelles.', 'scout-inscription'); ?></p>
             <table class="wp-list-table widefat fixed striped">
-                <thead><tr><th>Date</th><th>Utilisateur</th><th>Action</th><th>Inscription</th><th>IP</th><th>Détails</th></tr></thead>
+                <thead><tr><th><?php esc_html_e('Date', 'scout-inscription'); ?></th><th><?php esc_html_e('Utilisateur', 'scout-inscription'); ?></th><th><?php esc_html_e('Action', 'scout-inscription'); ?></th><th><?php esc_html_e('Inscription', 'scout-inscription'); ?></th><th><?php esc_html_e('IP', 'scout-inscription'); ?></th><th><?php esc_html_e('Détails', 'scout-inscription'); ?></th></tr></thead>
                 <tbody>
                 <?php foreach ($logs as $log): ?>
                     <tr>
                         <td><?php echo esc_html($log->created_at); ?></td>
-                        <td><?php echo esc_html($log->user_name ?? 'Anonyme'); ?></td>
+                        <td><?php echo esc_html($log->user_name ?? __('Anonyme', 'scout-inscription')); ?></td>
                         <td><code><?php echo esc_html($log->action); ?></code></td>
                         <td><?php echo esc_html($log->inscription_id ?? '—'); ?></td>
                         <td><?php echo esc_html($log->ip_address); ?></td>
@@ -623,10 +628,10 @@ class Scout_Admin_Dashboard {
 // Handle payment form submission
 add_action('admin_post_scout_add_payment', function () {
     if (!wp_verify_nonce($_POST['_scout_nonce'] ?? '', 'scout_add_payment')) {
-        wp_die('Nonce invalide');
+        wp_die(__('Nonce invalide', 'scout-inscription'));
     }
     if (!current_user_can('scout_manage_payments')) {
-        wp_die('Permission refusée');
+        wp_die(__('Permission refusée', 'scout-inscription'));
     }
 
     $inscription_id = absint($_POST['inscription_id'] ?? 0);

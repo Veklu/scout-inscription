@@ -153,9 +153,9 @@ class Scout_Daily_Digest {
      */
     public static function build_email(array $data, array $sections): string {
         $status_labels = [
-            'brouillon' => '🔘 Brouillon', 'complete' => '📋 Complète', 'approuvee' => '✅ Approuvée',
-            'rejetee' => '❌ Rejetée', 'plan_paiement' => '📅 Plan paiement',
-            'annulee' => '🚫 Annulée', 'doublon' => '🔁 Doublon',
+            'brouillon' => __('Brouillon', 'scout-inscription'), 'complete' => __('Complète', 'scout-inscription'), 'approuvee' => __('Approuvée', 'scout-inscription'),
+            'rejetee' => __('Rejetée', 'scout-inscription'), 'plan_paiement' => __('Plan paiement', 'scout-inscription'),
+            'annulee' => __('Annulée', 'scout-inscription'), 'doublon' => __('Doublon', 'scout-inscription'),
         ];
         $unit_labels = ['castors' => '🦫 Castors', 'louveteaux' => '🐺 Louveteaux', 'eclaireurs' => '🧭 Éclaireurs', 'pionniers' => '🔴 Pionniers'];
 
@@ -173,7 +173,7 @@ class Scout_Daily_Digest {
 <!-- Header -->
 <div style="background:linear-gradient(135deg,#003320,#007748);padding:24px;text-align:center;color:#fff">
 <div style="font-size:28px;margin-bottom:4px">⚜️</div>
-<h1 style="margin:0;font-size:20px;font-weight:700;color:#fff">Rapport quotidien — Inscriptions</h1>
+<h1 style="margin:0;font-size:20px;font-weight:700;color:#fff"><?php echo esc_html__('Rapport quotidien — Inscriptions', 'scout-inscription'); ?></h1>
 <p style="margin:4px 0 0;opacity:0.7;font-size:13px"><?php echo esc_html($site_name); ?> · <?php echo esc_html($date); ?></p>
 </div>
 
@@ -182,12 +182,12 @@ class Scout_Daily_Digest {
 <?php if (in_array('summary', $sections)): ?>
 <!-- SUMMARY -->
 <div style="background:#f0faf4;border-radius:8px;padding:16px;margin-bottom:20px">
-<h2 style="margin:0 0 12px;font-size:15px;color:#007748">📊 Résumé — <?php echo esc_html($data['year']); ?></h2>
+<h2 style="margin:0 0 12px;font-size:15px;color:#007748"><?php /* translators: %s: scout year */ printf(esc_html__('Résumé — %s', 'scout-inscription'), esc_html($data['year'])); ?></h2>
 <table style="width:100%;border-collapse:collapse;font-size:13px">
-<tr><td style="padding:4px 0">Total inscriptions actives</td><td style="text-align:right;font-weight:700"><?php echo $data['total_inscriptions']; ?></td></tr>
-<tr><td style="padding:4px 0">✅ Approuvées</td><td style="text-align:right;font-weight:700;color:#27ae60"><?php echo $data['total_approved']; ?></td></tr>
-<tr><td style="padding:4px 0">📋 En attente de traitement</td><td style="text-align:right;font-weight:700;color:#2563eb"><?php echo $data['pending_review']; ?></td></tr>
-<tr><td style="padding:4px 0;border-top:1px solid #d0e8d4;padding-top:8px">Par unité:</td><td style="border-top:1px solid #d0e8d4;padding-top:8px"></td></tr>
+<tr><td style="padding:4px 0"><?php esc_html_e('Total inscriptions actives', 'scout-inscription'); ?></td><td style="text-align:right;font-weight:700"><?php echo $data['total_inscriptions']; ?></td></tr>
+<tr><td style="padding:4px 0"><?php esc_html_e('Approuvées', 'scout-inscription'); ?></td><td style="text-align:right;font-weight:700;color:#27ae60"><?php echo $data['total_approved']; ?></td></tr>
+<tr><td style="padding:4px 0"><?php esc_html_e('En attente de traitement', 'scout-inscription'); ?></td><td style="text-align:right;font-weight:700;color:#2563eb"><?php echo $data['pending_review']; ?></td></tr>
+<tr><td style="padding:4px 0;border-top:1px solid #d0e8d4;padding-top:8px"><?php esc_html_e('Par unité:', 'scout-inscription'); ?></td><td style="border-top:1px solid #d0e8d4;padding-top:8px"></td></tr>
 <?php foreach ($data['per_unit'] as $unit => $count): ?>
 <tr><td style="padding:2px 0 2px 16px"><?php echo esc_html($unit_labels[$unit] ?? ucfirst($unit)); ?></td><td style="text-align:right"><?php echo $count; ?></td></tr>
 <?php endforeach; ?>
@@ -198,12 +198,12 @@ class Scout_Daily_Digest {
 <?php if (in_array('new_inscriptions', $sections)): ?>
 <!-- NEW INSCRIPTIONS -->
 <div style="margin-bottom:20px">
-<h2 style="margin:0 0 8px;font-size:15px;color:#007748">🆕 Nouvelles inscriptions (dernières 24h)</h2>
+<h2 style="margin:0 0 8px;font-size:15px;color:#007748"><?php esc_html_e('Nouvelles inscriptions (dernières 24h)', 'scout-inscription'); ?></h2>
 <?php if (empty($data['new_inscriptions'])): ?>
-<p style="color:#6a6a62;font-size:13px;margin:4px 0">Aucune nouvelle inscription.</p>
+<p style="color:#6a6a62;font-size:13px;margin:4px 0"><?php esc_html_e('Aucune nouvelle inscription.', 'scout-inscription'); ?></p>
 <?php else: ?>
 <table style="width:100%;border-collapse:collapse;font-size:13px">
-<tr style="background:#f9f8f5"><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Réf</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Enfant</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Unité</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Statut</th></tr>
+<tr style="background:#f9f8f5"><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Réf', 'scout-inscription'); ?></th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Enfant', 'scout-inscription'); ?></th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Unité', 'scout-inscription'); ?></th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Statut', 'scout-inscription'); ?></th></tr>
 <?php foreach ($data['new_inscriptions'] as $ins): ?>
 <tr><td style="padding:4px 8px;border-bottom:1px solid #f0f0f0"><?php echo esc_html($ins->ref_number); ?></td>
 <td style="padding:4px 8px;border-bottom:1px solid #f0f0f0"><?php echo esc_html($ins->enfant_prenom . ' ' . $ins->enfant_nom); ?></td>
@@ -218,12 +218,12 @@ class Scout_Daily_Digest {
 <?php if (in_array('status_changes', $sections)): ?>
 <!-- STATUS CHANGES -->
 <div style="margin-bottom:20px">
-<h2 style="margin:0 0 8px;font-size:15px;color:#007748">🔄 Changements de statut (dernières 24h)</h2>
+<h2 style="margin:0 0 8px;font-size:15px;color:#007748"><?php esc_html_e('Changements de statut (dernières 24h)', 'scout-inscription'); ?></h2>
 <?php if (empty($data['status_changes'])): ?>
-<p style="color:#6a6a62;font-size:13px;margin:4px 0">Aucun changement.</p>
+<p style="color:#6a6a62;font-size:13px;margin:4px 0"><?php esc_html_e('Aucun changement.', 'scout-inscription'); ?></p>
 <?php else: ?>
 <table style="width:100%;border-collapse:collapse;font-size:13px">
-<tr style="background:#f9f8f5"><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Réf</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Enfant</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Statut actuel</th></tr>
+<tr style="background:#f9f8f5"><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Réf', 'scout-inscription'); ?></th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Enfant', 'scout-inscription'); ?></th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Statut actuel', 'scout-inscription'); ?></th></tr>
 <?php foreach ($data['status_changes'] as $ins): ?>
 <tr><td style="padding:4px 8px;border-bottom:1px solid #f0f0f0"><?php echo esc_html($ins->ref_number); ?></td>
 <td style="padding:4px 8px;border-bottom:1px solid #f0f0f0"><?php echo esc_html($ins->enfant_prenom . ' ' . $ins->enfant_nom); ?></td>
@@ -237,12 +237,12 @@ class Scout_Daily_Digest {
 <?php if (in_array('payments', $sections)): ?>
 <!-- PAYMENTS -->
 <div style="margin-bottom:20px">
-<h2 style="margin:0 0 8px;font-size:15px;color:#007748">💰 Paiements reçus (dernières 24h)</h2>
+<h2 style="margin:0 0 8px;font-size:15px;color:#007748"><?php esc_html_e('Paiements reçus (dernières 24h)', 'scout-inscription'); ?></h2>
 <?php if (empty($data['payments'])): ?>
-<p style="color:#6a6a62;font-size:13px;margin:4px 0">Aucun nouveau paiement.</p>
+<p style="color:#6a6a62;font-size:13px;margin:4px 0"><?php esc_html_e('Aucun nouveau paiement.', 'scout-inscription'); ?></p>
 <?php else: ?>
 <table style="width:100%;border-collapse:collapse;font-size:13px">
-<tr style="background:#f9f8f5"><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Réf</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Enfant</th><th style="text-align:right;padding:6px 8px;border-bottom:1px solid #e0ddd4">Montant</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4">Méthode</th></tr>
+<tr style="background:#f9f8f5"><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Réf', 'scout-inscription'); ?></th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Enfant', 'scout-inscription'); ?></th><th style="text-align:right;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Montant', 'scout-inscription'); ?></th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0ddd4"><?php esc_html_e('Méthode', 'scout-inscription'); ?></th></tr>
 <?php
 $total_payments = 0;
 foreach ($data['payments'] as $p):
@@ -253,7 +253,7 @@ foreach ($data['payments'] as $p):
 <td style="padding:4px 8px;border-bottom:1px solid #f0f0f0;text-align:right;font-weight:700;color:#27ae60"><?php echo number_format($p->amount, 2); ?> $</td>
 <td style="padding:4px 8px;border-bottom:1px solid #f0f0f0"><?php echo esc_html($p->method ?? '—'); ?></td></tr>
 <?php endforeach; ?>
-<tr style="background:#f0faf4"><td colspan="2" style="padding:6px 8px;font-weight:700">Total reçu</td><td style="padding:6px 8px;text-align:right;font-weight:700;color:#27ae60"><?php echo number_format($total_payments, 2); ?> $</td><td></td></tr>
+<tr style="background:#f0faf4"><td colspan="2" style="padding:6px 8px;font-weight:700"><?php esc_html_e('Total reçu', 'scout-inscription'); ?></td><td style="padding:6px 8px;text-align:right;font-weight:700;color:#27ae60"><?php echo number_format($total_payments, 2); ?> $</td><td></td></tr>
 </table>
 <?php endif; ?>
 </div>
@@ -262,19 +262,19 @@ foreach ($data['payments'] as $p):
 <?php if (in_array('outstanding', $sections)): ?>
 <!-- OUTSTANDING -->
 <div style="background:#fff8f0;border:1px solid #f0dcc0;border-radius:8px;padding:16px;margin-bottom:20px">
-<h2 style="margin:0 0 8px;font-size:15px;color:#92400e">⚠️ Revenus — Solde</h2>
+<h2 style="margin:0 0 8px;font-size:15px;color:#92400e"><?php esc_html_e('Revenus — Solde', 'scout-inscription'); ?></h2>
 <table style="width:100%;border-collapse:collapse;font-size:13px">
-<tr><td style="padding:4px 0">💵 Total attendu</td><td style="text-align:right;font-weight:700"><?php echo number_format($data['total_due'], 2); ?> $</td></tr>
-<tr><td style="padding:4px 0">✅ Total reçu</td><td style="text-align:right;font-weight:700;color:#27ae60"><?php echo number_format($data['total_received'], 2); ?> $</td></tr>
-<tr style="border-top:2px solid #f0dcc0"><td style="padding:8px 0 0;font-weight:700;color:#c0392b">⚠️ Impayé</td><td style="text-align:right;font-weight:700;color:#c0392b;padding-top:8px;font-size:16px"><?php echo number_format($data['outstanding'], 2); ?> $</td></tr>
+<tr><td style="padding:4px 0"><?php esc_html_e('Total attendu', 'scout-inscription'); ?></td><td style="text-align:right;font-weight:700"><?php echo number_format($data['total_due'], 2); ?> $</td></tr>
+<tr><td style="padding:4px 0"><?php esc_html_e('Total reçu', 'scout-inscription'); ?></td><td style="text-align:right;font-weight:700;color:#27ae60"><?php echo number_format($data['total_received'], 2); ?> $</td></tr>
+<tr style="border-top:2px solid #f0dcc0"><td style="padding:8px 0 0;font-weight:700;color:#c0392b"><?php esc_html_e('Impayé', 'scout-inscription'); ?></td><td style="text-align:right;font-weight:700;color:#c0392b;padding-top:8px;font-size:16px"><?php echo number_format($data['outstanding'], 2); ?> $</td></tr>
 </table>
 </div>
 <?php endif; ?>
 
 <!-- Footer -->
 <div style="text-align:center;padding-top:12px;border-top:1px solid #e0ddd4">
-<a href="<?php echo esc_url($admin_url); ?>" style="display:inline-block;background:#007748;color:#fff;text-decoration:none;padding:10px 24px;border-radius:6px;font-size:13px;font-weight:600">Ouvrir le tableau de bord →</a>
-<p style="font-size:11px;color:#9ca3af;margin-top:12px">Ce courriel est envoyé automatiquement chaque jour. Vous pouvez modifier les destinataires et les sections dans Réglages → Plugin d'inscription.</p>
+<a href="<?php echo esc_url($admin_url); ?>" style="display:inline-block;background:#007748;color:#fff;text-decoration:none;padding:10px 24px;border-radius:6px;font-size:13px;font-weight:600"><?php esc_html_e('Ouvrir le tableau de bord', 'scout-inscription'); ?> →</a>
+<p style="font-size:11px;color:#9ca3af;margin-top:12px"><?php esc_html_e('Ce courriel est envoyé automatiquement chaque jour. Vous pouvez modifier les destinataires et les sections dans Réglages.', 'scout-inscription'); ?></p>
 </div>
 
 </div>
@@ -304,7 +304,8 @@ foreach ($data['payments'] as $p):
         if (!$has_activity && !$wants_summary) return;
 
         $html = self::build_email($data, $sections);
-        $subject = '⚜️ Rapport inscriptions — ' . wp_date('j F Y');
+        /* translators: %s: date */
+        $subject = sprintf(__('Rapport inscriptions — %s', 'scout-inscription'), wp_date('j F Y'));
 
         $from_email = get_option('scout_ins_email_from', 'info@5escoutgrandmoulin.org');
         $from_name = get_bloginfo('name');
@@ -366,7 +367,8 @@ foreach ($data['payments'] as $p):
         $sections = get_option(self::OPTION_SECTIONS, ['summary', 'new_inscriptions', 'payments', 'outstanding']);
         $data = self::get_digest_data();
         $html = self::build_email($data, $sections);
-        $subject = '⚜️ [TEST] Rapport inscriptions — ' . wp_date('j F Y');
+        /* translators: %s: date */
+        $subject = sprintf(__('[TEST] Rapport inscriptions — %s', 'scout-inscription'), wp_date('j F Y'));
 
         $from_email = get_option('scout_ins_email_from', 'info@5escoutgrandmoulin.org');
         $from_name = get_bloginfo('name');
