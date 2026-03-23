@@ -129,13 +129,13 @@ class Scout_Admin_Dashboard {
             <!-- Filters -->
             <form method="get" style="margin-bottom:16px;display:flex;gap:8px;align-items:end;flex-wrap:wrap">
                 <input type="hidden" name="page" value="scout-inscription">
-                <select name="unite" style="padding:6px 10px">
+                <select name="unite" style="padding:6px 24px 6px 10px">
                     <option value=""><?php esc_html_e('Toutes les unités', 'scout-inscription'); ?></option>
                     <?php foreach ($unites as $k => $v): ?>
                         <option value="<?php echo esc_attr($k); ?>" <?php selected($filters['unite'] ?? '', $k); ?>><?php echo esc_html($v); ?></option>
                     <?php endforeach; ?>
                 </select>
-                <select name="statut" style="padding:6px 10px">
+                <select name="statut" style="padding:6px 24px 6px 10px">
                     <option value=""><?php esc_html_e('Tous les statuts', 'scout-inscription'); ?></option>
                     <option value="brouillon" <?php selected($filters['status'] ?? '', 'brouillon'); ?>><?php esc_html_e('Brouillon', 'scout-inscription'); ?></option>
                     <option value="complete" <?php selected($filters['status'] ?? '', 'complete'); ?>><?php esc_html_e('Complète', 'scout-inscription'); ?></option>
@@ -145,7 +145,7 @@ class Scout_Admin_Dashboard {
                     <option value="annulee" <?php selected($filters['status'] ?? '', 'annulee'); ?>><?php esc_html_e('Annulée', 'scout-inscription'); ?></option>
                     <option value="doublon" <?php selected($filters['status'] ?? '', 'doublon'); ?>><?php esc_html_e('Doublon', 'scout-inscription'); ?></option>
                 </select>
-                <select name="payment" style="padding:6px 10px">
+                <select name="payment" style="padding:6px 24px 6px 10px">
                     <option value=""><?php esc_html_e('Tous les paiements', 'scout-inscription'); ?></option>
                     <?php foreach ($payment_statuses as $k => $v): ?>
                         <option value="<?php echo esc_attr($k); ?>" <?php selected($filters['payment_status'] ?? '', $k); ?>><?php echo esc_html($v); ?></option>
