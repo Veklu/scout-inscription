@@ -1,0 +1,101 @@
+/* ═══════════ SCOUT INSCRIPTION FORM ═══════════ */
+.scout-form-wrapper { max-width:800px; margin:0 auto; }
+
+/* Stepper */
+.scout-stepper { display:flex; gap:4px; margin-bottom:32px; }
+.scout-step { flex:1; text-align:center; padding:12px 8px; background:#f5f3ee; border-radius:8px; font-size:13px; color:#6a6a62; transition:all 0.3s; }
+.scout-step span { display:block; font-size:20px; font-weight:700; margin-bottom:2px; }
+.scout-step.active { background:#007748; color:#fff; }
+.scout-step.done { background:#005a36; color:#d4a017; }
+
+/* Steps */
+.scout-form-step { display:none; animation:fadeIn 0.3s; }
+.scout-form-step.active { display:block; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+/* Fields */
+.scout-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 16px; margin-bottom:16px; }
+.scout-field { display:flex; flex-direction:column; }
+.scout-field-wide { grid-column:span 2; }
+.scout-field label { font-size:13px; font-weight:500; color:#3a3a36; margin-bottom:4px; }
+.scout-field input, .scout-field select, .scout-field textarea {
+    padding:10px 12px; border:1.5px solid #d0d0c8; border-radius:8px; font-size:14px;
+    font-family:inherit; transition:border-color 0.2s; background:#fff;
+}
+.scout-field input:focus, .scout-field select:focus, .scout-field textarea:focus {
+    border-color:#007748; outline:none; box-shadow:0 0 0 3px rgba(0,119,72,0.1);
+}
+
+/* Contact blocks */
+.scout-contact-block { background:#f9f8f5; padding:16px; border-radius:10px; margin-bottom:12px; position:relative; border:1px solid #e0ddd4; }
+.scout-contact-block h3 { margin-top:0; font-size:15px; color:#007748; }
+.scout-contact-block h3 small { font-weight:400; color:#6a6a62; }
+.scout-remove-btn { position:absolute; top:12px; right:12px; background:none; border:none; font-size:20px; cursor:pointer; color:#6a6a62; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.scout-remove-btn:hover { background:#c0392b; color:#fff; }
+
+/* Buttons */
+.scout-btn-add { background:none; border:2px dashed #007748; color:#007748; padding:10px 20px; border-radius:8px; cursor:pointer; font-size:14px; font-weight:600; margin:8px 0 24px; transition:all 0.2s; }
+.scout-btn-add:hover { background:#007748; color:#fff; }
+.scout-form-nav { display:flex; justify-content:space-between; margin-top:32px; padding-top:20px; border-top:1px solid #e0ddd4; }
+.scout-btn-next, .scout-btn-submit { background:#007748; color:#fff; border:none; padding:12px 32px; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; transition:background 0.2s; }
+.scout-btn-next:hover, .scout-btn-submit:hover { background:#005a36; }
+.scout-btn-prev { background:none; border:1.5px solid #d0d0c8; color:#3a3a36; padding:12px 24px; border-radius:8px; font-size:14px; cursor:pointer; }
+.scout-btn-prev:hover { border-color:#007748; color:#007748; }
+
+/* Checkboxes & radio */
+.scout-checkbox { display:flex; gap:10px; padding:12px; border:1px solid #e0ddd4; border-radius:8px; margin-bottom:8px; cursor:pointer; transition:border-color 0.2s; }
+.scout-checkbox:hover { border-color:#007748; }
+.scout-checkbox input { margin-top:3px; accent-color:#007748; }
+.scout-consent { padding:16px; background:#f9f8f5; }
+.scout-consent strong { color:#007748; }
+.scout-consent span { font-size:13px; color:#3a3a36; }
+.scout-radio { margin-right:16px; cursor:pointer; }
+.scout-radio input { accent-color:#007748; }
+
+/* Medical */
+.scout-medical-question { margin-bottom:16px; padding:12px; background:#f9f8f5; border-radius:8px; }
+.scout-medical-question label { font-weight:500; }
+.scout-conditional { width:100%; margin-top:8px; }
+
+/* Signature */
+.scout-signature-box { background:#f9f8f5; padding:20px; border-radius:10px; border:2px solid #007748; }
+.scout-signature-input { font-family:'Georgia',serif; font-size:22px; font-style:italic; color:#003d24; border-bottom:2px solid #007748!important; border-radius:0!important; }
+.scout-small-text { font-size:12px; color:#6a6a62; margin-top:8px; }
+
+/* Risk */
+.scout-risk-notice { background:#fff3f3; padding:16px; border-radius:8px; border-left:4px solid #c0392b; margin-bottom:20px; }
+.scout-risk-notice ul { padding-left:20px; }
+.scout-risk-notice li { margin-bottom:4px; }
+
+/* Loi 25 */
+.scout-loi25-notice { background:#e8f4ff; padding:16px; border-radius:8px; margin-top:20px; border-left:4px solid #0065cc; font-size:13px; }
+
+/* Confirmation */
+.scout-confirm-box { text-align:center; padding:40px 20px; }
+.scout-ref-display { font-size:32px; font-weight:700; color:#007748; letter-spacing:3px; margin:20px 0; padding:20px; background:#f9f8f5; border-radius:12px; border:2px solid #007748; }
+.scout-confirm-info { text-align:left; max-width:400px; margin:24px auto 0; }
+.scout-confirm-info h3 { color:#007748; }
+
+/* Errors */
+.scout-form-errors { background:#fff3f3; border:1px solid #c0392b; border-radius:8px; padding:16px; margin-bottom:20px; color:#c0392b; }
+.scout-form-errors ul { margin:8px 0 0; padding-left:20px; }
+
+/* Verify page */
+.scout-verify-box { max-width:600px; margin:20px auto; padding:30px; border-radius:12px; }
+.scout-verify-success { background:#f0faf4; border:2px solid #007748; }
+.scout-verify-error { background:#fff3f3; border:2px solid #c0392b; text-align:center; }
+.scout-verify-ref { text-align:center; font-size:24px; font-weight:700; color:#007748; letter-spacing:2px; margin:12px 0 20px; }
+.scout-verify-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.scout-verify-section { background:#fff; padding:16px; border-radius:8px; }
+.scout-verify-section h3 { margin-top:0; font-size:14px; color:#007748; }
+.scout-verify-footer { text-align:center; font-size:11px; color:#6a6a62; margin-top:20px; }
+
+/* Mobile */
+@media (max-width:600px) {
+    .scout-form-grid { grid-template-columns:1fr; }
+    .scout-field-wide { grid-column:span 1; }
+    .scout-stepper { flex-wrap:wrap; }
+    .scout-step { font-size:11px; padding:8px 4px; }
+    .scout-step span { font-size:16px; }
+    .scout-verify-grid { grid-template-columns:1fr; }
+}
