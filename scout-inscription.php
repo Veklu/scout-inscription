@@ -69,6 +69,29 @@ add_action('plugins_loaded', function () {
     load_plugin_textdomain('scout-inscription', false, dirname(SCOUT_INS_BASENAME) . '/languages');
 });
 
+// Reload textdomain for user locale in admin
+add_filter('locale', function ($locale) {
+    if (is_admin() && function_exists('wp_get_current_user')) {
+        $user = wp_get_current_user();
+        if ($user->exists()) {
+            $user_locale = get_user_meta($user->ID, 'locale', true);
+            if ($user_locale) {
+                static $loaded = false;
+                if (!$loaded) {
+                    $loaded = true;
+                    $mofile = plugin_dir_path(__FILE__) . 'languages/scout-inscription-' . $user_locale . '.mo';
+                    if (file_exists($mofile)) {
+                        unload_textdomain('scout-inscription');
+                        load_textdomain('scout-inscription', $mofile);
+                    }
+                }
+                return $user_locale;
+            }
+        }
+    }
+    return $locale;
+});
+
 add_action('init', function () {
     // Register shortcodes
     if (class_exists('Scout_Public_Form')) {
