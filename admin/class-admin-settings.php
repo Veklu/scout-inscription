@@ -1,15 +1,17 @@
 <?php
 defined('ABSPATH') || exit;
 
-class Scout_Admin_Settings {
+class Scout_Admin_Settings
+{
 
-    public function register_settings(): void {
+    public function register_settings(): void
+    {
         register_setting('scout_ins_settings', 'scout_ins_current_year', ['sanitize_callback' => 'sanitize_text_field']);
         register_setting('scout_ins_settings', 'scout_ins_email_from', ['sanitize_callback' => 'sanitize_email']);
         register_setting('scout_ins_settings', 'scout_ins_privacy_officer', ['sanitize_callback' => 'sanitize_text_field']);
         register_setting('scout_ins_settings', 'scout_ins_retention_years', ['sanitize_callback' => 'absint']);
         register_setting('scout_ins_settings', 'scout_ins_pricing', ['sanitize_callback' => [$this, 'sanitize_pricing']]);
-        register_setting('scout_ins_settings', 'scout_ins_medical_roles', ['sanitize_callback' => function($input) {
+        register_setting('scout_ins_settings', 'scout_ins_medical_roles', ['sanitize_callback' => function ($input) {
             if (!is_array($input)) return ['administrator'];
             return array_map('sanitize_text_field', $input);
         }]);
@@ -19,17 +21,18 @@ class Scout_Admin_Settings {
         // Daily digest settings
         register_setting('scout_ins_digest', Scout_Daily_Digest::OPTION_ENABLED, ['sanitize_callback' => 'absint']);
         register_setting('scout_ins_digest', Scout_Daily_Digest::OPTION_TIME, ['sanitize_callback' => 'sanitize_text_field']);
-        register_setting('scout_ins_digest', Scout_Daily_Digest::OPTION_RECIPIENTS, ['sanitize_callback' => function($input) {
+        register_setting('scout_ins_digest', Scout_Daily_Digest::OPTION_RECIPIENTS, ['sanitize_callback' => function ($input) {
             if (!is_array($input)) return [];
             return array_map('intval', $input);
         }]);
-        register_setting('scout_ins_digest', Scout_Daily_Digest::OPTION_SECTIONS, ['sanitize_callback' => function($input) {
+        register_setting('scout_ins_digest', Scout_Daily_Digest::OPTION_SECTIONS, ['sanitize_callback' => function ($input) {
             if (!is_array($input)) return ['summary', 'new_inscriptions', 'payments', 'outstanding'];
             return array_map('sanitize_key', $input);
         }]);
     }
 
-    public function sanitize_pricing($input): array {
+    public function sanitize_pricing($input): array
+    {
         $defaults = ['castors' => 245, 'louveteaux' => 285, 'eclaireurs' => 285, 'pionniers' => 285];
         if (!is_array($input)) return $defaults;
         $clean = [];
@@ -39,9 +42,10 @@ class Scout_Admin_Settings {
         return $clean;
     }
 
-    public function render(): void {
+    public function render(): void
+    {
         $pricing = get_option('scout_ins_pricing', ['castors' => 245, 'louveteaux' => 285, 'eclaireurs' => 285, 'pionniers' => 285]);
-        ?>
+?>
         <div class="wrap">
             <h1><?php esc_html_e('Réglages — Plugin d\'inscription', 'scout-inscription'); ?></h1>
             <form method="post" action="options.php">
@@ -51,21 +55,24 @@ class Scout_Admin_Settings {
                     <tr>
                         <th><?php esc_html_e('Année scoute active', 'scout-inscription'); ?></th>
                         <td><input type="text" name="scout_ins_current_year" value="<?php echo esc_attr(get_option('scout_ins_current_year', '')); ?>" placeholder="<?php echo esc_attr(Scout_Inscription_Model::get_current_year()); ?>">
-                        <p class="description"><?php esc_html_e('Laisser vide pour calcul automatique (sept-août).', 'scout-inscription'); ?></p></td>
+                            <p class="description"><?php esc_html_e('Laisser vide pour calcul automatique (sept-août).', 'scout-inscription'); ?></p>
+                        </td>
                     </tr>
                     <tr>
                         <th><?php esc_html_e('Courriel générique du groupe', 'scout-inscription'); ?></th>
-                        <td><input type="email" name="scout_ins_email_from" value="<?php echo esc_attr(get_option('scout_ins_email_from', 'info@5escoutgrandmoulin.org')); ?>" class="regular-text">
-                        <p class="description"><?php esc_html_e('Utilisé comme adresse d\'expéditeur pour tous les courriels (confirmations, rejets, MFA, rappels) et comme adresse de contact dans les messages aux parents.', 'scout-inscription'); ?></p></td>
+                        <td><input type="email" name="scout_ins_email_from" value="<?php echo esc_attr(get_option('scout_ins_email_from', 'info@example.com')); ?>" class="regular-text">
+                            <p class="description"><?php esc_html_e('Utilisé comme adresse d\'expéditeur pour tous les courriels (confirmations, rejets, MFA, rappels) et comme adresse de contact dans les messages aux parents.', 'scout-inscription'); ?></p>
+                        </td>
                     </tr>
                     <tr>
                         <th><?php esc_html_e('Responsable vie privée (Loi 25)', 'scout-inscription'); ?></th>
-                        <td><input type="text" name="scout_ins_privacy_officer" value="<?php echo esc_attr(get_option('scout_ins_privacy_officer', 'Jean Côté')); ?>" class="regular-text"></td>
+                        <td><input type="text" name="scout_ins_privacy_officer" value="<?php echo esc_attr(get_option('scout_ins_privacy_officer', 'Administration')); ?>" class="regular-text"></td>
                     </tr>
                     <tr>
                         <th><?php esc_html_e('Rétention données (années)', 'scout-inscription'); ?></th>
                         <td><input type="number" name="scout_ins_retention_years" min="1" max="10" value="<?php echo esc_attr(get_option('scout_ins_retention_years', 2)); ?>">
-                        <p class="description"><?php esc_html_e('Nombre d\'années après la fin de l\'année scoute avant la suppression automatique des données personnelles.', 'scout-inscription'); ?></p></td>
+                            <p class="description"><?php esc_html_e('Nombre d\'années après la fin de l\'année scoute avant la suppression automatique des données personnelles.', 'scout-inscription'); ?></p>
+                        </td>
                     </tr>
                 </table>
 
@@ -99,35 +106,35 @@ class Scout_Admin_Settings {
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($pricing_years as $year => $prices): ?>
-                        <tr<?php echo ($year === $current_year) ? ' style="background:#f0faf4"' : ''; ?>>
-                            <td>
-                                <input type="text" name="pricing_year[]" value="<?php echo esc_attr($year); ?>" style="width:100%;font-weight:600" placeholder="2025-2026">
-                                <?php if ($year === $current_year): ?><br><span style="font-size:10px;color:#007748">● Active</span><?php endif; ?>
-                            </td>
-                            <?php foreach ($units_list as $u): ?>
-                                <td><input type="number" name="pricing_<?php echo esc_attr($u['slug']); ?>[]" step="0.01" min="0" value="<?php echo esc_attr($prices[$u['slug']] ?? 285); ?>" style="width:100%"> $</td>
+                        <?php foreach ($pricing_years as $year => $prices): ?>
+                            <tr<?php echo ($year === $current_year) ? ' style="background:#f0faf4"' : ''; ?>>
+                                <td>
+                                    <input type="text" name="pricing_year[]" value="<?php echo esc_attr($year); ?>" style="width:100%;font-weight:600" placeholder="2025-2026">
+                                    <?php if ($year === $current_year): ?><br><span style="font-size:10px;color:#007748">● Active</span><?php endif; ?>
+                                </td>
+                                <?php foreach ($units_list as $u): ?>
+                                    <td><input type="number" name="pricing_<?php echo esc_attr($u['slug']); ?>[]" step="0.01" min="0" value="<?php echo esc_attr($prices[$u['slug']] ?? 285); ?>" style="width:100%"> $</td>
+                                <?php endforeach; ?>
+                                <td><button type="button" onclick="this.closest('tr').remove()" class="button" style="color:#c0392b">✕</button></td>
+                                </tr>
                             <?php endforeach; ?>
-                            <td><button type="button" onclick="this.closest('tr').remove()" class="button" style="color:#c0392b">✕</button></td>
-                        </tr>
-                    <?php endforeach; ?>
                     </tbody>
                 </table>
                 <button type="button" class="button" onclick="addPricingYear()">+ <?php esc_html_e('Ajouter une année', 'scout-inscription'); ?></button>
                 <script>
-                function addPricingYear() {
-                    var tbody = document.querySelector('#pricingTable tbody');
-                    var tr = document.createElement('tr');
-                    var nextYear = new Date().getFullYear();
-                    var yearStr = nextYear + '-' + (nextYear + 1);
-                    var cells = '<td><input type="text" name="pricing_year[]" value="' + yearStr + '" style="width:100%;font-weight:600"></td>';
-                    <?php foreach ($units_list as $u): ?>
-                    cells += '<td><input type="number" name="pricing_<?php echo esc_js($u['slug']); ?>[]" step="0.01" min="0" value="285" style="width:100%"> $</td>';
-                    <?php endforeach; ?>
-                    cells += '<td><button type="button" onclick="this.closest(\'tr\').remove()" class="button" style="color:#c0392b">✕</button></td>';
-                    tr.innerHTML = cells;
-                    tbody.insertBefore(tr, tbody.firstChild);
-                }
+                    function addPricingYear() {
+                        var tbody = document.querySelector('#pricingTable tbody');
+                        var tr = document.createElement('tr');
+                        var nextYear = new Date().getFullYear();
+                        var yearStr = nextYear + '-' + (nextYear + 1);
+                        var cells = '<td><input type="text" name="pricing_year[]" value="' + yearStr + '" style="width:100%;font-weight:600"></td>';
+                        <?php foreach ($units_list as $u): ?>
+                            cells += '<td><input type="number" name="pricing_<?php echo esc_js($u['slug']); ?>[]" step="0.01" min="0" value="285" style="width:100%"> $</td>';
+                        <?php endforeach; ?>
+                        cells += '<td><button type="button" onclick="this.closest(\'tr\').remove()" class="button" style="color:#c0392b">✕</button></td>';
+                        tr.innerHTML = cells;
+                        tbody.insertBefore(tr, tbody.firstChild);
+                    }
                 </script>
 
                 <?php submit_button(__('Sauvegarder les réglages', 'scout-inscription')); ?>
@@ -137,7 +144,8 @@ class Scout_Admin_Settings {
                     <tr>
                         <th><?php esc_html_e('Qui peut voir les fiches médicales?', 'scout-inscription'); ?></th>
                         <td>
-                            <?php $med_roles = get_option('scout_ins_medical_roles', ['administrator']); if (!is_array($med_roles)) $med_roles = ['administrator']; ?>
+                            <?php $med_roles = get_option('scout_ins_medical_roles', ['administrator']);
+                            if (!is_array($med_roles)) $med_roles = ['administrator']; ?>
                             <?php
                             $all_roles = [
                                 'administrator' => __('Administrateur', 'scout-inscription'),
@@ -323,18 +331,21 @@ class Scout_Admin_Settings {
             </div>
 
         </div>
-        <?php
+<?php
     }
 }
 
 // Save pricing years on settings page submit
-add_action('admin_init', function() {
+add_action('admin_init', function () {
     if (!isset($_POST['pricing_year']) || !current_user_can('manage_options')) return;
     if (!isset($_POST['option_page']) || $_POST['option_page'] !== 'scout_ins_settings') return;
 
     $years = $_POST['pricing_year'] ?? [];
     $units_list = function_exists('scout_gm_get_units') ? scout_gm_get_units() : [
-        ['slug' => 'castors'], ['slug' => 'louveteaux'], ['slug' => 'eclaireurs'], ['slug' => 'pionniers'],
+        ['slug' => 'castors'],
+        ['slug' => 'louveteaux'],
+        ['slug' => 'eclaireurs'],
+        ['slug' => 'pionniers'],
     ];
 
     $pricing_years = [];
